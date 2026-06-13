@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ร้านสเต็กมหาสาร — กดบัตรคิว</title>
+  <link rel="stylesheet" href="/styles.css" />
+</head>
+<body>
+  <main class="app">
+    <header class="hero">
+      <div class="logo">🥩</div>
+      <h1 id="restaurantName">ร้านสเต็กมหาสาร</h1>
+      <p id="tagline" class="tagline">กำลังโหลด…</p>
+    </header>
+
+    <!-- แถบสถานะรวม -->
+    <div id="banner" class="banner hidden"></div>
+
+    <!-- ========== STEP 1: นับถอยหลัง + ลงทะเบียน ========== -->
+    <section id="step-countdown" class="card">
+      <h2>⏳ เปิดให้กดบัตรในอีก</h2>
+      <div id="countdown" class="countdown">--:--:--</div>
+      <p class="muted">ที่นั่งมีจำกัด ลงทะเบียนรอไว้ก่อนเพื่อความรวดเร็ว</p>
+
+      <form id="registerForm" class="form" novalidate>
+        <label>
+          ชื่อ-นามสกุล
+          <input id="name" name="name" type="text" autocomplete="name" placeholder="เช่น สมชาย ใจดี" />
+          <span class="field-error" data-for="name"></span>
+        </label>
+        <label>
+          เบอร์โทรศัพท์
+          <input id="phone" name="phone" type="tel" inputmode="numeric" autocomplete="tel" placeholder="0812345678" />
+          <span class="field-error" data-for="phone"></span>
+        </label>
+        <button id="registerBtn" type="submit" class="btn primary">ลงทะเบียน</button>
+      </form>
+    </section>
+
+    <!-- ========== STEP 2: ห้องรอคิว ========== -->
+    <section id="step-queue" class="card hidden">
+      <h2>🚪 ห้องรอคิว</h2>
+      <p class="muted">กรุณาอย่าปิดหรือรีเฟรชหน้านี้ ระบบจะเลื่อนคิวให้อัตโนมัติ</p>
+
+      <div class="queue-box">
+        <div class="queue-pos">
+          <span class="label">ลำดับของคุณ</span>
+          <span id="queuePosition" class="big">—</span>
+        </div>
+        <div class="queue-meta">
+          <div>ประมาณการรอ: <strong id="queueWait">—</strong></div>
+          <div class="status-pill" id="queueStatusPill">กำลังรอ</div>
+        </div>
+        <div class="progress"><div id="queueProgress" class="progress-bar"></div></div>
+      </div>
+
+      <button id="leaveQueueBtn" class="btn ghost">ออกจากคิว</button>
+    </section>
+
+    <!-- ========== STEP 3: เลือกที่นั่ง/รอบ ========== -->
+    <section id="step-grab" class="card hidden">
+      <h2>🎟️ ถึงคิวคุณแล้ว! เลือกรอบ</h2>
+      <div class="admit-timer">
+        เหลือเวลา <strong id="admitCountdown">--:--</strong> ก่อนระบบคืนสิทธิ์ให้คิวถัดไป
+      </div>
+      <div id="slotList" class="slot-list"></div>
+    </section>
+
+    <!-- ========== STEP 4: ยืนยัน (checkout) ========== -->
+    <section id="step-confirm" class="card hidden">
+      <h2>🔒 ยืนยันบัตรคิว</h2>
+      <p>คุณกำลังจอง: <strong id="confirmSlotLabel"></strong></p>
+      <div class="hold-timer">
+        ⏱️ ต้องยืนยันภายใน <strong id="holdCountdown">--:--</strong>
+      </div>
+      <div class="actions">
+        <button id="confirmBtn" class="btn primary">ยืนยันรับบัตรคิว</button>
+        <button id="cancelHoldBtn" class="btn ghost">ยกเลิก เลือกรอบใหม่</button>
+      </div>
+    </section>
+
+    <!-- ========== STEP 5: บัตรคิว ========== -->
+    <section id="step-ticket" class="card hidden">
+      <div class="ticket">
+        <div class="ticket-top">
+          <span>🥩 ร้านสเต็กมหาสาร</span>
+          <span>บัตรคิว</span>
+        </div>
+        <div class="ticket-number" id="ticketNumber">MS-000</div>
+        <div class="ticket-info">
+          <div><span>ชื่อ</span><strong id="ticketName">—</strong></div>
+          <div><span>รอบ</span><strong id="ticketSlot">—</strong></div>
+          <div><span>เวลาออกบัตร</span><strong id="ticketTime">—</strong></div>
+        </div>
+        <p class="ticket-note">กรุณาแสดงบัตรนี้ที่หน้าร้าน • หากมาช้าเกิน 15 นาที สิทธิ์อาจถูกยกเลิก</p>
+      </div>
+    </section>
+
+    <footer class="foot">
+      <p class="muted">ระบบสาธิต virtual waiting room • เปิดหลายแท็บเพื่อจำลองการแย่งกด</p>
+    </footer>
+  </main>
+
+  <script src="/app.js"></script>
+</body>
+</html>
