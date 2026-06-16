@@ -42,6 +42,8 @@ Firms, labs, and authors whose output is worth following. Grow this list over ti
 | Marcos López de Prado | Author | ML for finance, backtesting pitfalls |
 | QuantaAlpha team (Tsinghua/PKU/CAS/CMU/HKUST) | Academic consortium | LLM-driven alpha mining (added 2026-06-16) |
 | FinStep-AI | Lab | RL alpha screening — Alpha-R1 (added 2026-06-16) |
+| Fabrizio Lillo (Scuola Normale Superiore) | Author | Market microstructure, price impact, adverse selection (added 2026-06-16) |
+| Stefan Zohren / Oxford-Man Institute | Author/lab | Deep learning for systematic macro; Momentum Transformer lineage (added 2026-06-16) |
 | _add your own…_ | | |
 
 ---

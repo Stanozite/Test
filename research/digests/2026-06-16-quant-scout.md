@@ -74,3 +74,71 @@ New players/sources worth adding to `watchlist.md`:
 - Chase a *fresh* (May–Jun 2026) optimal-execution / market-making paper — the strongest execution hit this run (2601.04896) was **withdrawn**, so the execution slot is thin and should be refilled.
 - Verify QuantaAlpha / Alpha-R1 results aren't overfit to A-share universes before trusting transfer claims (apply purged/embargoed CV — cf. López de Prado).
 - Pull the **AQR / Robeco** practitioner pipeline (factor timing, momentum-crash mitigation) which arXiv under-covers.
+
+---
+
+# Run 2 — same-day refresh (2026-06-16)
+
+_Second scheduled pass. Window: items not already in the Run-1 ledger, prioritising
+the **thin execution slot** and the **AQR/Robeco factor thread** flagged above. All
+items verified against live arXiv abstracts (real IDs, authors, submission dates).
+The strongest fresh execution + market-making hits are now captured. Scholar Gateway
+still not authorized._
+
+## TL;DR
+- **Execution slot refilled, with depth**: a fresh RL execution agent (TT-DAC-PS, Jun 2026) and a market-making *unification theorem* (Avellaneda-Stoikov ≡ Cartea-Jaimungal, May 2026) — one practical, one foundational.
+- **Sunshine-trading evidence on Hyperliquid** (Lillo, Jun 2026): visible TWAPs beat hidden metaorders on cost — transparency *lowers* adverse selection, and the cost shifts onto non-announcers. Directly actionable for DEX execution design.
+- **DeePM** (Zohren/Oxford-Man, Jan 2026): regime-robust macro portfolio manager optimising an EVaR proxy nets ~2× classical trend-following over 50 futures, 2010–2025.
+- **FactorEngine** (Mar 2026): LLM factor mining that ingests *financial documents* into executable factor code — a knowledge-infused complement to QuantaAlpha's evolutionary search.
+
+## Findings by focus area
+
+### ML / AI for alpha
+- **FactorEngine: A Program-level Knowledge-Infused Factor Mining Framework for Quantitative Investment** — Lin, Feng, Feng, Huang et al., Mar 2026 — [arXiv:2603.16365](https://arxiv.org/abs/2603.16365)
+  - **What it is:** Represents factors as executable code and separates *logic revision* from *parameter optimization*; a "knowledge-infused bootstrapping" module turns financial documents into factor code via a multi-agent extract→verify pipeline.
+  - **Why it matters for trading:** A different attack on alpha discovery than QuantaAlpha's evolutionary mutation — it pulls priors from domain text, improving IC/ICIR stability and reported annualized return/Sharpe vs. baselines. Pairs naturally with the Run-1 alpha-mining stack.
+  - **Scores:** Novelty 4/5 · Credibility 3/5 · Relevance 5/5 · Actionability 4/5
+  - **Next step:** read; compare its document→factor extraction against QuantaAlpha on the same universe before adopting either.
+
+### Microstructure & execution
+- **TT-DAC-PS: Twin-Target Deterministic Actor-Critic with Policy Smoothing for Optimal Trade Execution** — Zaznov, Badii, Kunkel, Dufour, Jun 2026 — [arXiv:2606.08379](https://arxiv.org/abs/2606.08379)
+  - **What it is:** An RL execution agent combining twin critic targets + policy smoothing (a learned noise schedule, conservative Q-regularization) over Almgren-Chriss impact and limit-order-book features.
+  - **Why it matters for trading:** Refills the execution slot the prior run flagged as thin. On 10 US stocks it consistently cuts mean implementation-shortfall % with competitive variance, beating TWAP/VWAP and PPO/SAC/A2C baselines.
+  - **Scores:** Novelty 3/5 · Credibility 3/5 · Relevance 5/5 · Actionability 4/5
+  - **Next step:** backtest as the execution layer; verify the IS gains hold out-of-sample on your own fills.
+- **Avellaneda-Stoikov and Cartea-Jaimungal as One Framework: A Forced Uniqueness Theorem for Inventory Market Making** — Frank M. V. Feys, May 2026 — [arXiv:2606.01477](https://arxiv.org/abs/2606.01477)
+  - **What it is:** Proves that under axioms on the preference functional (cash-additivity, normalization, concavity, strong dynamic consistency, law-invariance) Avellaneda-Stoikov is the *unique* solution, and Cartea-Jaimungal is its second-order approximation with a forced parameter link φ = γσ²/2.
+  - **Why it matters for trading:** A clean theoretical consistency check for any inventory market-making book — the invertible relation γ = 2φ/σ² lets you sanity-check that your AS and CJ parameterizations agree.
+  - **Scores:** Novelty 4/5 · Credibility 4/5 · Relevance 4/5 · Actionability 3/5
+  - **Next step:** read; use the γ↔φ relation as a unit test on existing MM parameter calibration.
+- **Trading in the Sunshine or in the Shade: Market Impact and Adverse Selection on Hyperliquid** — Davide Barone & Fabrizio Lillo, Jun 2026 — [arXiv:2606.15715](https://arxiv.org/abs/2606.15715)
+  - **What it is:** Empirical study of "sunshine trading" on Hyperliquid (a blockchain perp DEX where TWAP orders publicly disclose terms): 4.3M hidden orders vs. 465k visible TWAPs.
+  - **Why it matters for trading:** Visible TWAPs face *lower* execution cost than comparable hidden metaorders — transparency cuts adverse selection, the cost shifts to non-announcers, and book depth rises during announced execution. A concrete, tradeable execution-design lesson on a real DEX venue, from a top microstructure group (Lillo).
+  - **Scores:** Novelty 4/5 · Credibility 4/5 · Relevance 4/5 · Actionability 4/5
+  - **Next step:** read; test announced-TWAP vs. hidden execution on your own DEX flow.
+
+### Risk & portfolio
+- **DeePM: Regime-Robust Deep Learning for Systematic Macro Portfolio Management** — Kieran Wood, Stephen J. Roberts, Stefan Zohren (Oxford-Man), Jan 2026 — [arXiv:2601.05975](https://arxiv.org/abs/2601.05975)
+  - **What it is:** End-to-end deep portfolio manager with a Directed-Delay mechanism for asynchronous data, a macroeconomic graph prior for denoising, and a distributionally-robust objective (smooth worst-window penalty as a differentiable EVaR proxy).
+  - **Why it matters for trading:** Directly targets the regime-robustness watchlist priority. Over 50 futures (2010–2025) it nets ~2× classical trend-following and passive benchmarks, ~+50% over the Momentum Transformer, holding up through CTA Winter and post-2020 vol.
+  - **Scores:** Novelty 4/5 · Credibility 4/5 · Relevance 5/5 · Actionability 3/5
+  - **Next step:** read; the EVaR-proxy objective and macro-graph prior are portable even without the full stack.
+
+### Asset class / market
+- **Dynamic Multi-Pair Trading Strategy in Cryptocurrency Markets with Deep Reinforcement Learning** — Damian Lebiedź & Robert Ślepaczuk, Jun 2026 — [arXiv:2606.04574](https://arxiv.org/abs/2606.04574)
+  - **What it is:** A "Filter-then-Rank" pair-selection method feeding a PPO-LSTM execution agent inside deterministic risk bounds, tested on Binance USD-M futures.
+  - **Why it matters for trading:** Modernizes classic pair trading for crypto; out-of-sample it beat the heuristic baseline, but significance is only at the 10% level — treat as promising, not proven.
+  - **Scores:** Novelty 3/5 · Credibility 3/5 · Relevance 4/5 · Actionability 3/5
+  - **Next step:** shelve / lightweight replication; the Filter-then-Rank selection idea is the reusable part.
+
+## New resources & tooling
+- **q-fin.TR June-2026 microstructure cluster** to mine next: market-making axiomatics (2606.09454), price-impact laws (2606.16269 square-root law; 2606.07059 "inconspicuous law of market impact"; 2606.13419 realtime impact detection), dealer internalisation (2606.06413), market-maker informedness (2606.05882). A dense, fresh microstructure reading list.
+
+## Watchlist updates
+- Add **Fabrizio Lillo** (Scuola Normale Superiore / microstructure, price impact, adverse selection) and **Stefan Zohren / Oxford-Man Institute** (deep learning for systematic macro, Momentum Transformer lineage) as tracked authors.
+- **AQR/Robeco thread, partial close:** the canonical **Daniel & Moskowitz "Momentum Crashes"** (NBER w20439 / SSRN 2371227) was revised ~May 2026 — foundational reference for the momentum-crash-mitigation lead; still arXiv-under-covered, pull the practitioner version next run.
+
+## Open questions / threads to pull next run
+- A withdrawn-but-interesting lead: **"Not All Factors Crowd Equally" (2512.11913)** derived a hyperbolic alpha-decay model (momentum R²=0.65; crowded reversals 1.7–1.8× crash prob) but was **withdrawn pending major revision** — watch for a v2 before trusting it.
+- Still un-authorized: **Scholar Gateway** for SSRN/journal coverage of the AQR/Robeco factor-timing pipeline.
+- Chase the **square-root-law / price-impact** mini-cluster (2606.16269, 2606.07059) — recurring fresh microstructure theme worth one consolidated finding next run.
