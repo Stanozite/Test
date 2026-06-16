@@ -25,6 +25,8 @@ run. Add players, sources, categories, or keywords to steer what gets surfaced.
 - **Scholar Gateway (MCP)** — academic search across journals.
 - **GitHub** — high-star quant repos, new strategy/library releases.
 - **Quant blogs / newsletters** — practitioner writeups, firm research notes.
+- **Discovery layers** — alphaXiv (alphaxiv.org), Cool Papers (papers.cool), and curated
+  indexes like `wangzhe3224/awesome-systematic-trading` (added 2026-06-16).
 
 ---
 
@@ -38,6 +40,8 @@ Firms, labs, and authors whose output is worth following. Grow this list over ti
 | AQR Capital | Firm | Factor investing, academic-grade research |
 | Two Sigma / Jane Street / Jump | Firm | ML, microstructure, execution (public writeups) |
 | Marcos López de Prado | Author | ML for finance, backtesting pitfalls |
+| QuantaAlpha team (Tsinghua/PKU/CAS/CMU/HKUST) | Academic consortium | LLM-driven alpha mining (added 2026-06-16) |
+| FinStep-AI | Lab | RL alpha screening — Alpha-R1 (added 2026-06-16) |
 | _add your own…_ | | |
 
 ---
