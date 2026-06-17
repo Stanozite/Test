@@ -44,6 +44,11 @@ Firms, labs, and authors whose output is worth following. Grow this list over ti
 | FinStep-AI | Lab | RL alpha screening — Alpha-R1 (added 2026-06-16) |
 | Fabrizio Lillo (Scuola Normale Superiore) | Author | Market microstructure, price impact, adverse selection (added 2026-06-16) |
 | Stefan Zohren / Oxford-Man Institute | Author/lab | Deep learning for systematic macro; Momentum Transformer lineage (added 2026-06-16) |
+| John Graham & Campbell Harvey (Duke/Fuqua) | Authors | LLM-as-expectations-data; foundational factor/asset-pricing (added 2026-06-17) |
+| Tim Gebbie & Chris Angstmann (UCT/UNSW) | Authors | Reaction–diffusion microstructure; trade-sign memory, square-root impact, Epps effect (added 2026-06-17) |
+| Peter Cotton | Author | High-dimensional covariance shrinkage / portfolio damping (added 2026-06-17) |
+| Blanka Horvath & Hans Buehler | Authors | Deep hedging / volatility-surface learning; differentiable IV (added 2026-06-17) |
+| Michael Ludkovski (UCSB) | Author | Computational finance; RL for optimal stopping (added 2026-06-17) |
 | _add your own…_ | | |
 
 ---
