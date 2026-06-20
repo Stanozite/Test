@@ -5,6 +5,7 @@ Newest first. Each run appends a row.
 
 | Date | Digest | # findings | Highlights |
 | --- | --- | --- | --- |
+| 2026-06-20 | [2026-06-20-quant-scout.md](digests/2026-06-20-quant-scout.md) | 8 | Trend-conditioned vol/correlation forecasting (Schmidhuber); factor-model rankings are construction artifacts (Shin); 5.6pp Polymarket↔Binance BTC mispricing (Portnaya); conv-VAE crypto IV surfaces; DeXposure-Claw agentic DeFi risk; AlphaPROBE DAG alpha mining; Vibe-Trading harness. Thin weekend window — alpha/microstructure lean |
 | 2026-06-17 | [2026-06-17-quant-scout.md](digests/2026-06-17-quant-scout.md) | 10 | Per-action causal impact detection (Zovko); Schur-damping HRP↔min-var identity (Cotton); PIVOT differentiable IV layer (Horvath/Buehler); CFO LLM digital twins (Campbell Harvey); crypto downside-diversification collapse; CARLOS optimal-stopping RL; RRMV multiperiod MV |
 | 2026-06-16 (run 2) | [2026-06-16-quant-scout.md](digests/2026-06-16-quant-scout.md#run-2--same-day-refresh-2026-06-16) | 6 | Execution slot refilled: TT-DAC-PS RL execution; AS≡CJ market-making unification; Hyperliquid sunshine-trading (Lillo); DeePM regime-robust macro (Zohren); FactorEngine doc-infused alpha mining |
 | 2026-06-16 | [2026-06-16-quant-scout.md](digests/2026-06-16-quant-scout.md) | 7 | LLM alpha mining (QuantaAlpha, Alpha-R1); ReCAP regime continual learning; informed-trading detection; LLM backtest benchmarks |
@@ -43,3 +44,12 @@ _(empty — populated as findings are captured)_
 - [2026-06-17] multiplex network hawkes model systemic risk measurement zelvyte griffin | https://arxiv.org/abs/2606.15755
 - [2026-06-17] pivot differentiable jackel implied-volatility price objective saqur horvath buehler | https://arxiv.org/abs/2606.17065
 - [2026-06-17] crashing together rallying apart tail dependence cryptocurrency mallela leonelli | https://arxiv.org/abs/2606.16840
+- [2026-06-20] alphaprobe alpha mining principled retrieval on-graph biased evolution dag guo shen luo | https://arxiv.org/abs/2602.11917
+- [2026-06-20] trends volatility correlations critical phenomena financial markets lattice gas safari schmidhuber | https://arxiv.org/abs/2606.20145
+- [2026-06-20] which portfolios construction dependence factor model performance shin | https://arxiv.org/abs/2606.19550
+- [2026-06-20] how to spot outliers ensemble anomaly detection framework risk outputs peysakhovich sieradzki | https://arxiv.org/abs/2606.20079
+- [2026-06-20] do prediction markets match option prices bitcoin threshold binance polymarket portnaya | https://arxiv.org/abs/2606.19517
+- [2026-06-20] beyond the smile hybrid convolutional vae crypto volatility surfaces singh reddy chopra | https://arxiv.org/abs/2606.16961
+- [2026-06-20] dexposure-claw agentic system defi risk supervision shu chen wu he | https://arxiv.org/abs/2606.19501
+- [2026-06-20] vibe-trading multi-agent natural-language trading research framework hkuds | https://github.com/HKUDS/Vibe-Trading
+- [2026-06-20] finstressts parametric synthetic benchmark time-series forecasting finance sun koa ni | https://arxiv.org/abs/2606.03184

@@ -49,6 +49,9 @@ Firms, labs, and authors whose output is worth following. Grow this list over ti
 | Peter Cotton | Author | High-dimensional covariance shrinkage / portfolio damping (added 2026-06-17) |
 | Blanka Horvath & Hans Buehler | Authors | Deep hedging / volatility-surface learning; differentiable IV (added 2026-06-17) |
 | Michael Ludkovski (UCSB) | Author | Computational finance; RL for optimal stopping (added 2026-06-17) |
+| Christoph Schmidhuber (ZHAW) | Author | Econophysics; trend-conditioned vol/correlation forecasting, critical phenomena (added 2026-06-20) |
+| HKU Data Science Lab (HKUDS) | Lab | Agentic-finance frameworks & open-source tooling — Vibe-Trading (added 2026-06-20) |
+| Cathy Yi-Hsuan Chen / Fengxiang He | Authors | LLM-agent on-chain/DeFi risk supervision — DeXposure-Claw (added 2026-06-20) |
 | _add your own…_ | | |
 
 ---
