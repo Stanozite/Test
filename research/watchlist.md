@@ -52,6 +52,8 @@ Firms, labs, and authors whose output is worth following. Grow this list over ti
 | Christoph Schmidhuber (ZHAW) | Author | Econophysics; trend-conditioned vol/correlation forecasting, critical phenomena (added 2026-06-20) |
 | HKU Data Science Lab (HKUDS) | Lab | Agentic-finance frameworks & open-source tooling — Vibe-Trading (added 2026-06-20) |
 | Cathy Yi-Hsuan Chen / Fengxiang He | Authors | LLM-agent on-chain/DeFi risk supervision — DeXposure-Claw (added 2026-06-20) |
+| Matthew Francis Dixon | Author | Agentic-AI model risk for finance — POMDP belief-VaR, agentic validation frameworks (added 2026-06-21) |
+| Li Xia | Author | Geometric theory of LLM-guided discovery / factor-mining bottlenecks (added 2026-06-21) |
 | _add your own…_ | | |
 
 ---

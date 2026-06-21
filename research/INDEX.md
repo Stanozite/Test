@@ -5,6 +5,7 @@ Newest first. Each run appends a row.
 
 | Date | Digest | # findings | Highlights |
 | --- | --- | --- | --- |
+| 2026-06-21 | [2026-06-21-quant-scout.md](digests/2026-06-21-quant-scout.md) | 7 | Geometric theory of when LLM factor discovery helps (Li Xia); VLMs can't read candlesticks — evidence sign-flipped (Ziyao Wang); Epps effect decomposed in coupled LOBs (Angstmann/Gebbie); agentic-AI belief-VaR model risk (Dixon); skew-elliptical-t option-portfolio weights; microsecond error-bounded NN option pricing (van den Berg). Thin Sunday — 16–17 Jun residue + ML-method/agentic-risk |
 | 2026-06-20 | [2026-06-20-quant-scout.md](digests/2026-06-20-quant-scout.md) | 8 | Trend-conditioned vol/correlation forecasting (Schmidhuber); factor-model rankings are construction artifacts (Shin); 5.6pp Polymarket↔Binance BTC mispricing (Portnaya); conv-VAE crypto IV surfaces; DeXposure-Claw agentic DeFi risk; AlphaPROBE DAG alpha mining; Vibe-Trading harness. Thin weekend window — alpha/microstructure lean |
 | 2026-06-17 | [2026-06-17-quant-scout.md](digests/2026-06-17-quant-scout.md) | 10 | Per-action causal impact detection (Zovko); Schur-damping HRP↔min-var identity (Cotton); PIVOT differentiable IV layer (Horvath/Buehler); CFO LLM digital twins (Campbell Harvey); crypto downside-diversification collapse; CARLOS optimal-stopping RL; RRMV multiperiod MV |
 | 2026-06-16 (run 2) | [2026-06-16-quant-scout.md](digests/2026-06-16-quant-scout.md#run-2--same-day-refresh-2026-06-16) | 6 | Execution slot refilled: TT-DAC-PS RL execution; AS≡CJ market-making unification; Hyperliquid sunshine-trading (Lillo); DeePM regime-robust macro (Zohren); FactorEngine doc-infused alpha mining |
@@ -53,3 +54,11 @@ _(empty — populated as findings are captured)_
 - [2026-06-20] dexposure-claw agentic system defi risk supervision shu chen wu he | https://arxiv.org/abs/2606.19501
 - [2026-06-20] vibe-trading multi-agent natural-language trading research framework hkuds | https://github.com/HKUDS/Vibe-Trading
 - [2026-06-20] finstressts parametric synthetic benchmark time-series forecasting finance sun koa ni | https://arxiv.org/abs/2606.03184
+- [2026-06-21] discovery under hypothesis redundancy geometric theory discovery bottlenecks search compression li xia wang | https://arxiv.org/abs/2606.14386
+- [2026-06-21] martingale doppelganger-eval auditing candlestick understanding vision-language models ziyao wang | https://arxiv.org/abs/2606.17423
+- [2026-06-21] correlation emergence epps effect two coupled limit order books angstmann gebbie | https://arxiv.org/abs/2606.14182
+- [2026-06-21] sharpe ratio return-var maximization option portfolios skew-elliptical t sung pirvu | https://arxiv.org/abs/2606.17032
+- [2026-06-21] belief at risk quantifying agentic ai model risk llm-inferred bayesian state filters dixon | https://arxiv.org/abs/2606.15473
+- [2026-06-21] model validation agentic ai systems pomdp belief-state forecast policy validation dixon | https://arxiv.org/abs/2606.17383
+- [2026-06-21] extendable integrated dynamic forecasting stress-testing credit risk muller botha beyers | https://arxiv.org/abs/2606.19052
+- [2026-06-21] fast reliable error-bounded option pricing pretrained neural networks gjr-garch van den berg | https://arxiv.org/abs/2606.15502
