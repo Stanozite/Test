@@ -5,6 +5,7 @@ Newest first. Each run appends a row.
 
 | Date | Digest | # findings | Highlights |
 | --- | --- | --- | --- |
+| 2026-06-22 | [2026-06-22-quant-scout.md](digests/2026-06-22-quant-scout.md) | 3 | Interest-rate calibration as WLS — leverage diagnostics + CIs, "low RMSRE not sufficient" (Mahler/Ruckdeschel); tempered Skew-t for accumulated S&P500 tails (Shao/Serota); CAP slope = Bayes, Gini/Somers'D/AR unified (Burakov); QuantTradingOS agentic OS. Thin Mon — weekend arXiv gap (no 20–22 Jun announce), 16–19 Jun residue |
 | 2026-06-21 | [2026-06-21-quant-scout.md](digests/2026-06-21-quant-scout.md) | 7 | Geometric theory of when LLM factor discovery helps (Li Xia); VLMs can't read candlesticks — evidence sign-flipped (Ziyao Wang); Epps effect decomposed in coupled LOBs (Angstmann/Gebbie); agentic-AI belief-VaR model risk (Dixon); skew-elliptical-t option-portfolio weights; microsecond error-bounded NN option pricing (van den Berg). Thin Sunday — 16–17 Jun residue + ML-method/agentic-risk |
 | 2026-06-20 | [2026-06-20-quant-scout.md](digests/2026-06-20-quant-scout.md) | 8 | Trend-conditioned vol/correlation forecasting (Schmidhuber); factor-model rankings are construction artifacts (Shin); 5.6pp Polymarket↔Binance BTC mispricing (Portnaya); conv-VAE crypto IV surfaces; DeXposure-Claw agentic DeFi risk; AlphaPROBE DAG alpha mining; Vibe-Trading harness. Thin weekend window — alpha/microstructure lean |
 | 2026-06-17 | [2026-06-17-quant-scout.md](digests/2026-06-17-quant-scout.md) | 10 | Per-action causal impact detection (Zovko); Schur-damping HRP↔min-var identity (Cotton); PIVOT differentiable IV layer (Horvath/Buehler); CFO LLM digital twins (Campbell Harvey); crypto downside-diversification collapse; CARLOS optimal-stopping RL; RRMV multiperiod MV |
@@ -62,3 +63,8 @@ _(empty — populated as findings are captured)_
 - [2026-06-21] model validation agentic ai systems pomdp belief-state forecast policy validation dixon | https://arxiv.org/abs/2606.17383
 - [2026-06-21] extendable integrated dynamic forecasting stress-testing credit risk muller botha beyers | https://arxiv.org/abs/2606.19052
 - [2026-06-21] fast reliable error-bounded option pricing pretrained neural networks gjr-garch van den berg | https://arxiv.org/abs/2606.15502
+- [2026-06-22] fitting accumulated stock returns tempered skew-t distribution shao serota | https://arxiv.org/abs/2606.19318
+- [2026-06-22] gini-bayes connection cap slope bayes theorem weight of evidence somers d calibration burakov | https://arxiv.org/abs/2606.18545
+- [2026-06-22] advanced calibration analysis influential observations stochastic interest rate model calibration mahler ruckdeschel | https://arxiv.org/abs/2606.20420
+- [2026-06-22] quanttradingos modular agentic trading operating system orchestrator qtos-core | https://github.com/QuantTradingOS
+- [2026-06-22] optimal order multi-agent general many-body systems jake xia | https://arxiv.org/abs/2606.20485
