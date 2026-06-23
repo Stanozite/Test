@@ -5,6 +5,7 @@ Newest first. Each run appends a row.
 
 | Date | Digest | # findings | Highlights |
 | --- | --- | --- | --- |
+| 2026-06-23 | [2026-06-23-quant-scout.md](digests/2026-06-23-quant-scout.md) | 6 | Risk-sensitive RL allocation via free-energy/entropy duality → LQG game + q-learning, fractional-Kelly readout (Lleo/Runggaldier); growth-optimal AMM fee = pro-cyclical, ∝ variance, wealth/CRRA-independent, dominates static heuristics (Ghasemlu/LVR); KineticSim GPU sim 54.7B events/s, 3,406× NumPy; Ethereum/L2 on-chain cost map (Mizrach); ZOC-TN LGD boundary-mass model (Sigrist); path-integral default-intensity quanto-CDS pricing (Capriotti). Fresh 2606.21–22 batch above prior ceiling |
 | 2026-06-22 | [2026-06-22-quant-scout.md](digests/2026-06-22-quant-scout.md) | 3 | Interest-rate calibration as WLS — leverage diagnostics + CIs, "low RMSRE not sufficient" (Mahler/Ruckdeschel); tempered Skew-t for accumulated S&P500 tails (Shao/Serota); CAP slope = Bayes, Gini/Somers'D/AR unified (Burakov); QuantTradingOS agentic OS. Thin Mon — weekend arXiv gap (no 20–22 Jun announce), 16–19 Jun residue |
 | 2026-06-21 | [2026-06-21-quant-scout.md](digests/2026-06-21-quant-scout.md) | 7 | Geometric theory of when LLM factor discovery helps (Li Xia); VLMs can't read candlesticks — evidence sign-flipped (Ziyao Wang); Epps effect decomposed in coupled LOBs (Angstmann/Gebbie); agentic-AI belief-VaR model risk (Dixon); skew-elliptical-t option-portfolio weights; microsecond error-bounded NN option pricing (van den Berg). Thin Sunday — 16–17 Jun residue + ML-method/agentic-risk |
 | 2026-06-20 | [2026-06-20-quant-scout.md](digests/2026-06-20-quant-scout.md) | 8 | Trend-conditioned vol/correlation forecasting (Schmidhuber); factor-model rankings are construction artifacts (Shin); 5.6pp Polymarket↔Binance BTC mispricing (Portnaya); conv-VAE crypto IV surfaces; DeXposure-Claw agentic DeFi risk; AlphaPROBE DAG alpha mining; Vibe-Trading harness. Thin weekend window — alpha/microstructure lean |
@@ -68,3 +69,9 @@ _(empty — populated as findings are captured)_
 - [2026-06-22] advanced calibration analysis influential observations stochastic interest rate model calibration mahler ruckdeschel | https://arxiv.org/abs/2606.20420
 - [2026-06-22] quanttradingos modular agentic trading operating system orchestrator qtos-core | https://github.com/QuantTradingOS
 - [2026-06-22] optimal order multi-agent general many-body systems jake xia | https://arxiv.org/abs/2606.20485
+- [2026-06-23] reinforcement learning risk-sensitive investment management free energy entropy duality lleo runggaldier | https://arxiv.org/abs/2606.20903
+- [2026-06-23] optimal dynamic fees automated market makers stochastic control loss-versus-rebalancing ghasemlu | https://arxiv.org/abs/2606.21769
+- [2026-06-23] transaction costs speed ethereum ecosystem scalability mainnet layer 2s ambrosia mizrach | https://arxiv.org/abs/2606.22206
+- [2026-06-23] censored transformed model proportional outcomes boundary mass loss given default zoc-tn qiang sigrist | https://arxiv.org/abs/2606.21515
+- [2026-06-23] semi-analytical pricing general default intensity models path integral quanto cds parker stedman capriotti | https://arxiv.org/abs/2606.21800
+- [2026-06-23] kineticsim lightweight high-performance gpu execution engine real-time market simulators jayakody | https://arxiv.org/abs/2606.21784

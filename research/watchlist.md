@@ -54,6 +54,10 @@ Firms, labs, and authors whose output is worth following. Grow this list over ti
 | Cathy Yi-Hsuan Chen / Fengxiang He | Authors | LLM-agent on-chain/DeFi risk supervision — DeXposure-Claw (added 2026-06-20) |
 | Matthew Francis Dixon | Author | Agentic-AI model risk for finance — POMDP belief-VaR, agentic validation frameworks (added 2026-06-21) |
 | Li Xia | Author | Geometric theory of LLM-guided discovery / factor-mining bottlenecks (added 2026-06-21) |
+| Sebastien Lleo & Wolfgang Runggaldier | Authors | Risk-sensitive stochastic control + RL for allocation; continuous-time q-learning, fractional Kelly (added 2026-06-23) |
+| Bruce Mizrach (Rutgers) | Author | Market microstructure economist; on-chain/L2 transaction-cost mapping (added 2026-06-23) |
+| Luca Capriotti | Author | Fast/semi-analytical pricing (path integrals, AAD) for credit & XVA (added 2026-06-23) |
+| Fabio Sigrist (HSLU) | Author | Gradient boosting + spatio-temporal mixed models (gpboost); bounded-ratio credit targets (added 2026-06-23) |
 | _add your own…_ | | |
 
 ---
