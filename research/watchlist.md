@@ -58,6 +58,10 @@ Firms, labs, and authors whose output is worth following. Grow this list over ti
 | Bruce Mizrach (Rutgers) | Author | Market microstructure economist; on-chain/L2 transaction-cost mapping (added 2026-06-23) |
 | Luca Capriotti | Author | Fast/semi-analytical pricing (path integrals, AAD) for credit & XVA (added 2026-06-23) |
 | Fabio Sigrist (HSLU) | Author | Gradient boosting + spatio-temporal mixed models (gpboost); bounded-ratio credit targets (added 2026-06-23) |
+| Mao Guan / Qian Chen | Authors | Leakage-aware LLM forecasting & macro-factor ranking; rigorous decision-time evaluation protocol (added 2026-06-24) |
+| Useong Shin | Author | Factor-model diagnostics — construction-dependence & body-tail tests of pricing models (added 2026-06-24) |
+| Ruodu Wang (Waterloo) | Author | Risk-measure theory; VaR (super)additivity, diversification limits under heavy tails (added 2026-06-24) |
+| Jakub Michańków / Paweł Sakowski (UW QFRG) | Authors | ML for derivatives pricing / XVA — randomized neural networks (added 2026-06-24) |
 | _add your own…_ | | |
 
 ---
