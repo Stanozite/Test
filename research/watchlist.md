@@ -62,6 +62,9 @@ Firms, labs, and authors whose output is worth following. Grow this list over ti
 | Useong Shin | Author | Factor-model diagnostics — construction-dependence & body-tail tests of pricing models (added 2026-06-24) |
 | Ruodu Wang (Waterloo) | Author | Risk-measure theory; VaR (super)additivity, diversification limits under heavy tails (added 2026-06-24) |
 | Jakub Michańków / Paweł Sakowski (UW QFRG) | Authors | ML for derivatives pricing / XVA — randomized neural networks (added 2026-06-24) |
+| Diego Klabjan (Northwestern) | Author | ML for futures stat-arb; hierarchical graph learning on term structure / calendar spreads (added 2026-06-25) |
+| C. Evans Hedges | Author | Scaling-laws + latency-efficient ML architectures for LOB microstructure prediction (added 2026-06-25) |
+| Claudio J. Tessone / UZH Blockchain Center | Author/lab | Empirical crypto & Ethereum economics — staking, validator dynamics, on-chain carry (added 2026-06-25) |
 | _add your own…_ | | |
 
 ---
