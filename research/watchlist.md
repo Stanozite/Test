@@ -65,6 +65,9 @@ Firms, labs, and authors whose output is worth following. Grow this list over ti
 | Diego Klabjan (Northwestern) | Author | ML for futures stat-arb; hierarchical graph learning on term structure / calendar spreads (added 2026-06-25) |
 | C. Evans Hedges | Author | Scaling-laws + latency-efficient ML architectures for LOB microstructure prediction (added 2026-06-25) |
 | Claudio J. Tessone / UZH Blockchain Center | Author/lab | Empirical crypto & Ethereum economics — staking, validator dynamics, on-chain carry (added 2026-06-25) |
+| Leif Andersen & Andrey Itkin | Authors | Production-grade derivatives pricing — integral-equation / Volterra early-exercise methods under time-dependent stochastic vol (added 2026-06-27) |
+| Svetlozar T. Rachev | Author | Heavy-tailed / CVaR portfolio construction — Student-t copula + ARMA-GARCH (added 2026-06-27) |
+| Rudi Zagst / TUM Mathematical Finance | Author/lab | ML for fixed-income / term-structure forecasting & portfolio applications (added 2026-06-27) |
 | _add your own…_ | | |
 
 ---
