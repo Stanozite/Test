@@ -68,6 +68,8 @@ Firms, labs, and authors whose output is worth following. Grow this list over ti
 | Leif Andersen & Andrey Itkin | Authors | Production-grade derivatives pricing — integral-equation / Volterra early-exercise methods under time-dependent stochastic vol (added 2026-06-27) |
 | Svetlozar T. Rachev | Author | Heavy-tailed / CVaR portfolio construction — Student-t copula + ARMA-GARCH (added 2026-06-27) |
 | Rudi Zagst / TUM Mathematical Finance | Author/lab | ML for fixed-income / term-structure forecasting & portfolio applications (added 2026-06-27) |
+| Thibaut Mastrolia (UC Berkeley IEOR) | Author | Optimal control / market making; signature methods, Sig-REINFORCE quoting (added 2026-06-28) |
+| Ruimeng Hu (UCSB) | Author | Mean-field games; finite-player↔MF convergence for insurance & financial markets (added 2026-06-28) |
 | _add your own…_ | | |
 
 ---
