@@ -59,6 +59,11 @@ To get real backtests, allowlist the data domains in your environment:
    ```
 3. Save. The next run fetches live data and caches it under `backtests/data/`.
 
+Verify the allowlist took effect:
+```bash
+python backtests/check_data.py   # prints REACHABLE ✅ or BLOCKED ❌ with the fix
+```
+
 Alternatively, drop your own OHLCV CSVs into `backtests/data/` named
 `<SYMBOL>_<interval>.csv` (e.g. `BTC-USD_1d.csv`, columns:
 `open,high,low,close,volume`, datetime index) — the cache is checked first, so
