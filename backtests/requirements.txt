@@ -1,0 +1,7 @@
+# Backtest pipeline dependencies (Python 3.11+)
+numpy
+pandas
+scipy            # deflated Sharpe (metrics.py)
+vectorbt         # stage-1 vectorized parameter sweep
+backtrader       # stage-2 event-driven validation (fees/slippage)
+yfinance         # live data (needs Yahoo domains allowlisted — see README)

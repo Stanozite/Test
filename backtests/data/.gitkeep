@@ -1,0 +1,1 @@
+# Cached OHLCV CSVs land here (gitignored). Drop your own <SYMBOL>_<interval>.csv to run offline.

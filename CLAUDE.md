@@ -5,13 +5,17 @@ A research-scouting system that augments trading. It regularly surveys the quant
 world (papers, techniques, skills, open-source resources used by top global
 players) and accumulates a cited, deduplicated knowledge base under `research/`.
 
-This is component #1 (intelligence gathering). Later components (idea→backtest
-pipeline, strategy library, alerting) will build on the digest output.
+This is component #1 (intelligence gathering). Component #2 (idea→backtest pipeline)
+lives under `backtests/`. Later components (strategy library, alerting) build on these.
 
 ## How to run
 - `/quant-scout` — full sweep across all focus areas.
 - `/quant-scout <focus>` — target one area (e.g. `microstructure`, `alpha`, `risk`, `asset-class`).
 - `/loop 1d /quant-scout` — recurring daily scout (requires an open session; 7-day expiry per loop task).
+- `/backtest <digest-date "finding"> | <idea>` — test a finding/idea via the two-stage
+  pipeline (vectorbt sweep → backtrader OOS validation → deflated-Sharpe verdict). See
+  `backtests/README.md`. Real data needs Yahoo domains allowlisted; otherwise it falls
+  back to synthetic (verdict `INVALID`).
 
 ## Conventions
 - **Digests**: `research/digests/YYYY-MM-DD-quant-scout.md`, one per run, following

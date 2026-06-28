@@ -1,0 +1,8 @@
+# Cached/downloaded market data (reproduce by re-running, or bring your own)
+backtests/data/*.csv
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/
