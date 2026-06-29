@@ -44,10 +44,17 @@ def validate(df: pd.DataFrame, strat: Strategy, fee: float = 0.0010,
             elif want <= 0 and held:
                 self.order_target_percent(target=0.0)
 
+    # backtrader truncates order size to whole units, so on a high-priced asset
+    # (e.g. BTC ~$50k) a $10k account can afford <1 unit -> size rounds to 0 and
+    # NO trade ever fills, leaving a flat OOS curve. Scale starting cash to the
+    # max price so >=10k whole units are always affordable (truncation error
+    # <0.01%); metrics are ratio-based so the absolute cash level doesn't bias them.
+    init_cash = max(10_000.0, float(df["close"].max()) * 10_000.0)
+
     cerebro = bt.Cerebro()
     cerebro.adddata(_Feed(dataname=df))
     cerebro.addstrategy(_Strat)
-    cerebro.broker.setcash(10_000)
+    cerebro.broker.setcash(init_cash)
     cerebro.broker.setcommission(commission=fee)
     cerebro.broker.set_slippage_perc(perc=slippage)
     strat_run = cerebro.run()[0]
