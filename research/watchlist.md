@@ -70,6 +70,9 @@ Firms, labs, and authors whose output is worth following. Grow this list over ti
 | Rudi Zagst / TUM Mathematical Finance | Author/lab | ML for fixed-income / term-structure forecasting & portfolio applications (added 2026-06-27) |
 | Thibaut Mastrolia (UC Berkeley IEOR) | Author | Optimal control / market making; signature methods, Sig-REINFORCE quoting (added 2026-06-28) |
 | Ruimeng Hu (UCSB) | Author | Mean-field games; finite-player↔MF convergence for insurance & financial markets (added 2026-06-28) |
+| Xavier Fonseca | Author | Decision-theoretic covariance/portfolio estimation; exact regret geometry for GMV under heavy tails (added 2026-06-29) |
+| Matloob Khushi / Josiah Poon (Univ. of Sydney) | Authors | ML for crypto forecasting; cross-asset graph-attention models — CryptoGAT (added 2026-06-29) |
+| Daniele Angelini | Author | Fractional-calculus market-efficiency / rough-volatility detection; Grünwald–Letnikov Hurst regime tests (added 2026-06-29) |
 | _add your own…_ | | |
 
 ---
