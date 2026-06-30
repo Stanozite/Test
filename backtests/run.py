@@ -45,9 +45,14 @@ def main() -> int:
     os.makedirs(out_dir, exist_ok=True)
     slug = f"{date}-{args.strategy}-{args.symbol}".replace("/", "-")
     out_path = os.path.join(out_dir, f"{slug}.md")
-    with open(out_path, "w") as fh:
+    with open(out_path, "w", encoding="utf-8") as fh:
         fh.write(md)
 
+    # ponytail: Windows console defaults to cp1252; em-dashes + Thai paths crash it.
+    try:
+        sys.stdout.reconfigure(encoding="utf-8")
+    except Exception:
+        pass
     print(f"VERDICT: {res.verdict}")
     print(f"SOURCE:  {res.source} (synthetic={res.is_synthetic})")
     print(f"REPORT:  {out_path}")

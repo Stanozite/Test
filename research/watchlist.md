@@ -73,6 +73,7 @@ Firms, labs, and authors whose output is worth following. Grow this list over ti
 | Xavier Fonseca | Author | Decision-theoretic covariance/portfolio estimation; exact regret geometry for GMV under heavy tails (added 2026-06-29) |
 | Matloob Khushi / Josiah Poon (Univ. of Sydney) | Authors | ML for crypto forecasting; cross-asset graph-attention models — CryptoGAT (added 2026-06-29) |
 | Daniele Angelini | Author | Fractional-calculus market-efficiency / rough-volatility detection; Grünwald–Letnikov Hurst regime tests (added 2026-06-29) |
+| Andrei Bysik & Robert Ślepaczuk (Univ. of Warsaw QFRG) | Authors/lab | Execution-realistic crypto ML; cost-aware filters, rigorous walk-forward backtesting (added 2026-06-30) |
 | _add your own…_ | | |
 
 ---
