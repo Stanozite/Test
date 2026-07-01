@@ -4,6 +4,7 @@ Running log of every backtest produced by `/backtest`. Newest first.
 
 | Date | Report | Strategy · Symbol | Verdict | OOS Sharpe | Deflated-SR |
 | --- | --- | --- | --- | --- | --- |
+| 2026-07-01 | [2026-07-01-lag1_reversal-BTC-USD.md](2026-07-01-lag1_reversal-BTC-USD.md) | lag1_reversal · BTC-USD | REJECT (expected/confirmatory) — falsification test of Portnaya 2606.29591; "fade the recent move" has no directional edge on real 8y BTC, confirming lag-1 autocorrelation is bounce not reversal | -0.087 | 0.122 (in-sample, fails) |
 | 2026-06-30 | [2026-06-30-cost_aware_momentum-BTC-USD.md](2026-06-30-cost_aware_momentum-BTC-USD.md) | cost_aware_momentum · BTC-USD | REJECT — cost-band cut drawdown ~10pp but proxy momentum signal has no OOS edge (Bysik/Słepaczuk 2606.00060) | -0.53 | 0.74–0.79 (grid, fails) |
 | 2026-06-29 | [2026-06-29-ma_crossover-BTC-USD.md](2026-06-29-ma_crossover-BTC-USD.md) | ma_crossover · BTC-USD | MIXED (leans REJECT) — underperforms buy-and-hold | 0.11 | 0.896 (full, fails) |
 
