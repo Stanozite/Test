@@ -3,8 +3,9 @@ from .base import Strategy, run_vectorized
 from .ma_crossover import MACrossover
 from .cost_aware_momentum import CostAwareMomentum
 from .lag1_reversal import Lag1Reversal
+from .tsmom import TSMom
 
-REGISTRY = {cls.name: cls for cls in (MACrossover, CostAwareMomentum, Lag1Reversal)}
+REGISTRY = {cls.name: cls for cls in (MACrossover, CostAwareMomentum, Lag1Reversal, TSMom)}
 
 
 def get(name: str) -> type[Strategy]:

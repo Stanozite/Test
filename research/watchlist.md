@@ -75,6 +75,9 @@ Firms, labs, and authors whose output is worth following. Grow this list over ti
 | Daniele Angelini | Author | Fractional-calculus market-efficiency / rough-volatility detection; Grünwald–Letnikov Hurst regime tests (added 2026-06-29) |
 | Andrei Bysik & Robert Ślepaczuk (Univ. of Warsaw QFRG) | Authors/lab | Execution-realistic crypto ML; cost-aware filters, rigorous walk-forward backtesting (added 2026-06-30) |
 | Victoria Portnaya | Author | Microstructure of return predictability; sign-vs-magnitude decomposition, prediction-market mispricing (added 2026-07-01) |
+| Austin Pollok & Kevin Robik | Authors | End-to-end differentiable-Sharpe portfolio policies; cross-asset futures timing; honest AI-vs-simple-rules benchmarking (added 2026-07-02) |
+| Umut Çetin & Giulia Livieri | Authors | Asymmetric-information LOB theory; liquidity-tail-dependent price impact and adverse selection (added 2026-07-02) |
+| Fabio Biancalana (Hayward/Lennon) | Author | Nonlinear-physics (NLS / rogue-wave) methods for extreme-event & vol-spike early warning (added 2026-07-02) |
 | _add your own…_ | | |
 
 ---
