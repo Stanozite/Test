@@ -6,8 +6,9 @@ from .lag1_reversal import Lag1Reversal
 from .tsmom import TSMom
 from .donchian_breakout import DonchianBreakout
 from .trend_filter import TrendFilter
+from .dow_seasonality import DowSeasonality
 
-REGISTRY = {cls.name: cls for cls in (MACrossover, CostAwareMomentum, Lag1Reversal, TSMom, DonchianBreakout, TrendFilter)}
+REGISTRY = {cls.name: cls for cls in (MACrossover, CostAwareMomentum, Lag1Reversal, TSMom, DonchianBreakout, TrendFilter, DowSeasonality)}
 
 
 def get(name: str) -> type[Strategy]:

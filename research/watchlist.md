@@ -78,6 +78,11 @@ Firms, labs, and authors whose output is worth following. Grow this list over ti
 | Austin Pollok & Kevin Robik | Authors | End-to-end differentiable-Sharpe portfolio policies; cross-asset futures timing; honest AI-vs-simple-rules benchmarking (added 2026-07-02) |
 | Umut Çetin & Giulia Livieri | Authors | Asymmetric-information LOB theory; liquidity-tail-dependent price impact and adverse selection (added 2026-07-02) |
 | Fabio Biancalana (Hayward/Lennon) | Author | Nonlinear-physics (NLS / rogue-wave) methods for extreme-event & vol-spike early warning (added 2026-07-02) |
+| Peter Reinhard Hansen (UNC) | Author | Econometrics of intraday/periodic return predictability & realized volatility; Quarter-Hour Effect (added 2026-07-15) |
+| Alexander Barzykin (HSBC) | Author | Electronic FX/OTC market making — RFQ pricing, reputation-feedback quoting (added 2026-07-15) |
+| Ibrahim Ekren / Evangelos Nikitopoulos | Authors | Multi-asset Kyle equilibria under stochastic liquidity; optimal-transport methods in microstructure (added 2026-07-15) |
+| Anand Deo / Mantu Gupta | Authors | Extreme-value & generative rare-event simulation for stress laws (SS-GEN); large-deviations tail-risk (added 2026-07-15) |
+| Ciamac C. Moallemi (Columbia) | Author | Market design / market making; prediction-market volatility structure (added 2026-07-15) |
 | _add your own…_ | | |
 
 ---
