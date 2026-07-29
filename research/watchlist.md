@@ -83,6 +83,10 @@ Firms, labs, and authors whose output is worth following. Grow this list over ti
 | Ibrahim Ekren / Evangelos Nikitopoulos | Authors | Multi-asset Kyle equilibria under stochastic liquidity; optimal-transport methods in microstructure (added 2026-07-15) |
 | Anand Deo / Mantu Gupta | Authors | Extreme-value & generative rare-event simulation for stress laws (SS-GEN); large-deviations tail-risk (added 2026-07-15) |
 | Ciamac C. Moallemi (Columbia) | Author | Market design / market making; prediction-market volatility structure (added 2026-07-15) |
+| Artur Sepp & Vladimir Lucic | Authors | Practitioner-grade trend-following theory — spectral-mass/low-freq-autocorrelation, closed-form Sharpe, cost-adjusted span selection (added 2026-07-29) |
+| Charles-Albert Lehalle | Author | Execution/microstructure; fundamentals-driven covariance (CD-DFM), zero-shot asset onboarding (added 2026-07-29) |
+| Igor Halperin & Andrey Itkin | Authors | Physics-informed RL for portfolio choice — HJB-via-PINN one-shot offline (SciPhy); derivatives pricing (added 2026-07-29) |
+| Rosario N. Mantegna / Christian Bongiorno | Authors | Econophysics; compact-NN covariance cleaning, volatility-drag control under leverage (added 2026-07-29) |
 | _add your own…_ | | |
 
 ---
