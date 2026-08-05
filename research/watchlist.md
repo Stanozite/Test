@@ -87,6 +87,11 @@ Firms, labs, and authors whose output is worth following. Grow this list over ti
 | Charles-Albert Lehalle | Author | Execution/microstructure; fundamentals-driven covariance (CD-DFM), zero-shot asset onboarding (added 2026-07-29) |
 | Igor Halperin & Andrey Itkin | Authors | Physics-informed RL for portfolio choice — HJB-via-PINN one-shot offline (SciPhy); derivatives pricing (added 2026-07-29) |
 | Rosario N. Mantegna / Christian Bongiorno | Authors | Econophysics; compact-NN covariance cleaning, volatility-drag control under leverage (added 2026-07-29) |
+| Josh Molnar | Author | Structural BTC cycle timing — halving clock, time-since-genesis power law; pre-registered falsifiable windows (added 2026-08-05) |
+| Francesco Landolfi | Author | Distribution-aware drawdown risk — Monte-Carlo four-measure framework extending Rej-Seager-Bouchaud; fBM scaling (added 2026-08-05) |
+| Robert Jacob Ryan | Author | Conformal-interval position sizing (Conformal Kelly); exemplary pre-registration / sealed-OOS protocol (added 2026-08-05) |
+| Lucas Rabechini Amaral | Author | Closed-form optimal microstructure mean-reversion bands; OU gap dynamics, option-value-of-waiting (added 2026-08-05) |
+| Ramon Marc Garcia Seuma | Author | Crypto-perpetual liquidation-cascade early-warning empirics; endogenous-vs-exogenous critical-slowing-down (added 2026-08-05) |
 | _add your own…_ | | |
 
 ---
