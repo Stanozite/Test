@@ -91,7 +91,11 @@ Firms, labs, and authors whose output is worth following. Grow this list over ti
 | Francesco Landolfi | Author | Distribution-aware drawdown risk — Monte-Carlo four-measure framework extending Rej-Seager-Bouchaud; fBM scaling (added 2026-08-05) |
 | Robert Jacob Ryan | Author | Conformal-interval position sizing (Conformal Kelly); exemplary pre-registration / sealed-OOS protocol (added 2026-08-05) |
 | Lucas Rabechini Amaral | Author | Closed-form optimal microstructure mean-reversion bands; OU gap dynamics, option-value-of-waiting (added 2026-08-05) |
-| Ramon Marc Garcia Seuma | Author | Crypto-perpetual liquidation-cascade early-warning empirics; endogenous-vs-exogenous critical-slowing-down (added 2026-08-05) |
+| Ramon Marc Garcia Seuma | Author | Crypto-perpetual liquidation-cascade early-warning empirics; endogenous-vs-exogenous critical-slowing-down; subcritical branching in first-order transitions — "no scalar pre-state measure grades severity" (added 2026-08-05) |
+| Daojing Zhai | Author | On-chain/DEX microstructure; persistent wallet-informativeness as return-predictive signal, public-identity adverse selection (added 2026-08-12) |
+| Alejandro Rodriguez Dominguez & Miquel Noguer i Alonso | Authors | Causal experimental design for trading-strategy capacity/crowding; causal portfolio choice / driver-manifold hedging (added 2026-08-12) |
+| Danilo Mandic / Imperial GSP team | Author/lab | Graph-signal-processing portfolio construction — factor-graph diversification via exposure-locality (MINGLE) (added 2026-08-12) |
+| Shinji Kakinaka & Ken Umeno | Authors | Multifractal cross-correlation risk measures; signed-MFCCA allocation beating mean-variance on tails (added 2026-08-12) |
 | _add your own…_ | | |
 
 ---

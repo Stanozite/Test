@@ -9,8 +9,9 @@ from .trend_filter import TrendFilter
 from .dow_seasonality import DowSeasonality
 from .vol_regime import VolRegime
 from .halving_clock import HalvingClock
+from .cascade_warning import CascadeWarning
 
-REGISTRY = {cls.name: cls for cls in (MACrossover, CostAwareMomentum, Lag1Reversal, TSMom, DonchianBreakout, TrendFilter, DowSeasonality, VolRegime, HalvingClock)}
+REGISTRY = {cls.name: cls for cls in (MACrossover, CostAwareMomentum, Lag1Reversal, TSMom, DonchianBreakout, TrendFilter, DowSeasonality, VolRegime, HalvingClock, CascadeWarning)}
 
 
 def get(name: str) -> type[Strategy]:
