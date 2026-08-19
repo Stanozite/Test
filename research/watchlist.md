@@ -96,6 +96,14 @@ Firms, labs, and authors whose output is worth following. Grow this list over ti
 | Alejandro Rodriguez Dominguez & Miquel Noguer i Alonso | Authors | Causal experimental design for trading-strategy capacity/crowding; causal portfolio choice / driver-manifold hedging (added 2026-08-12) |
 | Danilo Mandic / Imperial GSP team | Author/lab | Graph-signal-processing portfolio construction — factor-graph diversification via exposure-locality (MINGLE) (added 2026-08-12) |
 | Shinji Kakinaka & Ken Umeno | Authors | Multifractal cross-correlation risk measures; signed-MFCCA allocation beating mean-variance on tails (added 2026-08-12) |
+| Jaehyung Choi | Author | Entropic-VaR / tempered-stable Lévy portfolio construction; closed-form portfolio EVaR from asset/component params, coherent heavy-left-tail control beating CVaR (added 2026-08-19) |
+| Antonio Briola & Tomaso Aste (UCL) | Authors | Network-filtered interpretable neural architectures — MFCF→Homological-NN, dependence-graph-derived depth/width/sparsity for cross-sectional return prediction (added 2026-08-19) |
+| Weicheng Ye & Haizhao Yang | Authors | Agentic alpha discovery with verified-artifact search + adversarial re-execution veto + budget allocation (AgonAlpha) (added 2026-08-19) |
+| Carmine Ventre & Namid Stillman (King's College London) | Authors/lab | Flow-matching / diffusion LOB generation + synthetic-data evaluation — FlowLOB, LOB-ID, diffusion-in-finance survey (added 2026-08-19) |
+| Junyi Ye | Author | Where-to-inject-regime-information neural volatility forecasting (RG-ResMoE, "route don't feed"); post-training quantization for financial time series (added 2026-08-19) |
+| Alireza Kargarzadeh & Arman Khaledian | Authors | Large-scale LLM news-event taxonomy + abnormal-return drift/reversal mapping; LLM multimodal small-cap selection (added 2026-08-19) |
+| Charlie Che & Pradeepta Das | Authors | Transport-geometry theory of implied-variance-surface dynamics — generalized SSR, higher-order stickiness coefficients (added 2026-08-19) |
+| Travis L. Johnson | Author | Long-horizon complete-financial-statement forecasting — Forma / ProForma-20Q, masked-tuple Gaussian transformer for DCF-relevant valuation (added 2026-08-19) |
 | _add your own…_ | | |
 
 ---
