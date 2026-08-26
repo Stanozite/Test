@@ -104,6 +104,13 @@ Firms, labs, and authors whose output is worth following. Grow this list over ti
 | Alireza Kargarzadeh & Arman Khaledian | Authors | Large-scale LLM news-event taxonomy + abnormal-return drift/reversal mapping; LLM multimodal small-cap selection (added 2026-08-19) |
 | Charlie Che & Pradeepta Das | Authors | Transport-geometry theory of implied-variance-surface dynamics — generalized SSR, higher-order stickiness coefficients (added 2026-08-19) |
 | Travis L. Johnson | Author | Long-horizon complete-financial-statement forecasting — Forma / ProForma-20Q, masked-tuple Gaussian transformer for DCF-relevant valuation (added 2026-08-19) |
+| Nadav A. Kitron & Jonathan M. Wengrowicz | Authors | Matched cross-market crypto microstructure — short-horizon *directional* reversal (sign-not-magnitude), 90%-of-183-Binance-pairs at 15-min vs 2.7% US equities (added 2026-08-26) |
+| Lucas Carvalho | Author | Eigenspace-rotation asset pricing — the "reconfiguration premium": rate of correlation-map turning priced into the VRP, unspanned by level measures (added 2026-08-26) |
+| Jiayu Li | Author | Exact-Kelly gradient-boosted portfolios (KellyBoost, closed-form gradient+Hessian); axiomatic/canonical-form theory of quant systems (added 2026-08-26) |
+| Andrey Itkin (solo) | Author | Inelastic-market calibration — Lean Marketron, generalized Langevin equation w/ state-modulated memory kernel, identifiable "market price of flow risk" (added 2026-08-26) |
+| Anran Hu / Silvana M. Pesenti / Xiaofei Shi | Authors | Continuous-time CVaR-constrained dynamic allocation — auxiliary-threshold rep, strong duality without market completeness, asymmetric state-dependent de-risking (added 2026-08-26) |
+| Patrick Cheridito / Moritz Weiss (ETH Zürich) | Authors | Multi-level RL market making — logistic-normal order allocation, deep-set LOB encoder, potential-based reward shaping (added 2026-08-26) |
+| Xin Guo / Ruixun Zhang | Authors | Tradable Itô signatures — signature components as self-financing-replicable hedging instruments, model-free interpretable dynamic hedging (added 2026-08-26) |
 | _add your own…_ | | |
 
 ---
