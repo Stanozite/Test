@@ -1,0 +1,31 @@
+id,group,opportunity,pain_x3,budget_x3,vendor_resistant_x3,solo_buildable_x2,global_nosales_x2,compounding_x3,cost_if_wrong_x1,total,hard_gate_pass,status,evidence_note
+A1,A,MCP server for vertical SaaS,4,3,2,5,4,3,5,59,NO,quick-win-only,SaaS owner can ship it themselves anytime
+A2,A,MCP server as a service,3,3,2,4,4,3,4,53,NO,dropped,Cloudflare/WorkOS already there
+A3,A,MCP server security scanner,4,4,3,4,4,3,4,62,YES,watch,19831+ servers indexed; company-operated 4133 (+873%)
+A4,A,Legacy adapter SOAP/AS400/ERP to MCP,4,4,3,2,2,4,2,55,YES,dropped,real pain but requires field sales
+A5,A,Document to structured for agent-hostile docs,4,4,2,3,4,3,3,56,NO,dropped,models absorbing this directly
+A6,A,Browser-use fallback,3,2,2,3,4,2,4,45,NO,dropped,vendor ships it
+B1,B,Vertical eval harness,4,3,3,4,3,4,4,60,YES,watch,collides with Braintrust/LangSmith
+B2,B,Eval as contract,4,3,4,4,3,5,4,66,YES,FINALIST-F1,enabled by outcome pricing being real
+B3,B,Production traces to auto eval set,4,3,3,4,4,5,4,65,YES,FINALIST-F2,highest compounding in group
+B4,B,LLM-judge calibration,3,2,3,4,4,4,4,56,YES,dropped,real problem no budget yet
+B5,B,Multi-agent observability,4,3,2,3,4,3,3,53,NO,dropped,Langfuse acquired by ClickHouse; crowded
+B6,B,Human review marketplace,4,4,4,2,2,4,2,58,YES,dropped,ops-heavy conflicts with solo+global
+B7,B,Silent-failure detection,4,3,3,4,4,4,4,62,YES,FINALIST-F2,pairs with B3
+C1,C,Scoped credential broker,4,4,2,3,3,3,3,54,NO,dropped,Okta/Auth0/WorkOS/Cloudflare on this path
+C2,C,Agent identity and attestation,4,3,2,2,3,3,2,48,NO,watch,AP2 binds mandate to human key not agent
+C3,C,Declarative policy engine,3,3,3,3,4,3,3,53,YES,dropped,too early; buyer unaware
+C4,C,Sandbox runtime,3,3,2,2,4,2,3,45,NO,dropped,E2B/Daytona own it
+C5,C,Idempotency and rollback middleware,3,2,2,4,4,2,4,47,NO,dropped,Temporal/Inngest/Restate
+C6,C,MCP prompt-injection defense,4,3,3,3,4,3,3,56,YES,merge-into-A3,overlaps A3
+C7,C,Evidence-grade audit trail,3,4,5,3,2,4,3,61,YES,watch,strong moat but enterprise sales cycle
+C8,C,Vertical compliance pack,3,4,4,3,3,4,2,59,YES,dropped,needs legal credibility we lack
+D1,D,Spend control guardrail,3,3,2,4,4,3,4,53,NO,dropped,gateways give it away free
+D2,D,Outcome metering and verification,4,4,5,3,3,5,3,69,YES,FINALIST-F1,top score; neutrality moat
+D3,D,Outcome dispute arbiter,3,3,5,3,3,5,3,63,YES,FINALIST-F1,part of D2 not separate
+D4,D,Agent-readable product feed,3,3,3,4,5,4,4,61,YES,watch-SP8,too early; revisit if protocol settles
+D5,D,x402/AP2 merchant toolkit,2,2,2,4,4,2,4,44,NO,dropped,protocol war unresolved; x402 security flaws published
+E1,E,Domain ground-truth feed,3,3,5,3,4,5,3,65,YES,FINALIST-F3,strongest moat; uncorrelated hedge
+E2,E,Golden dataset licensing,3,2,4,3,4,5,3,59,YES,FINALIST-F3,pairs with E1
+E3,E,Trusted benchmark/leaderboard,3,2,4,4,5,4,5,62,YES,quick-win-QW4,low revenue high distribution
+E4,E,Agent-readable version of locked data,3,3,3,4,4,4,4,59,YES,dropped,overlaps A5

@@ -1,0 +1,631 @@
+<title>Agent Economy Field Map</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans+Thai:wght@400;500;600&family=Noto+Serif+Thai:wght@600;700&display=swap">
+<style>
+  :root {
+    --paper:#EDF0EE; --surface:#F7F9F8; --surface-2:#E4E9E7;
+    --ink:#101B1A; --ink-2:#3A4A47; --ink-3:#667773;
+    --line:#D2DAD7; --line-strong:#B6C2BE;
+    --teal:#136560; --teal-bright:#1D8C84; --teal-wash:#DCE8E6;
+    --brass:#8A6613; --brass-wash:#EFE7D3;
+    --rust:#9E3B2C; --rust-wash:#F1DFDB;
+    --moss:#456E3E; --moss-wash:#DEE8DB;
+    --shadow:0 1px 2px rgba(16,27,26,.06), 0 8px 24px -16px rgba(16,27,26,.28);
+    color-scheme:light;
+  }
+  @media (prefers-color-scheme:dark){
+    :root:not([data-theme="light"]){
+      --paper:#0B1413; --surface:#131F1E; --surface-2:#1C2A28;
+      --ink:#DCE5E2; --ink-2:#A5B5B1; --ink-3:#7B8C88;
+      --line:#253532; --line-strong:#354844;
+      --teal:#57C4B6; --teal-bright:#7AD8CB; --teal-wash:#17302E;
+      --brass:#D0A143; --brass-wash:#2C2618;
+      --rust:#D4715C; --rust-wash:#301C18;
+      --moss:#88B57C; --moss-wash:#1B2A18;
+      --shadow:0 1px 2px rgba(0,0,0,.4), 0 8px 24px -16px rgba(0,0,0,.8);
+    }
+  }
+  :root[data-theme="dark"]{
+    --paper:#0B1413; --surface:#131F1E; --surface-2:#1C2A28;
+    --ink:#DCE5E2; --ink-2:#A5B5B1; --ink-3:#7B8C88;
+    --line:#253532; --line-strong:#354844;
+    --teal:#57C4B6; --teal-bright:#7AD8CB; --teal-wash:#17302E;
+    --brass:#D0A143; --brass-wash:#2C2618;
+    --rust:#D4715C; --rust-wash:#301C18;
+    --moss:#88B57C; --moss-wash:#1B2A18;
+    --shadow:0 1px 2px rgba(0,0,0,.4), 0 8px 24px -16px rgba(0,0,0,.8);
+    color-scheme:dark;
+  }
+
+  *{box-sizing:border-box}
+  body{
+    background:var(--paper); color:var(--ink);
+    font-family:"IBM Plex Sans Thai","Segoe UI",system-ui,sans-serif;
+    font-size:16px; line-height:1.72; margin:0;
+    -webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:1180px;margin:0 auto;padding:0 24px 96px}
+  .col{max-width:720px;margin-inline:auto}
+  h1,h2,h3{font-family:"Noto Serif Thai","Iowan Old Style",Georgia,serif;font-weight:700;text-wrap:balance;line-height:1.3;margin:0}
+  p{margin:0}
+  a{color:var(--teal)}
+
+  .eyebrow{
+    font-family:"IBM Plex Mono",ui-monospace,monospace;
+    font-size:11px;letter-spacing:.16em;text-transform:uppercase;
+    color:var(--ink-3);font-weight:500;
+  }
+  .mono{font-family:"IBM Plex Mono",ui-monospace,monospace;font-variant-numeric:tabular-nums}
+
+  /* ---------- masthead ---------- */
+  header.mast{border-bottom:1px solid var(--line);margin-bottom:56px}
+  .mast-inner{max-width:1180px;margin:0 auto;padding:56px 24px 40px}
+  .mast h1{font-size:clamp(34px,5.2vw,54px);letter-spacing:-.015em;margin-bottom:20px;max-width:16ch}
+  .mast .lede{font-size:clamp(17px,2vw,20px);color:var(--ink-2);max-width:60ch;line-height:1.66}
+  .mast .lede b{color:var(--ink);font-weight:600}
+  .meta{display:flex;flex-wrap:wrap;gap:10px;margin-top:28px}
+  .tag{
+    font-family:"IBM Plex Mono",ui-monospace,monospace;font-size:11.5px;letter-spacing:.05em;
+    border:1px solid var(--line-strong);border-radius:2px;padding:4px 9px;color:var(--ink-2);
+  }
+  .tag.on{border-color:var(--teal);color:var(--teal);background:var(--teal-wash)}
+
+  /* ---------- sections ---------- */
+  section{margin-bottom:72px}
+  .shead{display:flex;align-items:baseline;gap:14px;margin-bottom:8px}
+  .shead .num{font-family:"IBM Plex Mono",monospace;font-size:12px;color:var(--teal);font-weight:600}
+  .shead h2{font-size:clamp(23px,3vw,29px);letter-spacing:-.01em}
+  .sdek{color:var(--ink-2);margin-bottom:28px;max-width:62ch}
+
+  /* ---------- thesis ---------- */
+  .thesis{
+    border-left:3px solid var(--teal);background:var(--surface);
+    padding:26px 30px;box-shadow:var(--shadow);border-radius:0 3px 3px 0;
+  }
+  .thesis .big{
+    font-family:"Noto Serif Thai",Georgia,serif;font-size:clamp(20px,2.6vw,25px);
+    font-weight:700;line-height:1.5;margin-bottom:14px;
+  }
+  .thesis p{color:var(--ink-2);font-size:15.5px}
+
+  /* ---------- bottleneck chain ---------- */
+  .panel{
+    background:var(--surface);border:1px solid var(--line);border-radius:4px;
+    padding:28px 0 24px;box-shadow:var(--shadow);overflow-x:auto;
+  }
+  .chain{display:flex;align-items:stretch;gap:0;min-width:940px;padding:0 28px}
+  .link{flex:1;display:flex;flex-direction:column;gap:9px;position:relative;padding-right:22px}
+  .link:last-child{padding-right:0}
+  .link:not(:last-child)::after{
+    content:"";position:absolute;right:7px;top:14px;width:8px;height:8px;
+    border-top:1.5px solid var(--line-strong);border-right:1.5px solid var(--line-strong);
+    transform:rotate(45deg);
+  }
+  .link .dot{
+    width:11px;height:11px;border-radius:50%;border:2px solid var(--line-strong);background:var(--surface);
+  }
+  .link.hot .dot{border-color:var(--rust);background:var(--rust)}
+  .link.warm .dot{border-color:var(--brass);background:var(--brass)}
+  .link.done .dot{border-color:var(--moss);background:var(--moss)}
+  .link h4{margin:0;font-size:14.5px;font-weight:600;font-family:"IBM Plex Sans Thai",sans-serif;line-height:1.4}
+  .link p{font-size:12.5px;color:var(--ink-3);line-height:1.55}
+  .link .stat{
+    font-family:"IBM Plex Mono",monospace;font-size:10px;letter-spacing:.09em;text-transform:uppercase;
+    color:var(--ink-3);
+  }
+  .link.hot .stat{color:var(--rust);font-weight:600}
+  .chain-key{
+    display:flex;flex-wrap:wrap;gap:18px;padding:20px 28px 0;margin-top:20px;
+    border-top:1px solid var(--line);font-size:12.5px;color:var(--ink-2);
+  }
+  .kk{display:flex;align-items:center;gap:7px}
+  .kk i{width:9px;height:9px;border-radius:50%;display:block}
+
+  /* ---------- stage strip ---------- */
+  .stages{display:grid;grid-template-columns:repeat(5,minmax(190px,1fr));gap:0;min-width:1000px}
+  .stage{padding:0 20px;border-left:1px solid var(--line);display:flex;flex-direction:column;gap:12px}
+  .stage:first-child{border-left:0}
+  .stage .sid{display:flex;align-items:center;gap:9px}
+  .stage .sid b{font-family:"IBM Plex Mono",monospace;font-size:19px;font-weight:600;letter-spacing:-.02em}
+  .pip{width:9px;height:9px;border-radius:50%}
+  .pip.past{background:var(--ink-3)}
+  .pip.now{background:var(--teal);box-shadow:0 0 0 3px var(--teal-wash)}
+  .pip.open{background:var(--brass);box-shadow:0 0 0 3px var(--brass-wash)}
+  .pip.early{background:var(--line-strong)}
+  .stage h4{font-size:15px;font-weight:600;margin:0;font-family:"IBM Plex Sans Thai",sans-serif}
+  .stage .desc{font-size:13px;color:var(--ink-2);line-height:1.6}
+  .stage .money{
+    font-size:12.5px;line-height:1.55;padding:10px 12px;border-radius:3px;
+    background:var(--surface-2);color:var(--ink-2);
+  }
+  .stage .money b{color:var(--ink);font-weight:600}
+  .stage.key .money{background:var(--brass-wash);color:var(--ink)}
+  .stage .need{font-size:12px;color:var(--ink-3);line-height:1.55}
+  .stage .need em{font-style:normal;color:var(--ink-2);font-weight:500}
+  .band{
+    min-width:1000px;margin-top:24px;display:grid;grid-template-columns:repeat(5,minmax(190px,1fr));
+    align-items:center;
+  }
+  .band .fill{
+    grid-column:2 / 4;background:var(--brass-wash);border:1px solid var(--brass);
+    border-radius:2px;padding:9px 14px;font-size:12.5px;color:var(--ink);font-weight:500;
+  }
+  .band .fill .mono{color:var(--brass);font-weight:600}
+
+  /* ---------- scarcity table ---------- */
+  .tbl-wrap{overflow-x:auto;border:1px solid var(--line);border-radius:4px;background:var(--surface)}
+  table{border-collapse:collapse;width:100%;min-width:660px;font-size:14px}
+  th,td{text-align:left;padding:13px 16px;border-bottom:1px solid var(--line);vertical-align:top}
+  th{
+    font-family:"IBM Plex Mono",monospace;font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;
+    color:var(--ink-3);font-weight:500;background:var(--surface-2);
+  }
+  tr:last-child td{border-bottom:0}
+  td b{font-weight:600}
+  .dur{font-family:"IBM Plex Mono",monospace;font-size:11.5px;font-weight:500;white-space:nowrap}
+  .dur.long{color:var(--moss)} .dur.mid{color:var(--brass)} .dur.no{color:var(--rust)}
+
+  /* ---------- opportunity meters ---------- */
+  .grp{margin-bottom:26px}
+  .grp-head{
+    display:flex;align-items:baseline;gap:12px;padding-bottom:9px;margin-bottom:12px;
+    border-bottom:1px solid var(--line);
+  }
+  .grp-head .gl{font-family:"IBM Plex Mono",monospace;font-size:13px;font-weight:600;color:var(--teal)}
+  .grp-head .gt{font-size:14.5px;font-weight:600}
+  .grp-head .gn{margin-left:auto;font-size:12px;color:var(--ink-3)}
+  .row{display:grid;grid-template-columns:38px minmax(0,1fr) 150px 62px;gap:14px;align-items:center;padding:6px 0}
+  .row .id{font-family:"IBM Plex Mono",monospace;font-size:12px;color:var(--ink-3);font-weight:500}
+  .row .nm{font-size:13.5px;line-height:1.45;color:var(--ink-2)}
+  .row.fin .nm{color:var(--ink);font-weight:600}
+  .row.fail .nm{color:var(--ink-3)}
+  .meter{position:relative;height:7px;background:var(--surface-2);border-radius:1px;overflow:visible}
+  .meter i{position:absolute;left:0;top:0;bottom:0;background:var(--line-strong);border-radius:1px;display:block}
+  .row.fin .meter i{background:var(--teal)}
+  .row.watch .meter i{background:var(--brass)}
+  .row.fail .meter i{background:var(--rust);opacity:.42}
+  .meter u{position:absolute;top:-3px;bottom:-3px;width:1px;background:var(--ink-3);opacity:.5}
+  .row .sc{font-family:"IBM Plex Mono",monospace;font-size:12.5px;font-variant-numeric:tabular-nums;text-align:right;color:var(--ink-2)}
+  .row.fin .sc{color:var(--teal);font-weight:600}
+  .row.fail .sc{color:var(--ink-3)}
+  .row .sc s{text-decoration:none;color:var(--rust);font-size:10px;margin-left:3px}
+  .legend{display:flex;flex-wrap:wrap;gap:16px;font-size:12px;color:var(--ink-3);margin-top:18px}
+
+  /* ---------- finalist cards ---------- */
+  .cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));gap:20px}
+  .card{
+    background:var(--surface);border:1px solid var(--line);border-top:3px solid var(--teal);
+    border-radius:0 0 4px 4px;padding:24px;display:flex;flex-direction:column;gap:14px;box-shadow:var(--shadow);
+  }
+  .card.hedge{border-top-color:var(--moss)}
+  .card-top{display:flex;align-items:baseline;justify-content:space-between;gap:12px}
+  .card-top .fid{font-family:"IBM Plex Mono",monospace;font-size:12px;font-weight:600;color:var(--teal);letter-spacing:.06em}
+  .card.hedge .fid{color:var(--moss)}
+  .card-top .fsc{font-family:"IBM Plex Mono",monospace;font-size:22px;font-weight:600;font-variant-numeric:tabular-nums}
+  .card h3{font-size:18px;line-height:1.4}
+  .card .one{font-size:14px;color:var(--ink-2);line-height:1.6}
+  .field{border-top:1px solid var(--line);padding-top:12px}
+  .field .fl{
+    font-family:"IBM Plex Mono",monospace;font-size:10px;letter-spacing:.11em;text-transform:uppercase;
+    color:var(--ink-3);display:block;margin-bottom:5px;
+  }
+  .field p{font-size:13px;line-height:1.6;color:var(--ink-2)}
+  .field.kill{border-top-color:var(--rust)}
+  .field.kill .fl{color:var(--rust)}
+
+  /* ---------- phase track ---------- */
+  .track{display:flex;flex-direction:column;gap:0}
+  .ph{display:grid;grid-template-columns:96px 1fr;gap:20px;padding:18px 0;border-top:1px solid var(--line)}
+  .ph:first-child{border-top:0}
+  .ph .pl{display:flex;flex-direction:column;gap:3px}
+  .ph .pl .pn{font-family:"IBM Plex Mono",monospace;font-size:12px;font-weight:600;color:var(--teal)}
+  .ph .pl .pw{font-family:"IBM Plex Mono",monospace;font-size:11px;color:var(--ink-3)}
+  .ph h4{margin:0 0 5px;font-size:15.5px;font-weight:600;font-family:"IBM Plex Sans Thai",sans-serif}
+  .ph p{font-size:13.5px;color:var(--ink-2);line-height:1.6}
+  .ph .state{
+    display:inline-block;margin-top:7px;font-family:"IBM Plex Mono",monospace;font-size:10px;
+    letter-spacing:.09em;text-transform:uppercase;padding:2px 7px;border-radius:2px;
+  }
+  .state.done{background:var(--moss-wash);color:var(--moss)}
+  .state.next{background:var(--teal-wash);color:var(--teal)}
+  .state.wait{background:var(--surface-2);color:var(--ink-3)}
+  .gate{
+    display:flex;align-items:flex-start;gap:11px;margin:0;padding:14px 18px;
+    background:var(--brass-wash);border-left:3px solid var(--brass);border-radius:0 3px 3px 0;
+  }
+  .gate .gm{font-family:"IBM Plex Mono",monospace;font-size:10.5px;letter-spacing:.1em;color:var(--brass);font-weight:600;white-space:nowrap;padding-top:2px}
+  .gate p{font-size:13.5px;line-height:1.6;margin:0}
+
+  /* ---------- signposts ---------- */
+  .sps{display:grid;grid-template-columns:repeat(auto-fit,minmax(255px,1fr));gap:14px}
+  .sp{background:var(--surface);border:1px solid var(--line);border-radius:3px;padding:16px 18px}
+  .sp .spid{font-family:"IBM Plex Mono",monospace;font-size:11px;color:var(--teal);font-weight:600;letter-spacing:.06em}
+  .sp h4{margin:5px 0 7px;font-size:14px;font-weight:600;font-family:"IBM Plex Sans Thai",sans-serif;line-height:1.45}
+  .sp p{font-size:12.5px;color:var(--ink-2);line-height:1.6}
+  .sp .trig{
+    margin-top:9px;padding-top:9px;border-top:1px dashed var(--line-strong);
+    font-size:12px;color:var(--rust);line-height:1.5;
+  }
+  .sp.up .trig{color:var(--moss)}
+
+  .tripwire{
+    margin-top:22px;padding:20px 24px;border:1px solid var(--rust);background:var(--rust-wash);border-radius:3px;
+  }
+  .tripwire .eyebrow{color:var(--rust)}
+  .tripwire p{font-size:14px;line-height:1.65;margin-top:8px}
+
+  /* ---------- undecided ---------- */
+  .dl{display:flex;flex-direction:column;gap:0}
+  .di{display:grid;grid-template-columns:1fr 128px 1fr;gap:18px;padding:14px 0;border-top:1px solid var(--line);align-items:baseline}
+  .di:first-child{border-top:0}
+  .di .dq{font-size:14.5px;font-weight:600}
+  .di .dw{font-family:"IBM Plex Mono",monospace;font-size:11.5px;color:var(--brass);letter-spacing:.04em}
+  .di .dh{font-size:13px;color:var(--ink-2);line-height:1.55}
+
+  footer{border-top:1px solid var(--line);padding-top:26px;font-size:12.5px;color:var(--ink-3);line-height:1.75}
+  footer a{color:var(--ink-2)}
+
+  @media (max-width:720px){
+    .row{grid-template-columns:34px minmax(0,1fr) 74px}
+    .row .meter{display:none}
+    .di{grid-template-columns:1fr;gap:5px}
+    .ph{grid-template-columns:1fr;gap:8px}
+    .ph .pl{flex-direction:row;gap:10px;align-items:baseline}
+  }
+  @media (prefers-reduced-motion:no-preference){
+    .card,.sp{transition:border-color .18s ease}
+  }
+  .card:hover{border-color:var(--line-strong)}
+</style>
+
+<header class="mast">
+  <div class="mast-inner">
+    <p class="eyebrow">Strategy Reconnaissance · 29 สิงหาคม 2026</p>
+    <h1>แผนที่สนามยุค Agent Economy</h1>
+    <p class="lede">เมื่อการผลิตงานถูกลงจนเกือบฟรี คอขวดจะย้ายจาก <b>“ทำได้ไหม”</b> ไปเป็น <b>“รู้ได้ไงว่าถูก”</b> และ <b>“ใครยอมให้ทำ”</b> — มูลค่าย้ายตามคอขวดเสมอ นี่คือแผนที่ว่าคอขวดกำลังอยู่ตรงไหน เงินเริ่มเปลี่ยนมือตรงไหน และเราจะยืนตรงไหนได้</p>
+    <div class="meta">
+      <span class="tag on">Picks &amp; Shovels</span>
+      <span class="tag on">Global-first</span>
+      <span class="tag">ทุน + เวลาเต็มตัว + สร้างเองได้</span>
+      <span class="tag">สถานะ: Phase 1 เสร็จ · ยังไม่ตัดสินใจ</span>
+    </div>
+  </div>
+</header>
+
+<div class="wrap">
+
+  <section class="col">
+    <div class="thesis">
+      <p class="big">อย่าแข่งทำ agent ที่เก่งกว่า — ขายของที่ทุกคนที่จะ deploy agent ต้องซื้อ ไม่ว่า agent ตัวไหนจะชนะ</p>
+      <p>ข้อดีเชิงโครงสร้างของบทบาทนี้: เราไม่ต้องรอให้ตลาด agent สำเร็จ เราได้เงินจาก<strong>คนที่กำลังพยายาม</strong> ไม่ว่าเขาจะสำเร็จหรือไม่ ข้อเสียที่ต้องเขียนไว้ให้เจ็บ: ถ้าคลื่นนี้เป็นฟองสบู่ ลูกค้าเราคือกลุ่มแรกที่ตาย — จึงต้องเลือกสนามที่ลูกค้ามี P&amp;L จริง ไม่ใช่มีแต่เงิน VC</p>
+    </div>
+  </section>
+
+  <section>
+    <div class="col">
+      <div class="shead"><span class="num">01</span><h2>โซ่คอขวด</h2></div>
+      <p class="sdek">แผนที่ธุรกิจทั้งหมดอยู่ในบรรทัดเดียวนี้ — agent จะไม่ถูกปล่อยให้ทำงานจริงจนกว่าจะผ่านครบทุกข้อต่อ และ<strong>ทุกข้อต่อคือสินค้าได้อย่างน้อยหนึ่งตัว</strong> องค์กรส่วนใหญ่วันนี้ติดอยู่ที่ข้อต่อกลาง ๆ นั่นคือที่ที่เงินกอง</p>
+    </div>
+    <div class="panel">
+      <div class="chain">
+        <div class="link done">
+          <span class="dot"></span>
+          <h4>ต่อระบบได้</h4>
+          <p>MCP กลายเป็นมาตรฐานกลางจริงแล้ว registry นับได้ 19,831+ servers</p>
+          <span class="stat">แก้ไปแล้วเป็นส่วนใหญ่</span>
+        </div>
+        <div class="link warm">
+          <span class="dot"></span>
+          <h4>เห็นว่ามันทำอะไร</h4>
+          <p>observability/tracing — แออัดแล้ว Langfuse ถูก ClickHouse ซื้อไป</p>
+          <span class="stat">แออัด</span>
+        </div>
+        <div class="link hot">
+          <span class="dot"></span>
+          <h4>พิสูจน์ว่าถูก</h4>
+          <p>ยิ่งโมเดลเก่ง ยิ่งผิดแบบเนียนขึ้น ตรวจยากขึ้น ไม่ง่ายขึ้น</p>
+          <span class="stat">คอขวดจริง</span>
+        </div>
+        <div class="link hot">
+          <span class="dot"></span>
+          <h4>จำกัดความเสียหาย</h4>
+          <p>สิทธิ์แคบ เพิกถอนได้ ย้อนกลับได้ — ยักษ์กำลังเดินมาชนสนามนี้</p>
+          <span class="stat">คอขวดจริง</span>
+        </div>
+        <div class="link hot">
+          <span class="dot"></span>
+          <h4>รับผิดได้</h4>
+          <p>ต้องมีนิติบุคคล ประกัน สัญญา — vendor ไม่อยากรับ</p>
+          <span class="stat">คอขวดจริง</span>
+        </div>
+        <div class="link warm">
+          <span class="dot"></span>
+          <h4>ปล่อยให้ทำเอง</h4>
+          <p>customer support ไปถึงแล้ว อุตสาหกรรมอื่นกำลังตาม</p>
+          <span class="stat">กำลังเปิด</span>
+        </div>
+        <div class="link">
+          <span class="dot"></span>
+          <h4>ให้มันจ่ายเงินเอง</h4>
+          <p>AP2 / ACP / UCP / x402 ยังไม่มีตัวไหนชนะ</p>
+          <span class="stat">ยังเช้าเกินไป</span>
+        </div>
+      </div>
+      <div class="chain-key">
+        <span class="kk"><i style="background:var(--moss)"></i> แก้แล้ว — ไม่ใช่ที่ของเรา</span>
+        <span class="kk"><i style="background:var(--brass)"></i> แออัดหรือกำลังเปิด</span>
+        <span class="kk"><i style="background:var(--rust)"></i> คอขวดจริง — เงินกองตรงนี้</span>
+        <span class="kk"><i style="background:var(--line-strong)"></i> ยังเช้าเกินไป — เฝ้าไว้</span>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="col">
+      <div class="shead"><span class="num">02</span><h2>ฉากทัศน์ S0 → S4</h2></div>
+      <p class="sdek">ไม่ใส่ปี ใส่สัญญาณที่ตรวจสอบได้แทน — การทำนายปีคือวิธีหลอกตัวเองที่นิยมที่สุด และโลกไม่ได้เดินพร้อมกันทุกอุตสาหกรรม customer support อยู่ S2 แล้ว ขณะที่ legal และ healthcare ยังอยู่ S0–S1</p>
+    </div>
+    <div class="panel">
+      <div style="padding:0 28px">
+        <div class="stages">
+          <div class="stage">
+            <div class="sid"><span class="pip past"></span><b>S0</b></div>
+            <h4>Copilot</h4>
+            <p class="desc">agent นั่งข้างคน คนกดทุกปุ่ม ผลิตภาพขึ้นในงานที่วัดยาก</p>
+            <p class="money">ขายเป็น <b>seat/เดือน</b> — จริงและใหญ่แล้ว แต่บาง churn สูง</p>
+            <p class="need">ต้องมีก่อน: <em>แค่ browser</em></p>
+          </div>
+          <div class="stage">
+            <div class="sid"><span class="pip now"></span><b>S1</b></div>
+            <h4>Delegated task</h4>
+            <p class="desc">agent ทำงานเป็นชิ้นจบเอง คนกลายเป็นคนรีวิว — โลกส่วนใหญ่ยืนตรงนี้</p>
+            <p class="money">seat + usage · <b>บริการ deploy/integrate ขายได้แพง</b> เพราะ demand &gt; supply</p>
+            <p class="need">ต้องมีก่อน: <em>ต่อระบบจริงได้ · audit log · คนที่ยอมรีวิว</em></p>
+          </div>
+          <div class="stage key">
+            <div class="sid"><span class="pip open"></span><b>S2</b></div>
+            <h4>Agent as worker</h4>
+            <p class="desc">agent เป็นเจ้าของ workflow ทั้งเส้น มี SLA คนดูเฉพาะ exception</p>
+            <p class="money"><b>Outcome pricing</b> — Zendesk $1.50/resolution, Intercom Fin $0.99 · ล้มเหลว = ไม่คิดเงิน <b>ผู้ขายแบกความเสี่ยง 100%</b></p>
+            <p class="need">ต้องมีก่อน: <em>identity ของ agent · spend control · eval ที่เป็นสัญญา · exception desk</em></p>
+          </div>
+          <div class="stage">
+            <div class="sid"><span class="pip early"></span><b>S3</b></div>
+            <h4>Agent-to-agent</h4>
+            <p class="desc">agent ซื้อขายจ้างกันเอง การตลาดเปลี่ยนจาก “ทำให้คนคลิก” เป็น “ทำให้ agent เลือก”</p>
+            <p class="money">ค่าธรรมเนียมต่อธุรกรรม · ค่า discovery · ค่าตัดสินข้อพิพาท</p>
+            <p class="need">ต้องมีก่อน: <em>ชื่อเสียง/attestation · การระงับข้อพิพาท · และ agent identity ที่ยังไม่มีใครแก้ได้</em></p>
+          </div>
+          <div class="stage">
+            <div class="sid"><span class="pip early"></span><b>S4</b></div>
+            <h4>Full adoption</h4>
+            <p class="desc">บริษัท 3 คน output เท่า 300 คน · คนเหลืองาน 4 อย่าง: ทิศทาง รสนิยม ความรับผิด ความสัมพันธ์</p>
+            <p class="money">มูลค่าไหลไป compute · ข้อมูลเฉพาะ · สินทรัพย์จริง · แบรนด์</p>
+            <p class="need">ตัวถ่วงจริง: <em>ไม่ใช่เทคโนโลยี แต่คือกฎหมายและความไว้ใจ — ช้ากว่าโมเดล 5–10 เท่า</em></p>
+          </div>
+        </div>
+        <div class="band">
+          <div class="fill"><span class="mono">↑ MARGIN POOL</span> &nbsp;จุดที่ลูกค้ายอมจ่ายตาม<strong>ผลลัพธ์</strong>แทน<strong>ที่นั่ง</strong>เป็นครั้งแรก — แต่สำหรับ picks &amp; shovels เงินมาเร็วกว่านี้ เพราะเราขายให้คนที่กำลังพยายามไปถึง S2 เขาจ่ายก่อนที่ของเขาจะ work</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="col">
+    <div class="shead"><span class="num">03</span><h2>ของที่จะหายากขึ้น</h2></div>
+    <p class="sdek">คอลัมน์ขวาสำคัญที่สุด — ของที่หายากแบบ “อยู่ได้สั้น” คือกับดัก ของที่หายากแบบ “อยู่ได้ยาว” คือธุรกิจ</p>
+    <div class="tbl-wrap">
+      <table>
+        <thead><tr><th>ของที่หายาก</th><th>ทำไมยังหายาก</th><th>อยู่ได้นานแค่ไหน</th></tr></thead>
+        <tbody>
+          <tr><td><b>Verification</b></td><td>generate ถูกลง 100 เท่า แต่ “ตรวจ” ยังแพงเท่าเดิม ยิ่ง output เยอะยิ่งตรวจไม่ไหว</td><td class="dur long">ยาว ↑</td></tr>
+          <tr><td><b>Context เฉพาะ</b></td><td>อยู่ในหัวคน ในไฟล์ ในระบบเก่า โมเดลไม่มีทางรู้</td><td class="dur long">ยาว ↑</td></tr>
+          <tr><td><b>Accountability</b></td><td>agent รับผิดไม่ได้ ต้องมีนิติบุคคล ประกัน สัญญา</td><td class="dur long">ยาวมาก ↑</td></tr>
+          <tr><td><b>Permission / Identity</b></td><td>ไม่มีใครกล้าให้ agent ถือ credential เต็มสิทธิ์</td><td class="dur mid">กลาง — ยักษ์กำลังมา</td></tr>
+          <tr><td><b>Distribution</b></td><td>ช่วงแรกคนกด ช่วงหลัง agent เป็นคนเลือก</td><td class="dur mid">เปลี่ยนรูป</td></tr>
+          <tr><td><b>Compute / Energy</b></td><td>ต้นทุนกายภาพ</td><td class="dur no">ยาว — แต่แข่งไม่ได้ ตัดทิ้ง</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section class="col">
+    <div class="shead"><span class="num">04</span><h2>32 โอกาส · ให้คะแนนแล้ว</h2></div>
+    <p class="sdek">ให้คะแนน 7 เกณฑ์ถ่วงน้ำหนัก เต็ม 85 — เขียนเกณฑ์เสร็จก่อนดูตัวเลือกเพื่อกันการเข้าข้างตัวเอง <strong>คะแนนทั้งหมดมาจาก desk research ยังไม่ได้คุยกับลูกค้าจริงแม้แต่รายเดียว</strong> หน้าที่ของ Phase 2 คือหักล้างคะแนนพวกนี้ ไม่ใช่ยืนยัน</p>
+
+    <div class="grp">
+      <div class="grp-head"><span class="gl">A</span><span class="gt">ต่อระบบได้</span><span class="gn">เงินไวสุด · moat บางสุด</span></div>
+      <div class="row watch"><span class="id">A3</span><span class="nm">สแกนความปลอดภัย MCP server + supply chain</span><span class="meter"><i style="width:72.9%"></i><u style="left:64.7%"></u><u style="left:72.9%"></u></span><span class="sc">62</span></div>
+      <div class="row fail"><span class="id">A1</span><span class="nm">MCP server สำหรับ vertical SaaS ที่ยังไม่มี</span><span class="meter"><i style="width:69.4%"></i><u style="left:64.7%"></u><u style="left:72.9%"></u></span><span class="sc">59<s>✕</s></span></div>
+      <div class="row"><span class="id">C6</span><span class="nm">ป้องกัน prompt-injection ใน MCP supply chain — รวมเข้ากับ A3</span><span class="meter"><i style="width:65.9%"></i><u style="left:64.7%"></u><u style="left:72.9%"></u></span><span class="sc">56</span></div>
+      <div class="row fail"><span class="id">A5</span><span class="nm">Document → structured สำหรับเอกสารที่ agent อ่านผิด</span><span class="meter"><i style="width:65.9%"></i><u style="left:64.7%"></u><u style="left:72.9%"></u></span><span class="sc">56<s>✕</s></span></div>
+      <div class="row"><span class="id">A4</span><span class="nm">Legacy adapter SOAP/AS400/ERP → MCP</span><span class="meter"><i style="width:64.7%"></i><u style="left:64.7%"></u><u style="left:72.9%"></u></span><span class="sc">55</span></div>
+      <div class="row fail"><span class="id">A2</span><span class="nm">MCP server as a service</span><span class="meter"><i style="width:62.4%"></i><u style="left:64.7%"></u><u style="left:72.9%"></u></span><span class="sc">53<s>✕</s></span></div>
+      <div class="row fail"><span class="id">A6</span><span class="nm">Browser-use fallback สำหรับ SaaS ที่ไม่มี API</span><span class="meter"><i style="width:52.9%"></i><u style="left:64.7%"></u><u style="left:72.9%"></u></span><span class="sc">45<s>✕</s></span></div>
+    </div>
+
+    <div class="grp">
+      <div class="grp-head"><span class="gl">B</span><span class="gt">เห็นและพิสูจน์</span><span class="gn">แออัดที่ชั้นเครื่องมือ · ว่างที่ชั้นความเป็นกลาง</span></div>
+      <div class="row fin"><span class="id">B2</span><span class="nm">Eval as contract — แปลง SLA เป็นชุดเทสต์ที่ทั้งสองฝ่ายเซ็น</span><span class="meter"><i style="width:77.6%"></i><u style="left:64.7%"></u><u style="left:72.9%"></u></span><span class="sc">66</span></div>
+      <div class="row fin"><span class="id">B3</span><span class="nm">Production traces → สร้างชุดทดสอบเองอัตโนมัติ</span><span class="meter"><i style="width:76.5%"></i><u style="left:64.7%"></u><u style="left:72.9%"></u></span><span class="sc">65</span></div>
+      <div class="row fin"><span class="id">B7</span><span class="nm">Silent-failure detection — จับตอนตอบสวยแต่ผิด</span><span class="meter"><i style="width:72.9%"></i><u style="left:64.7%"></u><u style="left:72.9%"></u></span><span class="sc">62</span></div>
+      <div class="row watch"><span class="id">B1</span><span class="nm">Eval harness เฉพาะ vertical</span><span class="meter"><i style="width:70.6%"></i><u style="left:64.7%"></u><u style="left:72.9%"></u></span><span class="sc">60</span></div>
+      <div class="row"><span class="id">B6</span><span class="nm">Human-review marketplace / exception desk</span><span class="meter"><i style="width:68.2%"></i><u style="left:64.7%"></u><u style="left:72.9%"></u></span><span class="sc">58</span></div>
+      <div class="row"><span class="id">B4</span><span class="nm">LLM-judge calibration</span><span class="meter"><i style="width:65.9%"></i><u style="left:64.7%"></u><u style="left:72.9%"></u></span><span class="sc">56</span></div>
+      <div class="row fail"><span class="id">B5</span><span class="nm">Observability สำหรับ multi-agent</span><span class="meter"><i style="width:62.4%"></i><u style="left:64.7%"></u><u style="left:72.9%"></u></span><span class="sc">53<s>✕</s></span></div>
+    </div>
+
+    <div class="grp">
+      <div class="grp-head"><span class="gl">C</span><span class="gt">คุมความเสียหาย</span><span class="gn">ปัญหาจริงที่สุด · แต่ยักษ์เดินมาชนพอดี</span></div>
+      <div class="row watch"><span class="id">C7</span><span class="nm">Evidence-grade audit trail — log ที่ยืนต่อ regulator ได้</span><span class="meter"><i style="width:71.8%"></i><u style="left:64.7%"></u><u style="left:72.9%"></u></span><span class="sc">61</span></div>
+      <div class="row"><span class="id">C8</span><span class="nm">Compliance pack เฉพาะ vertical</span><span class="meter"><i style="width:69.4%"></i><u style="left:64.7%"></u><u style="left:72.9%"></u></span><span class="sc">59</span></div>
+      <div class="row fail"><span class="id">C1</span><span class="nm">Scoped credential broker</span><span class="meter"><i style="width:63.5%"></i><u style="left:64.7%"></u><u style="left:72.9%"></u></span><span class="sc">54<s>✕</s></span></div>
+      <div class="row"><span class="id">C3</span><span class="nm">Policy engine แบบ declarative + simulate ก่อน deploy</span><span class="meter"><i style="width:62.4%"></i><u style="left:64.7%"></u><u style="left:72.9%"></u></span><span class="sc">53</span></div>
+      <div class="row fail"><span class="id">C2</span><span class="nm">Agent identity + attestation</span><span class="meter"><i style="width:56.5%"></i><u style="left:64.7%"></u><u style="left:72.9%"></u></span><span class="sc">48<s>✕</s></span></div>
+      <div class="row fail"><span class="id">C5</span><span class="nm">Idempotency &amp; rollback middleware</span><span class="meter"><i style="width:55.3%"></i><u style="left:64.7%"></u><u style="left:72.9%"></u></span><span class="sc">47<s>✕</s></span></div>
+      <div class="row fail"><span class="id">C4</span><span class="nm">Sandbox runtime</span><span class="meter"><i style="width:52.9%"></i><u style="left:64.7%"></u><u style="left:72.9%"></u></span><span class="sc">45<s>✕</s></span></div>
+    </div>
+
+    <div class="grp">
+      <div class="grp-head"><span class="gl">D</span><span class="gt">ให้มันจ่ายเงินเองได้</span><span class="gn">คะแนนสูงสุดอยู่กลุ่มนี้</span></div>
+      <div class="row fin"><span class="id">D2</span><span class="nm">Metering + verification สำหรับคนที่ขายแบบ outcome-based</span><span class="meter"><i style="width:81.2%"></i><u style="left:64.7%"></u><u style="left:72.9%"></u></span><span class="sc">69</span></div>
+      <div class="row fin"><span class="id">D3</span><span class="nm">Dispute arbiter — “outcome นี้นับไหม”</span><span class="meter"><i style="width:74.1%"></i><u style="left:64.7%"></u><u style="left:72.9%"></u></span><span class="sc">63</span></div>
+      <div class="row watch"><span class="id">D4</span><span class="nm">Agent-readable product feed — “SEO for agents”</span><span class="meter"><i style="width:71.8%"></i><u style="left:64.7%"></u><u style="left:72.9%"></u></span><span class="sc">61</span></div>
+      <div class="row fail"><span class="id">D1</span><span class="nm">Spend control / budget guardrail</span><span class="meter"><i style="width:62.4%"></i><u style="left:64.7%"></u><u style="left:72.9%"></u></span><span class="sc">53<s>✕</s></span></div>
+      <div class="row fail"><span class="id">D5</span><span class="nm">x402/AP2 integration toolkit</span><span class="meter"><i style="width:51.8%"></i><u style="left:64.7%"></u><u style="left:72.9%"></u></span><span class="sc">44<s>✕</s></span></div>
+    </div>
+
+    <div class="grp">
+      <div class="grp-head"><span class="gl">E</span><span class="gt">เชื้อเพลิง — ข้อมูลและบริบท</span><span class="gn">moat แข็งที่สุด · เจ็บช้าที่สุด</span></div>
+      <div class="row fin"><span class="id">E1</span><span class="nm">Ground-truth feed โดเมนเฉพาะ ที่ผิดแล้วเสียเงินจริง</span><span class="meter"><i style="width:76.5%"></i><u style="left:64.7%"></u><u style="left:72.9%"></u></span><span class="sc">65</span></div>
+      <div class="row watch"><span class="id">E3</span><span class="nm">Benchmark / leaderboard ที่คนเชื่อ — ใช้เป็น wedge ไม่ใช่สินค้า</span><span class="meter"><i style="width:72.9%"></i><u style="left:64.7%"></u><u style="left:72.9%"></u></span><span class="sc">62</span></div>
+      <div class="row"><span class="id">E2</span><span class="nm">Golden dataset สำหรับ eval แต่ละ vertical — ส่วนประกอบของ F3</span><span class="meter"><i style="width:69.4%"></i><u style="left:64.7%"></u><u style="left:72.9%"></u></span><span class="sc">59</span></div>
+      <div class="row"><span class="id">E4</span><span class="nm">“Agent-readable” version ของข้อมูลที่ล็อกใน PDF/portal</span><span class="meter"><i style="width:69.4%"></i><u style="left:64.7%"></u><u style="left:72.9%"></u></span><span class="sc">59</span></div>
+    </div>
+
+    <div class="legend">
+      <span>ขีดบนแถบ = เกณฑ์ตัด <b class="mono">55</b> เข้า shortlist · <b class="mono">62</b> เข้า finalist</span>
+      <span><s style="color:var(--rust);text-decoration:none">✕</s> = ตกด่าน “ทนต่อ platform absorption”</span>
+    </div>
+  </section>
+
+  <section>
+    <div class="col">
+      <div class="shead"><span class="num">05</span><h2>3 ตัวที่เสนอเข้ารอบพิสูจน์</h2></div>
+      <p class="sdek">นี่คือ<strong>ข้อเสนอ ไม่ใช่การตัดสินใจ</strong> — การตัดสินใจเกิดที่ Gate 2 ด้วยหลักฐานว่ามีคนจ่ายจริง F1 กับ F2 correlate กันสูง (ลูกค้ากลุ่มเดียวกัน ตายพร้อมกันถ้าสมมติฐานแกนผิด) F3 จึงเป็นประกัน ห้ามตัดทิ้งเพราะ “ไม่เท่”</p>
+    </div>
+    <div class="cards">
+      <div class="card">
+        <div class="card-top"><span class="fid">F1 · D2+D3+B2</span><span class="fsc">69</span></div>
+        <h3>Outcome Verification</h3>
+        <p class="one">เป็นคนกลางที่พิสูจน์ว่า “งานที่ agent ทำ นับเป็นผลสำเร็จจริงไหม” ให้บริษัทที่ขายแบบจ่ายต่อผลลัพธ์</p>
+        <div class="field">
+          <span class="fl">ทำไมน่าจะจริง</span>
+          <p>outcome pricing เกิดแล้ว ไม่ใช่ทฤษฎี — และเมื่อผู้ขายแบกความเสี่ยง 100% เขายอมจ่ายแพงมากเพื่อพิสูจน์ว่าสำเร็จจริง Deloitte ออกเอกสารเรื่องการบัญชีของมันแล้ว = ปัญหาไปถึงฝ่ายการเงินแล้ว</p>
+        </div>
+        <div class="field">
+          <span class="fl">Moat = ความเป็นกลาง</span>
+          <p>vendor ทำเองไม่ได้เพราะ conflict of interest — ไม่มีใครยอมให้ผู้ขายตัดสินเองว่างานตัวเองสำเร็จ เหมือนผู้สอบบัญชี</p>
+        </div>
+        <div class="field kill">
+          <span class="fl">ต้องฆ่าสมมติฐานนี้ก่อน</span>
+          <p>ตลาดใหญ่พอไหม — หาบริษัทที่ขาย outcome-based จริงให้ได้ 40 ราย ใน 1 สัปดาห์ ไม่ครบ = ฆ่าทันที</p>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-top"><span class="fid">F2 · B3+B7</span><span class="fsc">65</span></div>
+        <h3>Self-building Eval</h3>
+        <p class="one">เปลี่ยน traffic จริงใน production ให้กลายเป็นชุดทดสอบเองอัตโนมัติ แล้วเตือนตอน agent เริ่มผิดแบบเนียน ๆ</p>
+        <div class="field">
+          <span class="fl">ทำไมน่าจะจริง</span>
+          <p>ทุกทีมรู้ว่าต้องมี eval แต่ไม่มีเวลาสร้าง golden set — ปัญหาไม่ใช่ “ไม่มีเครื่องมือ” แต่คือ “ไม่มีข้อมูลจะใส่เครื่องมือ” ตลาดวันนี้ขายเครื่องมือเปล่า</p>
+        </div>
+        <div class="field">
+          <span class="fl">Moat = ทบต้น</span>
+          <p>ยิ่งลูกค้าใช้ eval set ยิ่งแม่นและย้ายออกยาก</p>
+        </div>
+        <div class="field kill">
+          <span class="fl">ต้องฆ่าสมมติฐานนี้ก่อน</span>
+          <p>เป็น vitamin หรือ painkiller — สมัคร 50 คนแต่กลับมาใช้รอบที่ 3 น้อยกว่า 2 คน = ฆ่า</p>
+        </div>
+      </div>
+
+      <div class="card hedge">
+        <div class="card-top"><span class="fid">F3 · E1+E2 · hedge</span><span class="fsc">65</span></div>
+        <h3>Domain Ground-Truth Feed</h3>
+        <p class="one">ขายข้อมูลที่ถูกและอัปเดตในโดเมนที่ผิดแล้วเสียเงินจริง ในรูปที่ agent กินได้ทันที</p>
+        <div class="field">
+          <span class="fl">ทำไมอยู่ในลิสต์</span>
+          <p>ไม่ correlate กับ F1/F2 — ถ้าฟองสบู่ tooling แตก F1/F2 ตายพร้อมกัน แต่ F3 ไม่ตายเพราะลูกค้าคือคนที่มี P&amp;L จริง</p>
+        </div>
+        <div class="field">
+          <span class="fl">Moat = ข้อมูลสะสม + ความรับผิด</span>
+          <p>vendor ไม่แตะเพราะต้องรับผิดชอบความถูกต้อง งานเก็บข้อมูลหนักและน่าเบื่อ — ซึ่งก็คือ moat นั่นแหละ</p>
+        </div>
+        <div class="field kill">
+          <span class="fl">ต้องฆ่าสมมติฐานนี้ก่อน</span>
+          <p>โมเดลรู้อยู่แล้วหรือเปล่า — ถ้าทุกโดเมนที่ทดสอบ LLM เปล่าผิดน้อยกว่า 15% = ไม่มีช่องว่างให้ขาย</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="col">
+    <div class="shead"><span class="num">06</span><h2>Quick win ที่กอบโกยได้ไว</h2></div>
+    <p class="sdek">ความจริงข้อแรก: quick win ไม่ใช่ธุรกิจ มันคือกระแสเงินสด และ<strong>ช่องเก็บข้อมูลตลาดที่ desk research ให้ไม่ได้</strong> — คุณค่าหลักคืออย่างหลัง ถ้าทำแล้วไม่ได้ความรู้เรื่องลูกค้ากลับมา แปลว่าทำผิดวิธี</p>
+    <div class="tbl-wrap">
+      <table>
+        <thead><tr><th>แบบ</th><th>ทำไมเร็ว / ได้อะไร</th><th>เงินก้อนแรก</th></tr></thead>
+        <tbody>
+          <tr><td><b>ขายให้คนที่กำลังสร้าง</b><br><span style="color:var(--ink-3);font-size:12.5px">$20–200/เดือน ผ่าน GitHub → X/HN</span></td><td>builder มีงบวันนี้ ตัดสินใจเอง ไม่ต้องผ่าน procurement จ่ายด้วยบัตรภายใน 10 นาที · <span style="color:var(--rust)">แต่กลุ่มนี้ตายก่อนใครถ้าฟองสบู่แตก</span></td><td class="dur"><b>1–3 สัปดาห์</b></td></tr>
+          <tr><td><b>Productized service</b><br><span style="color:var(--ink-3);font-size:12.5px">$5,000–15,000 ราคาคงที่ ขอบเขตเดียว</span></td><td>ได้ <b>pattern library</b> — ทำซ้ำ 5 เคสจะเห็นว่าส่วนไหนเหมือนกันทุกครั้ง นั่นคือ product ตัวจริง · <span style="color:var(--rust)">กับดัก: กินเวลาจนไม่เหลือแรงสร้าง product</span></td><td class="dur"><b>2–5 สัปดาห์</b></td></tr>
+          <tr><td><b>Cost arbitrage</b><br><span style="color:var(--ink-3);font-size:12.5px">ตัวคูณ ไม่ใช่กลยุทธ์เดี่ยว</span></td><td>ฐานต้นทุนไทย + ราคาตลาดโลก = runway ยาวกว่าคู่แข่ง 3–5 เท่า แปลว่า <b>รอให้สนามชัดแล้วค่อยลงหนักได้</b></td><td class="dur">ต่อเนื่อง</td></tr>
+          <tr><td><b>Free wedge tool</b><br><span style="color:var(--ink-3);font-size:12.5px">scanner · benchmark · leaderboard</span></td><td>เงินเข้า 0 บาท แต่ได้ deal flow + ความน่าเชื่อถือ + ข้อมูลว่าใครกำลังพยายามทำอะไร</td><td class="dur">0 · จ่ายดอกยาว</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="gate" style="margin-top:20px">
+      <span class="gm">เพดาน</span>
+      <p><strong>Quick win ≤ 30% ของเวลาต่อสัปดาห์</strong> เกินเมื่อไรถือว่ากำลังหนีงานยาก · เดือนที่ 6 ถ้ายังกินเวลาเกิน 30% และยังไม่เปลี่ยนเป็นข้อมูล/ลูกค้าให้ main bet เลย → ปิดทิ้ง ไม่ใช่ลดขนาด</p>
+    </div>
+  </section>
+
+  <section class="col">
+    <div class="shead"><span class="num">07</span><h2>เส้นทางและด่าน</h2></div>
+    <p class="sdek">ออกแบบให้ “รู้ความจริงเร็วที่สุดด้วยเงินน้อยที่สุด” — งบรวมของทั้ง 3 probe คือ ≤$500 และ 4 สัปดาห์ ถ้าใช้เกินนี้แปลว่ากำลัง build อยู่ ไม่ได้ probe</p>
+    <div class="track">
+      <div class="ph"><div class="pl"><span class="pn">Phase 0</span><span class="pw">สัปดาห์ 1–2</span></div>
+        <div><h4>ลับเลนส์ — ยังไม่มองโอกาสเลย</h4><p>เขียน world model และเกณฑ์ตัดสินใจ <strong>ก่อน</strong>เห็นตัวเลือก เพื่อกันการออกแบบเกณฑ์ให้ตัวเลือกที่เราชอบชนะ</p><span class="state done">เสร็จ</span></div></div>
+      <div class="ph"><div class="pl"><span class="pn">Phase 1</span><span class="pw">สัปดาห์ 2–5</span></div>
+        <div><h4>สแกนและประเมิน</h4><p>32 โอกาส → ให้คะแนน → 3 finalists พร้อมสมมติฐานที่ผิดได้</p><span class="state done">เสร็จ</span></div></div>
+    </div>
+    <div class="gate" style="margin:14px 0"><span class="gm">GATE 1</span><p>ทุก finalist ต้องมีสมมติฐานที่ <strong>ผิดได้</strong> เขียนชัด ไม่ใช่ “น่าจะดี” — ✅ ผ่านแล้ว</p></div>
+    <div class="track">
+      <div class="ph"><div class="pl"><span class="pn">Phase 2</span><span class="pw">สัปดาห์ 5–9</span></div>
+        <div><h4>Probe ราคาถูก — ยังไม่ build ของจริง</h4><p>3 probe ขนานกัน: money probe (ยิงหา ICP 40 ราย → ขอ pilot $2,000) · build probe (prototype 72 ชม. วัดคนกลับมาใช้รอบที่ 3) · demand probe (วัดว่า LLM เปล่าตอบผิดกี่ % ในโดเมนเป้าหมาย)</p><span class="state next">ถัดไป</span></div></div>
+    </div>
+    <div class="gate" style="margin:14px 0"><span class="gm">GATE 2</span><p>ต้องมี<strong>เงินหรือ LOI จริงจากคนแปลกหน้า ≥1 ราย</strong> — ไม่ผ่านเลย = กลับ Phase 1 ไม่ใช่ “ลองอีกหน่อย” · ผ่านแบบก้ำกึ่ง ยืดได้ 1 สัปดาห์เดียว เพราะความก้ำกึ่งที่ยืดเกินนั้นคือการปฏิเสธความจริงแบบมีตารางเวลา</p></div>
+    <div class="track">
+      <div class="ph"><div class="pl"><span class="pn">Phase 3</span><span class="pw">สัปดาห์ 9–20</span></div>
+        <div><h4>ลงมือ</h4><p>เลือก 1 อันเป็น main bet + 1 quick win เป็นเครื่องปั่นเงินสด · v1 → ลูกค้าจ่ายเงิน 10 รายแรก · GTM เลือกช่องทางเดียวทำให้ลึกก่อนกระจาย</p><span class="state wait">รอ</span></div></div>
+      <div class="ph"><div class="pl"><span class="pn">Phase 4</span><span class="pw">เดือน 6–18</span></div>
+        <div><h4>สะสมความได้เปรียบ</h4><p>ต้องตอบให้ได้ว่า “ยิ่งทำนาน เราได้เปรียบขึ้นตรงไหน” — ถ้าตอบไม่ได้ แปลว่ายังเป็น<em>งาน</em> ไม่ใช่<em>ธุรกิจ</em></p><span class="state wait">รอ</span></div></div>
+    </div>
+  </section>
+
+  <section class="col">
+    <div class="shead"><span class="num">08</span><h2>สัญญาณว่าอ่านโลกผิด</h2></div>
+    <p class="sdek">วัดเอง อย่าเชื่อ marketing — และตัวเลขที่ไม่มีเกณฑ์ล่วงหน้าคือตัวเลขที่จะถูกตีความเข้าข้างตัวเอง ทบทวนทุกวันที่ 1 ของเดือน 30 นาที</p>
+    <div class="sps">
+      <div class="sp"><span class="spid">SP-2</span><h4>โมเดลตรวจงานตัวเองแม่นแค่ไหน</h4><p>รัน self-check บนชุดงานที่เรารู้เฉลย จดอัตราจับผิดได้ทุกเดือน</p><p class="trig">&gt;90% = สมมติฐานแกนพัง F1 และ F2 ตายทั้งคู่</p></div>
+      <div class="sp up"><span class="spid">SP-4</span><h4>มีใครขาย outcome-based เพิ่มไหม</h4><p>นับรายที่ประกาศราคาต่อผลลัพธ์ ฐาน ส.ค. 2026 = 2 ราย</p><p class="trig">โตต่อเนื่อง = F1 ถูกทาง · หยุดนิ่ง 2 ไตรมาส = ตลาดเล็กเกินไป</p></div>
+      <div class="sp"><span class="spid">SP-5</span><h4>vendor ดูดชั้น infra เร็วแค่ไหน</h4><p>อ่าน changelog ของ Anthropic/OpenAI/Google รายเดือน จดว่ากินสนามไหนไปแล้ว</p><p class="trig">กิน eval + identity + billing ครบ = กลุ่ม B และ C ตายเกือบหมด</p></div>
+      <div class="sp"><span class="spid">SP-6</span><h4>เงินทุนไหลเข้าสนาม agent</h4><p>ฐาน: ก.ค. 2026 ราว $1.8B ใน 12+ ดีล</p><p class="trig">ลง &gt;60% สองไตรมาสติด = ลูกค้า builder หาย → เร่งย้ายไป F3</p></div>
+      <div class="sp"><span class="spid">SP-8</span><h4>มาตรฐาน S3 ลงตัวหรือยัง</h4><p>AP2 / ACP / UCP / x402 — ดูว่ามีตัวไหนถูกใช้จริงในปริมาณ ไม่ใช่แค่ประกาศ</p><p class="trig">ตัวใดชนะชัด = ดึง D4 และ C2 กลับมาทันที</p></div>
+      <div class="sp up"><span class="spid">SP-10</span><h4>ท่าทีของ regulator เรื่องความรับผิด</h4><p>EU AI Act + regulator ภาคการเงินและสุขภาพ</p><p class="trig">เข้มขึ้น = ข่าวดีสำหรับ F1 และ C7 ยิ่งต้องมีคนกลางตรวจ</p></div>
+    </div>
+    <div class="tripwire">
+      <p class="eyebrow">Tripwire</p>
+      <p>ถ้าสัญญาณพลิกสวนสมมติฐานหลัก <strong>2 ข้อขึ้นไปในไตรมาสเดียว</strong> → หยุดและกลับไปเขียน world model ใหม่ · สิ่งที่ห้ามทำคือปรับหน้างานไปเรื่อย ๆ แล้วบอกตัวเองว่ากำลัง pivot — การ pivot ที่ไม่ได้แก้ world model คือการเดินวนด้วยความเร็วสูง</p>
+    </div>
+  </section>
+
+  <section class="col">
+    <div class="shead"><span class="num">09</span><h2>สิ่งที่ยังไม่ตัดสิน — โดยตั้งใจ</h2></div>
+    <p class="sdek">ไม่เลือกตอนนี้ แต่กำหนดชัดว่าเลือกเมื่อไรและด้วยอะไร การไม่ตัดสินใจที่มีเส้นตายคือกลยุทธ์ การไม่ตัดสินใจที่ไม่มีเส้นตายคือการผัดวันประกันพรุ่ง</p>
+    <div class="dl">
+      <div class="di"><span class="dq">Product หรือ Service</span><span class="dw">จบ Gate 2</span><span class="dh">ผลของ money probe — อันไหนมีคนจ่ายก่อน</span></div>
+      <div class="di"><span class="dq">สนามไหน</span><span class="dw">ยืนยัน Gate 2</span><span class="dh">คะแนน rubric + หลักฐานความเจ็บจากคนจริง ไม่ใช่จากรายงานเทรนด์</span></div>
+      <div class="di"><span class="dq">ICP เจาะจง</span><span class="dw">ระหว่าง Phase 2</span><span class="dh">ใครตอบกลับและนัดคุยเร็วที่สุด ไม่ใช่ใครที่เราอยากได้</span></div>
+      <div class="di"><span class="dq">Pricing model</span><span class="dw">Phase 3</span><span class="dh">ตาม stage ของ ICP — อยู่ S1 ขาย seat · อยู่ S2 ขาย outcome</span></div>
+      <div class="di"><span class="dq">ช่องทาง GTM</span><span class="dw">Phase 3</span><span class="dh">ICP อยู่ที่ไหน — ไม่ใช่เราถนัดที่ไหน</span></div>
+      <div class="di"><span class="dq">จะระดมทุนไหม</span><span class="dw">หลังลูกค้า 10 ราย</span><span class="dh">ระดมเมื่อคอขวดคือเงินเท่านั้น ถ้าคอขวดคือความรู้ การระดมทุนจะทำให้แย่ลง</span></div>
+    </div>
+  </section>
+
+  <footer class="col">
+    <p><strong>ข้อจำกัดที่ต้องรู้:</strong> ตัวเลขทั้งหมดในหน้านี้มาจากแหล่งสาธารณะที่ยังไม่ได้ verify ชั้นสอง ก่อนใช้ตัดสินใจลงเงินจริงต้องยืนยันกับแหล่งปฐมภูมิ — หน้า pricing ของ vendor เอง และ registry API จริง · คะแนนทั้ง 32 รายการมาจาก desk research ยังไม่ผ่านการคุยกับลูกค้าแม้แต่รายเดียว</p>
+    <p style="margin-top:12px">เอกสารฉบับเต็มและเครื่องมือทำงานอยู่ใน <span class="mono">strategy/</span> — world model · rubric · probe briefs · signposts · scan sheet · probe log · weekly review</p>
+  </footer>
+
+</div>
