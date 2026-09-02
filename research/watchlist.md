@@ -111,6 +111,13 @@ Firms, labs, and authors whose output is worth following. Grow this list over ti
 | Anran Hu / Silvana M. Pesenti / Xiaofei Shi | Authors | Continuous-time CVaR-constrained dynamic allocation — auxiliary-threshold rep, strong duality without market completeness, asymmetric state-dependent de-risking (added 2026-08-26) |
 | Patrick Cheridito / Moritz Weiss (ETH Zürich) | Authors | Multi-level RL market making — logistic-normal order allocation, deep-set LOB encoder, potential-based reward shaping (added 2026-08-26) |
 | Xin Guo / Ruixun Zhang | Authors | Tradable Itô signatures — signature components as self-financing-replicable hedging instruments, model-free interpretable dynamic hedging (added 2026-08-26) |
+| Eray Gençay | Author | Leakage-safe, search-aware honest evaluation of LLM strategy discovery — structural (not statistical) look-ahead guardrails; leaky-oracle-survives-DSR demonstration (added 2026-09-02) |
+| Ezra Goliath / Tim Gebbie | Authors | Metaorder reconstruction & Lillo-Mike-Farmer identification from *anonymous* public data; impact-stylised-facts ≠ mechanism validation (added 2026-09-02) |
+| Sheryan Kumar | Author | Real-data deep-hedging vs classical no-trade-band on crypto options — honest negatives (deep nets fail to learn inactivity) (added 2026-09-02) |
+| Christian Bongiorno / Lorenzo Villassero | Authors | Neural shrinkage of indefinite pairwise-complete correlation matrices for small-cap universes (extends Bongiorno/Mantegna covariance-cleaning lineage) (added 2026-09-02) |
+| Marcus Gawronsky / Chun-Sung Huang | Authors | Portfolio risk geometry from LLM news-embedding Wasserstein distributional fields, no return covariance (early/in-sample) (added 2026-09-02) |
+| Parsa Yousefnezhad | Author | Multi-scale-TCN (InceptionTCN) + profit-optimized-threshold forecasting of economically-significant BTC moves (added 2026-09-02) |
+| Nils Bundi | Author | AMM LP economics — optimal block time under jump-diffusion prices (block cadence vs LVR/fees) (added 2026-09-02) |
 | _add your own…_ | | |
 
 ---
