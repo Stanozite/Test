@@ -1,48 +1,47 @@
-id,company,vertical,outcome_unit,price,tier,source_url,verified_date,contact_name,contact_role,sent_date,replied,call_booked,had_dispute,offered_pilot,result
-1,Intercom Fin,cx,resolved conversation,$0.99,T1,https://fin.ai/learn/ai-customer-service-agent-pricing-comparison,,,,,,,,,
-2,Zendesk AI Agents,cx,automated resolution,$1.50 committed / $2.00 payg,T1,https://fin.ai/learn/ai-customer-service-agent-pricing-comparison,,,,,,,,,
-3,Salesforce Agentforce,cx,conversation,$2.00,T1,https://quickchat.ai/post/ai-agent-pricing-models,,,,,,,,,
-4,HubSpot Breeze Customer Agent,cx,resolved conversation,$0.50,T1,https://quickchat.ai/post/ai-agent-pricing-models,,,,,,,,,
-5,Lorikeet,cx,resolution,~$0.80,T1,https://www.lorikeetcx.ai/articles/best-per-resolution-priced-ai-support-2026,,,,,,,,,
-6,Quickchat AI,cx,resolution,~$0.50-0.60,T1,https://quickchat.ai/post/ai-agent-pricing-models,,,,,,,,,
-7,Sierra,cx,outcome (custom),undisclosed,T2,https://sierra.ai/blog/outcome-based-pricing-for-ai-agents,,,,,,,,,
-8,Decagon,cx,outcome (custom),undisclosed,T2,https://www.getmacha.com/blog/best-decagon-ai-alternatives,,,,,,,,,
-9,Ada,cx,outcome (custom),undisclosed,T2,https://fin.ai/learn/ai-customer-service-agent-pricing-comparison,,,,,,,,,
-10,Parloa,cx,OPPOSES outcome pricing - prefers per-minute,per minute,T0,https://www.forbes.com/sites/parloa/2026/01/06/outcome-based-pricing-the-most-expensive-myth-in-enterprise-ai/,,,,,,,,,
-11,Forethought,cx,unknown,unknown,T3,,,,,,,,,,
-12,Gradient Labs,cx,unknown,unknown,T3,,,,,,,,,,
-13,Crescendo,cx,unknown,unknown,T3,,,,,,,,,,
-14,Maven AGI,cx,unknown,unknown,T3,,,,,,,,,,
-15,Freshworks Freddy,cx,unknown,unknown,T3,,,,,,,,,,
-16,Gorgias,cx,unknown,unknown,T3,,,,,,,,,,
-17,Kustomer,cx,unknown,unknown,T3,,,,,,,,,,
-18,Thena,cx,unknown,unknown,T3,,,,,,,,,,
-19,eesel AI,cx,unknown,unknown,T3,,,,,,,,,,
-20,Macha AI,cx,unknown,unknown,T3,,,,,,,,,,
-21,Sobot,cx,unknown,unknown,T3,,,,,,,,,,
-22,Aissist,cx,unknown,unknown,T3,,,,,,,,,,
-23,AnyReach,cx,unknown,unknown,T3,,,,,,,,,,
-24,PolyAI,cx,unknown,unknown,T3,,,,,,,,,,
-25,Cognigy,cx,unknown,unknown,T3,,,,,,,,,,
-26,Moveworks,itsd,ticket deflected (assumed),unknown,T3,,,,,,,,,,
-27,Aisera,itsd,ticket deflected (assumed),unknown,T3,,,,,,,,,,
-28,Espressive,itsd,ticket deflected (assumed),unknown,T3,,,,,,,,,,
-29,Atomicwork,itsd,ticket deflected (assumed),unknown,T3,,,,,,,,,,
-30,Chargeflow,fintech,won dispute,25% of won disputes,T1,https://www.chargeflow.io/pricing,,,,,,,,,
-31,HighRadius,fintech,outcome (custom),undisclosed,T2,https://www.highradius.com/resources/Blog/outcome-based-pricing-ai/,,,,,,,,,
-32,Aurai,fintech,unknown,unknown,T3,,,,,,,,,,
-33,Redo,fintech,unknown,unknown,T3,,,,,,,,,,
-34,Dropzone AI,security,investigation,~$9 historic - now quoted,T2,https://underdefense.com/blog/dropzone-pricing/,,,,,,,,,
-35,Radiant Security,security,CONTROL - flat rate not outcome,$0.44-0.66 effective per alert,T1-neg,https://underdefense.com/blog/radiant-security-pricing/,,,,,,,,,
-36,Prophet Security,security,unknown,custom quote,T3,,,,,,,,,,
-37,Intezer,security,unknown,unknown,T3,,,,,,,,,,
-38,7AI,security,unknown,unknown,T3,,,,,,,,,,
-39,HubSpot Breeze prospecting,sales,qualified lead,~$1.00,T1,https://www.artisan.co/blog/how-much-does-an-ai-sdr-cost-pricing-compared-to-human-sdrs,,,,,,,,,
-40,11x,sales,LIKELY FAIL - subscription,~$3750/mo,T3,https://formanorden.com/blog/ai-sdr-pricing/,,,,,,,,,
-41,Artisan,sales,LIKELY FAIL - usage based,$1500-2000/mo,T3,https://formanorden.com/blog/ai-sdr-pricing/,,,,,,,,,
-42,AiSDR,sales,unknown,unknown,T3,,,,,,,,,,
-43,SmarterDx,healthcare-rcm,per chart or % recovered (assumed),unknown,T3,,,,,,,,,,
-44,CodaMetrix,healthcare-rcm,per coded encounter (assumed),unknown,T3,,,,,,,,,,
-45,Anterior,healthcare-rcm,per review (assumed),unknown,T3,,,,,,,,,,
-46,Adonis,healthcare-rcm,% recovered (assumed),unknown,T3,,,,,,,,,,
-47,EvenUp,legal,per demand package (assumed),unknown,T3,,,,,,,,,,
+id,company,vertical,outcome_type,outcome_unit,price,tier,evidence,source_url,checked_date
+1,Intercom Fin,cx,conditional,resolved conversation,$0.99,T1,charges only on resolution,https://fin.ai/learn/ai-customer-service-agent-pricing-comparison,2026-08-29
+2,Zendesk AI Agents,cx,conditional,automated resolution,$1.50 committed / $2.00 payg,T1,explicitly no charge on failed attempts,https://fin.ai/learn/ai-customer-service-agent-pricing-comparison,2026-08-29
+3,Salesforce Agentforce,cx,conditional,conversation,$2.00,T1,per conversation - verify whether failure is billed,https://quickchat.ai/post/ai-agent-pricing-models,2026-08-29
+4,HubSpot Breeze Customer Agent,cx,conditional,resolved conversation,$0.50,T1,cut from $1.00 per handled to $0.50 per resolved Apr 2026,https://quickchat.ai/post/ai-agent-pricing-models,2026-08-29
+5,Lorikeet,cx,conditional,resolution,~$0.80,T1,listed among per-resolution platforms,https://www.lorikeetcx.ai/articles/best-per-resolution-priced-ai-support-2026,2026-08-29
+6,Quickchat AI,cx,conditional,resolution,~$0.50-0.60,T1,enterprise per-resolution from $0.50,https://quickchat.ai/post/ai-agent-pricing-models,2026-08-29
+7,Sierra,cx,conditional,outcome (custom),undisclosed,T2,pay for results not tokens - no published rate,https://sierra.ai/blog/outcome-based-pricing-for-ai-agents,2026-08-29
+8,Decagon,cx,conditional,outcome (custom),undisclosed,T2,per-outcome model - NDA before rates,https://www.getmacha.com/blog/best-decagon-ai-alternatives,2026-08-29
+9,Ada,cx,conditional,outcome (custom),undisclosed,T2,per-outcome model - no published rate,https://fin.ai/learn/ai-customer-service-agent-pricing-comparison,2026-08-29
+10,Parloa,cx,opposes,per minute,per minute,T0,published Forbes piece calling outcome pricing an elegant trap,https://www.forbes.com/sites/parloa/2026/01/06/outcome-based-pricing-the-most-expensive-myth-in-enterprise-ai/,2026-08-29
+11,Gorgias,cx,per-unit,AI interaction,$0.90-1.00 plus $0.36-0.40 helpdesk ticket,T1,billed per interaction not resolution - double billed,https://www.getmacha.com/blog/gorgias-ai-agent-explained,2026-08-29
+12,Freshworks Freddy,cx,per-unit,session,$0.10 per session,T1,charges every session regardless of resolution,https://fin.ai/learn/ai-customer-service-agent-pricing-comparison,2026-08-29
+13,eesel AI,cx,per-unit,ticket,$0.40 per ticket,T1,charges per ticket whether or not resolved,https://www.eesel.ai/blog/moveworks-pricing,2026-08-29
+14,Kustomer,cx,fail,seat,$89-139/user/month,T1,per seat,https://fin.ai/learn/ai-customer-service-agent-pricing-comparison,2026-08-29
+15,Aissist,cx,fail,message,$0.09 per interaction,T1,per message not per conversation,https://www.eesel.ai/blog/aissist-io-pricing,2026-08-29
+16,Gradient Labs,cx,unknown,unknown,unknown,T3,no pricing found,,2026-08-29
+17,Crescendo,cx,unknown,unknown,unknown,T3,no pricing found,,2026-08-29
+18,Maven AGI,cx,unknown,unknown,unknown,T3,no public price list,https://www.eesel.ai/blog/maven-agi-pricing,2026-08-29
+19,Thena,cx,unknown,unknown,unknown,T3,no pricing found,,2026-08-29
+20,Macha AI,cx,unknown,unknown,unknown,T3,no pricing found,,2026-08-29
+21,Sobot,cx,unknown,unknown,unknown,T3,no pricing found,,2026-08-29
+22,AnyReach,cx,unknown,unknown,unknown,T3,no pricing found,,2026-08-29
+23,PolyAI,cx,unknown,enterprise custom,undisclosed,T3,custom enterprise pricing,,2026-08-29
+24,Cognigy,cx,unknown,enterprise custom,undisclosed,T3,custom enterprise pricing,,2026-08-29
+25,Atomicwork,itsd,conditional,outcome,undisclosed,T2,offers pay per outcome or by usage for AI Workforce,https://www.atomicwork.com/pricing,2026-08-29
+26,Moveworks,itsd,fail,employee headcount,$150/user/yr band,T1,bills total headcount not tickets,https://www.eesel.ai/blog/moveworks-pricing,2026-08-29
+27,Espressive,itsd,fail,employee headcount,10-20% below Moveworks,T2,per employee like Moveworks,https://www.eesel.ai/blog/moveworks-alternatives,2026-08-29
+28,Aisera,itsd,fail,enterprise license,from $200K/yr,T2,custom enterprise licensing by scope and volume,https://www.rezolve.ai/blog/moveworks-vs-aisera,2026-08-29
+29,Chargeflow,fintech,conditional,won dispute,25% of won disputes,T1,no win no fee - alerts billed only when prevented,https://www.chargeflow.io/pricing,2026-08-29
+30,Aurai,fintech,conditional,won dispute,25% on wins,T1,start free pay 25% on wins only,https://aurai.dev/vs/chargeflow,2026-08-29
+31,HighRadius,fintech,conditional-unverified,outcome (custom),undisclosed,T2,announced outcome-based Feb 2026 - conditionality unconfirmed,https://www.highradius.com/resources/Blog/outcome-based-pricing-ai/,2026-08-29
+32,Redo,fintech,unknown,unknown,unknown,T3,no pricing found,,2026-08-29
+33,Prophet Security,security,per-unit,investigation,~$10 per investigation,T1,$50k for 5000 investigations - billed per investigation not per finding,https://www.trustradius.com/products/prophet-security/pricing,2026-08-29
+34,Dropzone AI,security,per-unit,investigation,~$9 historic - now quoted,T2,per investigation - public price withdrawn 2026,https://underdefense.com/blog/dropzone-pricing/,2026-08-29
+35,Radiant Security,security,fail,flat rate unlimited,$0.44-0.66 effective per alert,T1,CONTROL GROUP - flat rate not outcome,https://underdefense.com/blog/radiant-security-pricing/,2026-08-29
+36,Intezer,security,fail,endpoint,per endpoint subscription,T1,priced per endpoint not per alert,https://intezer.com/guides/soc-as-a-service/prophet-security,2026-08-29
+37,7AI,security,unknown,enterprise custom,undisclosed,T3,quote only no published list price,,2026-08-29
+38,HubSpot Breeze prospecting,sales,conditional,qualified lead,~$1.00,T1,industry-first outcome pricing for prospecting Apr 2026,https://www.artisan.co/blog/how-much-does-an-ai-sdr-cost-pricing-compared-to-human-sdrs,2026-08-29
+39,11x,sales,fail,subscription,$3750/mo growth tier,T1,flat annual contract,https://formanorden.com/blog/ai-sdr-pricing/,2026-08-29
+40,Artisan,sales,fail,usage,quote-scoped $280-5000/mo,T2,charges for work performed not outcomes,https://www.cleanlist.ai/blog/2026-07-23-ai-sdr-pricing-statistics,2026-08-29
+41,AiSDR,sales,unknown,unknown,unknown,T3,no clear model found,,2026-08-29
+42,SmarterDx,healthcare-rcm,conditional,contingency on findings,undisclosed %,T2,raised contingency rates - tripled average contract value,https://www.flarecapital.com/insight/from-seed-to-hyperscale-in-3-years-how-smarterdx-is-cracking-the-healthcare-ai-code-2/,2026-08-29
+43,Anterior,healthcare,conditional,measurable impact,undisclosed,T2,value-based - does not charge without measurable impact,https://www.alleywatch.com/2026/03/anterior-health-insurance-clinical-ai-platform-prior-authorization-payer-workflow-administrative-efficiency-abdel-mahmoud/,2026-08-29
+44,Adonis,healthcare-rcm,conditional-partial,per claim OR % of recovered denials,undisclosed,T2,offers both models - must ask which customers pick,https://adonis.io/resources/adonis-raises-40m-series-c-to-equip-healthcare-providers-with-ai-driven-revenue-cycle-operations,2026-08-29
+45,CodaMetrix,healthcare-rcm,per-unit,coded encounter,base fee plus per-encounter tiers,T2,platform fee plus per-encounter - not conditional,https://medaiverdict.com/tools/codametrix,2026-08-29
+46,EvenUp,legal,unknown,case-based,undisclosed,T3,moved to all-in-one case-based pricing - no public rates,https://www.aivortex.io/legal/ai-tools/evenup/,2026-08-29

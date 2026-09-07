@@ -612,37 +612,55 @@
 
   <section class="col">
     <div class="shead"><span class="num">09</span><h2>ลิสต์เป้าหมาย PROBE-1</h2></div>
-    <p class="sdek">ด่านตายด่านแรกของ F1 — ลิสต์ผู้สมัคร 47 รายพร้อมแล้ว แต่<strong>ยังไม่ผ่าน 2 ใน 3 เกณฑ์</strong> การหาชื่อเพิ่มไม่ใช่งานที่เหลือ การยืนยันหลักฐานต่างหาก</p>
+    <p class="sdek">ตรวจครบ 46 รายแล้ว — และการตรวจทำให้เห็นว่า<strong>นิยามที่ใช้มาตลอดหลวมเกินไป</strong> เมื่อรัดให้แน่น ตลาดของ F1 หดลงมากและ<strong>ยังไม่ผ่านเกณฑ์</strong></p>
 
-    <div class="tbl-wrap" style="margin-bottom:20px">
+    <div class="tbl-wrap" style="margin-bottom:24px">
       <table>
-        <thead><tr><th>เกณฑ์ (แก้ไข 29 ส.ค. ก่อนเริ่ม probe)</th><th>สถานะ</th><th>เหลือทำอะไร</th></tr></thead>
+        <thead><tr><th>คำว่า “outcome-based” หมายถึงสองอย่าง</th><th>คิดเงินเมื่อ</th><th>มีข้อพิพาทให้ตัดสินไหม</th></tr></thead>
         <tbody>
-          <tr><td>≥40 ราย</td><td class="dur long">✅ 47</td><td>—</td></tr>
-          <tr><td>≥12 รายนอก customer support</td><td class="dur mid">🟡 ผู้สมัคร 22 · ยืนยัน 2</td><td>ตรวจ T3 ให้ผ่านอีก ≥10</td></tr>
-          <tr><td>≥8 ราย ยืนยันราคาจากเว็บบริษัทเอง</td><td class="dur no">❌ 0</td><td>ทั้ง 8 รายชั้น T1 อ้างจากบล็อกเปรียบเทียบ ต้องเปิดหน้าจริง</td></tr>
+          <tr><td><b>(ก) Outcome-conditional</b><br><span style="color:var(--ink-3);font-size:12.5px">Zendesk · Chargeflow 25% ของ dispute ที่ชนะ · Anterior</span></td><td><b>สำเร็จเท่านั้น</b><br>ล้มเหลว = ไม่คิดเงิน</td><td class="dur long">มี — <b>ตลาดของ F1</b></td></tr>
+          <tr><td><b>(ข) Per-unit-of-work</b><br><span style="color:var(--ink-3);font-size:12.5px">Prophet $10/investigation · eesel $0.40/ticket · Gorgias · Freshworks</span></td><td>ทุกครั้งที่ทำงาน<br>สำเร็จหรือไม่ก็คิด</td><td class="dur no">ไม่มี — ไม่ใช่ตลาดของ F1</td></tr>
         </tbody>
       </table>
     </div>
 
-    <div class="tbl-wrap">
+    <div class="tripwire" style="margin-bottom:24px">
+      <p class="eyebrow">แก้ความเข้าใจของตัวเอง</p>
+      <p>ตัวเลข <span class="mono">~21.7%</span> ของสัญญาองค์กรที่เราตื่นเต้นรอบก่อน <strong>รวมแบบ (ข) และ hybrid เข้าไปด้วย — ห้ามอ่านเป็น TAM ของ F1</strong> · TAM จริงคือแบบ (ก) เท่านั้น ซึ่งเล็กกว่ามากและกระจุกใน CX หนักกว่าเดิม ไม่ใช่เบาลง</p>
+    </div>
+
+    <div class="tbl-wrap" style="margin-bottom:20px">
       <table>
-        <thead><tr><th>หมวด</th><th>ราย</th><th>ที่ยืนยันราคาได้</th></tr></thead>
+        <thead><tr><th>เกณฑ์</th><th>สถานะ</th><th>เหลือทำอะไร</th></tr></thead>
         <tbody>
-          <tr><td><b>Customer support / CX</b></td><td>25</td><td>Intercom $0.99 · Zendesk $1.50–2.00 · Agentforce $2.00 · HubSpot $0.50 · Lorikeet ~$0.80 · Quickchat ~$0.50</td></tr>
-          <tr><td>IT service desk</td><td>4</td><td class="dur no">ยังไม่มี</td></tr>
-          <tr><td>Finance / order-to-cash</td><td>4</td><td><b>Chargeflow 25% ของ dispute ที่ชนะ</b></td></tr>
-          <tr><td>Security / SOC</td><td>5</td><td>Dropzone ~$9/investigation (ถอนราคาแล้ว)</td></tr>
-          <tr><td>Sales / GTM</td><td>4</td><td><b>HubSpot Breeze ~$1.00/qualified lead</b></td></tr>
-          <tr><td>Healthcare RCM</td><td>4</td><td class="dur no">ยังไม่มี — แต่ contingency มีมาก่อน AI</td></tr>
-          <tr><td>Legal</td><td>1</td><td class="dur no">ยังไม่มี</td></tr>
+          <tr><td>≥40 ราย</td><td class="dur long">✅ 46</td><td>Forethought ถูก Zendesk ซื้อ ตัดออก</td></tr>
+          <tr><td>≥12 รายนอก CX <b>แบบ (ก)</b></td><td class="dur no">❌ 6</td><td>นับหลวมสุดก็ได้ 8 · ขยายไปหมวดที่มีวัฒนธรรม contingency อยู่แล้ว</td></tr>
+          <tr><td>≥8 ราย ยืนยันจากเว็บบริษัทเอง</td><td class="dur no">⛔ ตรวจไม่ได้</td><td>network policy บล็อก egress ต้องเปิดเว็บเอง</td></tr>
         </tbody>
       </table>
+    </div>
+
+    <div class="tbl-wrap" style="margin-bottom:20px">
+      <table>
+        <thead><tr><th>ผลตรวจ 46 ราย</th><th>จำนวน</th><th>ใคร</th></tr></thead>
+        <tbody>
+          <tr><td><b>(ก) outcome-conditional</b></td><td class="dur">15</td><td>นอก CX 6: Chargeflow · Aurai · Anterior · SmarterDx · Atomicwork · HubSpot Breeze prospecting</td></tr>
+          <tr><td>ก้ำกึ่ง</td><td class="dur">2</td><td>Adonis (ทำได้ทั้งสองแบบ) · HighRadius (ประกาศแล้วแต่ไม่รู้รายละเอียด)</td></tr>
+          <tr><td>(ข) per-unit-of-work</td><td class="dur">6</td><td>Gorgias · Freshworks · eesel · Prophet · Dropzone · CodaMetrix</td></tr>
+          <tr><td>ตกรอบ</td><td class="dur">9</td><td>Moveworks/Espressive (ต่อหัวพนักงาน) · Aisera · Intezer · Kustomer · Aissist · 11x · Artisan · Radiant</td></tr>
+          <tr><td>ตรวจไม่ได้</td><td class="dur">13</td><td>ส่วนใหญ่ “custom quote” — ซึ่งบอกเองว่า ICP คนละแบบกับที่ probe ออกแบบไว้</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="gate" style="margin-bottom:20px">
+      <span class="gm">ห้ามทำ</span>
+      <p>อย่าลดนิยามกลับไปนับแบบ (ข) เพื่อให้ครบ 12 — นั่นคือการโกงตัวเองแบบที่ anti-checklist เตือนไว้พอดี และธุรกิจที่ได้จะไม่มีข้อพิพาทให้ตัดสิน ซึ่งแปลว่า<strong>ไม่มีสินค้า</strong> · ถ้าครบสัปดาห์ยังไม่ถึง 12 → ฆ่า F1 ตามกติกา เลื่อน F2/F3 ขึ้นมาแทน</p>
     </div>
 
     <div class="gate" style="margin-top:20px">
       <span class="gm">พลิกมุม</span>
-      <p><strong>Parloa ลง Forbes ค้านโมเดลนี้ตรง ๆ</strong> เรียกว่า “กับดักที่สวยงาม” ที่ย้ายมูลค่าจากองค์กรไปหา vendor — นี่เป็น<strong>ข่าวดี</strong>สำหรับ F1 เพราะแปลว่าผู้ซื้อไม่ไว้ใจตัวเลขที่ vendor รายงานเอง ซึ่งคือเหตุผลทั้งหมดที่คนกลางควรมีอยู่ · และมันตอบคำถามที่ค้างไว้ว่าผู้ซื้อคือใคร — <strong>น่าจะเป็นฝั่งองค์กรที่ซื้อ agent ไม่ใช่ฝั่งที่ขาย</strong></p>
+      <p><strong>Gorgias ถูกหลายเจ้าจัดว่าเป็น per-resolution ทั้งที่คิดต่อ interaction และคิดค่า ticket ซ้ำอีกชั้น</strong> · eesel และ Freshworks คิดต่อ ticket ไม่ว่าจะแก้ได้หรือไม่ แต่ถูกจัดกลุ่มรวมกัน · Parloa ลง Forbes เรียกโมเดลนี้ว่า “กับดักที่สวยงาม”<br><br>→ ปัญหาที่<strong>พิสูจน์แล้วว่ามีจริงวันนี้</strong> ไม่ใช่ “outcome นับไหม” แต่คือ <strong>“ราคาที่โฆษณาว่า outcome-based จริง ๆ คิดเงินยังไง”</strong> · ผู้ซื้อคือฝั่งที่กำลังจะซื้อ agent · ทำเป็น free wedge ได้ทันที และเป็น distribution ให้ F1 ตัวจริง — บันทึกเป็นผู้สมัครใหม่ <span class="mono">D6</span> ในสแกนแล้ว</p>
     </div>
   </section>
 

@@ -1,197 +1,148 @@
 # PROBE-1 · ลิสต์เป้าหมาย: บริษัทที่ขายแบบ Outcome-Based
 
-> ประกอบเมื่อ 2026-08-29 · สำหรับด่านตายด่านแรกของ PROBE-1 ใน `04-probe-briefs.md`
-> ตารางทำงานอยู่ที่ [`templates/probe1-targets.csv`](templates/probe1-targets.csv) — ใช้ไฟล์นั้นบันทึกผล ไฟล์นี้คือคำอธิบาย
+> ประกอบ 2026-08-29 · **ตรวจชั้น T3 ครบแล้ว 2026-08-29** · ตารางทำงาน: [`templates/probe1-targets.csv`](templates/probe1-targets.csv)
+> สถานะ: **ยังไม่ผ่านเกณฑ์ — 6 ราย จากที่ต้องการ 12**
 
 ---
 
-## 🔴 4 ข้อค้นพบที่เปลี่ยนโจทย์ — อ่านก่อนอย่างอื่น
+## 🔴 ข้อค้นพบหลัก: "outcome-based" ถูกใช้กับสองอย่างที่ต่างกันคนละเรื่อง
 
-### 1. ตลาดใหญ่กว่าที่เราประเมินไว้มาก — เราเดาผิด
+การตรวจ T3 ทำให้เห็นว่านิยามที่เราใช้มาตลอดหลวมเกินไป และเมื่อรัดให้แน่น **ตลาดของ F1 หดลงมาก**
 
-ตอนเขียน `01-world-model.md` เราเห็นแค่ 2 ราย (Zendesk, Intercom) แล้วสรุปว่า *"คนขาย outcome-based จริง ๆ ยังนับหัวได้"* **ประโยคนั้นผิด**
+| | **(ก) Outcome-conditional** | **(ข) Per-unit-of-work** |
+|---|---|---|
+| คิดเงินเมื่อ | **สำเร็จเท่านั้น** — ล้มเหลว ไม่คิดเงิน | **ทุกครั้งที่ทำงาน** สำเร็จหรือไม่ก็คิด |
+| ตัวอย่าง | Zendesk (ปิดเคสเองได้เท่านั้น) · Chargeflow 25% ของ dispute ที่ชนะ · Aurai 25% on wins · Anterior "ไม่คิดถ้าไม่มี measurable impact" | Prophet Security $10/investigation · eesel $0.40/ticket **ไม่ว่าจะแก้ได้หรือไม่** · Freshworks Freddy $0.10/session · Gorgias $0.90–1.00/interaction · CodaMetrix per-encounter |
+| **มีข้อพิพาทเรื่อง "นับไหม"** | **มี → นี่คือตลาดของ F1** | **ไม่มี → ไม่มีอะไรให้เถียง ไม่ใช่ตลาดของ F1** |
 
-- **~21.7% ของสัญญาซอฟต์แวร์องค์กรใน Q1 2026 เป็น outcome-based แล้ว** และ **60% เป็น hybrid** ที่ผสม seat กับ outcome
-- Futurum 1H 2026: **27% ของผู้ซื้อชอบโครงสร้างแบบ outcome** (43% ชอบ consumption)
+ตลาดเองก็แยกสองอย่างนี้ออกแล้ว — บทวิเคราะห์เปรียบเทียบ vendor เขียนตรง ๆ ว่า:
 
-→ ด่าน "หา 40 ราย" **ผ่านแน่ในเชิงจำนวน** แต่นั่นไม่ใช่ข่าวดีทั้งหมด
+> *"ราคาต่อหน่วยที่ถูกที่สุดไม่ใช่ราคาต่อ resolution — My AskAI และ eesel คิดเงินต่อ ticket ไม่ว่าจะแก้ปัญหาได้หรือไม่ · และ vendor แบบ custom ทุกรายคิดเงินคุณก่อนส่งมอบคุณค่า ผ่าน platform fee, implementation fee หรือ minimum — ซึ่งคือสิ่งที่ outcome pricing ควรกำจัดทิ้งพอดี"*
 
-### 2. ปัญหาจริงคือ "กระจุกใน CX" ไม่ใช่ "ตลาดเล็ก"
+### ผลต่อ F1 — ต้องอ่านให้ชัด
 
-รายที่มีราคาประกาศชัดเจน **เกือบทั้งหมดคือ customer support** นอกจากนั้นคือสัญญา custom ที่ไม่เปิดราคา หรือโมเดล contingency ที่มีมาก่อนยุค AI (RCM, กฎหมาย, chargeback)
+ตัวเลข **~21.7% ของสัญญาองค์กรที่เราตื่นเต้นรอบก่อน น่าจะรวมแบบ (ข) และ hybrid เข้าไปด้วย** → **ห้ามอ่านเป็น TAM ของ F1**
+TAM จริงของ F1 = แบบ (ก) เท่านั้น ซึ่งเล็กกว่ามาก และ**กระจุกใน CX หนักกว่าเดิม ไม่ใช่เบาลง**
 
-> **ถ้า F1 ขายได้เฉพาะ CX มันคือ feature ของ CX platform ไม่ใช่บริษัท**
+---
 
-นี่คือความเสี่ยงตัวจริง และควรกลายเป็นคำถามหลักของ probe แทนคำถามเดิม
+## 🚨 สถานะเทียบเกณฑ์ — ไม่ผ่าน 2 ใน 3 ข้อ
 
-### 3. มีคนออกมาค้านโมเดลนี้ต่อสาธารณะแล้ว — และนั่นเป็นข่าวดี
+| เกณฑ์ | สถานะ | รายละเอียด |
+|---|---|---|
+| ≥40 ราย | ✅ **46** | (ลดจาก 47 — Forethought ถูก Zendesk ซื้อไป มี.ค. 2026) |
+| **≥12 รายนอก CX แบบ (ก)** | ❌ **6** | นับเข้มงวด · นับหลวมสุด (รวมที่ยังไม่ยืนยันและที่ทำได้ทั้งสองแบบ) ก็ได้แค่ **8** |
+| ≥8 ราย verified จากเว็บบริษัทเอง | ⛔ **ตรวจไม่ได้** | ดูข้อจำกัดด้านล่าง |
 
-Parloa ลงบทความใน Forbes (ม.ค. 2026): *"Outcome-Based Pricing: The Most Expensive Myth In Enterprise AI"* — เรียกมันว่า **"กับดักที่สวยงาม"** ที่ย้ายมูลค่าจากองค์กรไปหา vendor และเชียร์ per-minute แทน
+**6 รายนอก CX ที่ผ่านแบบเข้มงวด**: Chargeflow · Aurai · Anterior · SmarterDx · Atomicwork · HubSpot Breeze prospecting
+**+2 รายก้ำกึ่ง**: Adonis (ทำได้ทั้งสองแบบ ต้องถามว่าลูกค้าส่วนใหญ่เลือกอันไหน) · HighRadius (ประกาศ outcome-based แต่ไม่รู้ว่าเป็นแบบ ก จริงไหม)
 
-ทำไมเป็นข่าวดีสำหรับ F1:
-- แปลว่า **ผู้ซื้อไม่ไว้ใจตัวเลขที่ vendor รายงานเอง** — ซึ่งคือเหตุผลทั้งหมดที่คนกลางควรมีอยู่
-- และมันตอบคำถามที่ค้างไว้ใน probe brief: **ผู้ซื้อของ F1 น่าจะเป็นฝั่งองค์กรที่ซื้อ agent มากกว่าฝั่งที่ขาย** — คนที่กลัวโดนกับดักคือคนที่อยากได้คนตรวจ
-- **Parloa จึงเป็นคนที่ควรคุยด้วยเป็นอันดับต้น ๆ ไม่ใช่ข้าม** — คนที่ค้านดังที่สุดมักอธิบายกลไกได้ดีที่สุด
+### ⛔ ข้อจำกัดที่ต้องบอกตรง ๆ
 
-### 4. ข้อเสนอแก้ kill criterion — ตัดสินเดี๋ยวนี้ หรือไม่แก้เลย
+**Session นี้ถูก network policy บล็อก egress ทั้งหมด** — WebFetch เข้าเว็บบริษัทไม่ได้เลย แม้แต่ `example.com` เหลือใช้ได้แค่ WebSearch ที่วิ่งผ่าน API ของ Anthropic
 
-`03-decision-rubric.md` เขียนไว้ว่า kill criteria แก้ได้เฉพาะ **ก่อน** เริ่ม probe เรายังไม่เริ่ม จึงแก้ได้อย่างชอบธรรม — แต่ต้องแก้ตอนนี้ ไม่ใช่ระหว่างทาง
+→ **เกณฑ์ "ยืนยันจากหน้าเว็บของบริษัทเอง" ทำจากที่นี่ไม่ได้** ต้องเปิดเองในเบราว์เซอร์ หรือรันในสภาพแวดล้อมที่เปิด egress
+→ ผลตรวจทั้งหมดด้านล่างเป็น **หลักฐานชั้นรอง** แม้บางรายจะมาจากหน้า pricing ของบริษัทเองที่โผล่ในผลค้นหา (Atomicwork, Chargeflow)
 
-| เดิม | ใหม่ |
+---
+
+## ผลตรวจรายบริษัท — 46 ราย
+
+### ✅ (ก) Outcome-conditional · 15 ราย
+
+**นอก CX — 6 ราย (นี่คือตัวเลขที่เกณฑ์วัด)**
+
+| บริษัท | หมวด | หน่วย | หลักฐาน |
+|---|---|---|---|
+| **Chargeflow** | chargeback | 25% ของ dispute ที่ชนะ | ไม่ชนะไม่คิดเงิน · alert คิดเฉพาะที่กันได้สำเร็จ |
+| **Aurai** | chargeback | 25% on wins | เริ่มฟรี จ่ายเฉพาะเคสที่ชนะ |
+| **Anterior** | healthcare | measurable impact | **ไม่คิดเงินถ้าไม่มีผลกระทบที่วัดได้** |
+| **SmarterDx** | healthcare RCM | contingency | ขึ้นค่า contingency ได้จนค่าเฉลี่ยสัญญาโตสามเท่า |
+| **Atomicwork** | IT service desk | outcome | เสนอทางเลือก **"pay per outcome"** บนหน้า pricing ตัวเอง |
+| **HubSpot Breeze** (prospecting) | sales | qualified lead ~$1.00 | outcome pricing สำหรับงานขาย รายแรก ๆ ในตลาด |
+
+**ใน CX — 9 ราย**
+Intercom Fin $0.99 · Zendesk $1.50–2.00 (ล้มเหลวไม่คิดเงินชัดเจน) · Salesforce Agentforce $2.00 · HubSpot Breeze Customer $0.50 · Lorikeet ~$0.80 · Quickchat ~$0.50–0.60 · Sierra / Decagon / Ada (custom ไม่เปิดราคา)
+
+### 🟡 ก้ำกึ่ง · 2 ราย
+- **Adonis** (healthcare RCM) — คิดได้ทั้ง *per claim processed* (แบบ ข) **หรือ** *% ของ denials ที่กู้คืน* (แบบ ก)
+- **HighRadius** (order-to-cash) — ประกาศเลิก per-seat ไปใช้ outcome-based (ก.พ. 2026) แต่ไม่มีรายละเอียดว่าเป็นแบบ (ก) จริงไหม
+
+### 🔵 (ข) Per-unit-of-work · 6 ราย — **ไม่ใช่ตลาดของ F1 แต่มีค่าเป็นกลุ่มเปรียบเทียบ**
+
+| บริษัท | ราคา | ทำไมไม่ใช่ (ก) |
+|---|---|---|
+| **Gorgias** | $0.90–1.00/AI interaction **+ ค่า helpdesk ticket ซ้ำอีก $0.36–0.40** | คิดต่อ interaction ไม่ใช่ต่อ resolution · **ถูกบล็อกหลายเจ้าจัดว่าเป็น per-resolution ทั้งที่ไม่ใช่** |
+| **Freshworks Freddy** | $0.10/session | คิดทุก session ไม่ว่าจะแก้ได้หรือไม่ |
+| **eesel AI** | $0.40/ticket | คิดต่อ ticket ไม่ว่าจะแก้ได้หรือไม่ |
+| **Prophet Security** | ~$10/investigation ($50k ต่อ 5,000) | คิดต่อการสอบสวน ไม่ใช่ต่อผลที่เจอ |
+| **Dropzone AI** | ~$9/investigation (ถอนราคาแล้ว) | เหมือน Prophet |
+| **CodaMetrix** | base fee + per-encounter | มี platform fee ก่อนส่งมอบคุณค่า |
+
+> ⚠️ **กรณี Gorgias คือหลักฐานตรง ๆ ว่าตลาดสับสนเรื่องนิยามนี้จริง** — ซึ่งเป็นทั้งความเสี่ยงและโอกาสของ F1 (ดูท้ายไฟล์)
+
+### ❌ ตกรอบ · 9 ราย
+| บริษัท | โมเดลจริง |
 |---|---|
-| หา 40 รายที่ขาย outcome-based ใน 1 สัปดาห์ | หา 40 ราย **และในนั้นต้องมี ≥12 รายนอกหมวด customer support** |
-| — | เพิ่ม: ต้องมี **≥8 รายที่ยืนยันราคา/หน่วยวัดได้จากหน้าเว็บของบริษัทเอง** ไม่ใช่จากบล็อกเปรียบเทียบ |
+| Moveworks | ต่อหัวพนักงานทั้งบริษัท ($150/user/ปี) ไม่ใช่ต่อ ticket |
+| Espressive | ต่อหัวพนักงาน (ต่ำกว่า Moveworks 10–20%) |
+| Aisera | enterprise license จาก $200K/ปี |
+| Intezer | ต่อ endpoint |
+| Radiant Security | flat rate unlimited — **กลุ่มควบคุม** |
+| Kustomer | $89–139/user/เดือน |
+| Aissist | $0.09 ต่อ**ข้อความ** |
+| 11x | flat $3,750/เดือน |
+| Artisan | usage ตามงานที่ทำ ไม่ผูกผลลัพธ์ |
 
-**เหตุผล**: ด่านเดิมวัด *"ตลาดมีไหม"* — ตอบแล้วว่ามี · ด่านใหม่วัด *"ตลาดกว้างพอจะเป็นบริษัทไหม"* — ยังไม่รู้ และเป็นความเสี่ยงที่แท้จริง
+### ⛔ ตัดออก — ไม่มีตัวตนแล้ว
+**Forethought** — ถูก **Zendesk ซื้อไป มี.ค. 2026** (โมเดลเดิมคิดตาม ticket volume/usage อยู่แล้ว จึงไม่ผ่านทั้งสองทาง)
 
----
+### ⬜ ตรวจไม่ได้ · 13 ราย
+Gradient Labs · Crescendo · Maven AGI · Thena · Macha AI · Sobot · AnyReach · PolyAI · Cognigy · Redo · 7AI · AiSDR · EvenUp
 
-## ชั้นหลักฐาน
+ส่วนใหญ่คือ **"custom quote ไม่เปิดราคา"** ซึ่ง**เป็นข้อมูลในตัวมันเอง**: ขายผ่าน sales เท่านั้น = เข้าถึงยาก = ICP คนละแบบกับที่ probe ออกแบบไว้ (ยิงอีเมลเย็นแล้วได้คุยใน 2 สัปดาห์)
 
-| ชั้น | ความหมาย |
-|---|---|
-| `T1` | มีราคา/หน่วยวัดเผยแพร่ ตรวจสอบได้ |
-| `T2` | ยืนยันว่าใช้โมเดล outcome แต่ไม่เปิดราคา |
-| `T3` | ผู้สมัคร — **ยังไม่ตรวจ ห้ามนับเป็นหลักฐาน** |
-| `T0` | ค้านโมเดลนี้ชัดเจน — **คุยด้วยมีค่าที่สุด** |
-
----
-
-## A · Customer support / CX — 25 ราย
-
-| # | บริษัท | หน่วยที่คิดเงิน | ชั้น |
-|---|---|---|---|
-| 1 | **Intercom (Fin)** | $0.99 / resolved conversation | `T1` |
-| 2 | **Zendesk AI Agents** | ~$1.50 committed · $2.00 PAYG / automated resolution — ล้มเหลวไม่คิดเงิน | `T1` |
-| 3 | **Salesforce Agentforce** | $2.00 / conversation | `T1` |
-| 4 | **HubSpot Breeze Customer Agent** | $0.50 / resolved conversation (ลดจาก $1.00 เม.ย. 2026) | `T1` |
-| 5 | **Lorikeet** | ~$0.80 / resolution | `T1` |
-| 6 | **Quickchat AI** | ~$0.50–0.60 / resolution | `T1` |
-| 7 | **Sierra** | outcome-based สัญญา custom · $100M ARR ใน 21 เดือน | `T2` |
-| 8 | **Decagon** | per-outcome ไม่เปิดราคา ต้อง NDA | `T2` |
-| 9 | **Ada** | per-outcome ไม่เปิดราคา | `T2` |
-| 10 | **Parloa** | ❗ ค้าน outcome pricing ต่อสาธารณะ เชียร์ per-minute | `T0` |
-| 11 | Forethought | ต้องตรวจ | `T3` |
-| 12 | Gradient Labs | ต้องตรวจ | `T3` |
-| 13 | Crescendo | ต้องตรวจ | `T3` |
-| 14 | Maven AGI | ต้องตรวจ | `T3` |
-| 15 | Freshworks (Freddy) | ต้องตรวจ | `T3` |
-| 16 | Gorgias | ต้องตรวจ | `T3` |
-| 17 | Kustomer | ต้องตรวจ | `T3` |
-| 18 | Thena | ต้องตรวจ | `T3` |
-| 19 | eesel AI | ต้องตรวจ | `T3` |
-| 20 | Macha AI | ต้องตรวจ | `T3` |
-| 21 | Sobot | ต้องตรวจ | `T3` |
-| 22 | Aissist | ต้องตรวจ | `T3` |
-| 23 | AnyReach | ต้องตรวจ | `T3` |
-| 24 | PolyAI | ต้องตรวจ | `T3` |
-| 25 | Cognigy | ต้องตรวจ | `T3` |
-
-## B · IT service desk — 4 ราย
-| # | บริษัท | หน่วยที่คาด | ชั้น |
-|---|---|---|---|
-| 26 | Moveworks | per ticket deflected | `T3` |
-| 27 | Aisera | per ticket deflected | `T3` |
-| 28 | Espressive | per ticket deflected | `T3` |
-| 29 | Atomicwork | per ticket deflected | `T3` |
-
-## C · Finance / Order-to-cash — 4 ราย
-| # | บริษัท | หน่วยที่คิดเงิน | ชั้น |
-|---|---|---|---|
-| 30 | **Chargeflow** | **25% ของ dispute ที่ชนะ** · ไม่ชนะไม่คิดเงิน · alert คิดเฉพาะที่กันได้สำเร็จ | `T1` |
-| 31 | **HighRadius** | ประกาศ outcome-based ที่ Radiance ก.พ. 2026 — เลิก per-seat ทั้งหมด | `T2` |
-| 32 | Aurai | chargeback automation | `T3` |
-| 33 | Redo | chargeback automation | `T3` |
-
-## D · Security / SOC — 5 ราย
-| # | บริษัท | หน่วยที่คิดเงิน | ชั้น |
-|---|---|---|---|
-| 34 | **Dropzone AI** | เคย $36k/ปี ต่อ 4,000 investigations ≈ **$9/investigation** · 2026 ถอนราคาสาธารณะหลัง Series B $37M — **นับเป็น T2 เพราะราคาที่ประกาศไม่ใช่ราคาปัจจุบันแล้ว** | `T2` |
-| 35 | **Radiant Security** | flat-rate unlimited · effective $0.44–0.66/alert — **ไม่ใช่ outcome จริง ใช้เป็นกลุ่มควบคุม** | `T1-neg` |
-| 36 | Prophet Security | custom quote | `T3` |
-| 37 | Intezer | ต้องตรวจ | `T3` |
-| 38 | 7AI | ต้องตรวจ | `T3` |
-
-## E · Sales / GTM — 4 ราย
-| # | บริษัท | หน่วยที่คิดเงิน | ชั้น |
-|---|---|---|---|
-| 39 | **HubSpot Breeze (prospecting)** | **~$1.00 / qualified lead** — outcome นอก CX รายแรกที่ยืนยันได้ | `T1` |
-| 40 | 11x | ~$3,750/เดือน subscription — **น่าจะไม่ผ่าน ตรวจเพื่อตัดออก** | `T3` |
-| 41 | Artisan | usage-based ไม่มี platform fee — **น่าจะไม่ผ่าน** | `T3` |
-| 42 | AiSDR | ต้องตรวจ | `T3` |
-
-## F · Healthcare RCM — 4 ราย
-> contingency (% ของเงินที่กู้คืนได้) มีมาก่อนยุค AI — **ตลาดที่พิสูจน์แล้วว่าโมเดลนี้ใช้ได้จริงมานาน** จึงเป็นกลุ่มที่ควรคุยเพื่อเรียนรู้ว่าเขาแก้ปัญหา "นับยังไง" กันมายังไง
-
-| # | บริษัท | หน่วยที่คาด | ชั้น |
-|---|---|---|---|
-| 43 | SmarterDx | per chart / % of recovered | `T3` |
-| 44 | CodaMetrix | per coded encounter | `T3` |
-| 45 | Anterior | per review | `T3` |
-| 46 | Adonis | % of recovered | `T3` |
-
-## G · Legal — 1 ราย
-| # | บริษัท | หน่วยที่คาด | ชั้น |
-|---|---|---|---|
-| 47 | EvenUp | per demand package | `T3` |
+### 🔴 ฝ่ายค้าน · 1 ราย
+**Parloa** — ลง Forbes (ม.ค. 2026) เรียก outcome pricing ว่า "กับดักที่สวยงาม" เชียร์ per-minute · **ยังเป็นเป้าหมายคุยอันดับต้น ๆ** เพราะคนที่ค้านดังที่สุดมักอธิบายกลไกได้ดีที่สุด
 
 ---
 
-## สรุปสถานะ
+## สิ่งที่ควรทำต่อในสัปดาห์ที่ 1
 
-| ชั้น | จำนวน |
-|---|---|
-| `T1` มีราคาเผยแพร่ | **8** |
-| `T2` ยืนยันโมเดล ไม่เปิดราคา | **5** |
-| `T0` ค้านโมเดล (คุยด้วยมีค่า) | **1** |
-| `T1-neg` กลุ่มควบคุม (Radiant — flat rate ไม่ใช่ outcome) | **1** |
-| `T3` ต้องตรวจ | **32** |
-| **รวม** | **47** |
+`03-decision-rubric.md` ห้ามแก้ kill criteria หลังเริ่ม probe — **จึงไม่เสนอให้แก้เกณฑ์อีก** ใช้เวลาที่เหลือแบบนี้แทน:
 
-### เทียบกับเกณฑ์ใหม่ — ยังไม่ผ่าน 2 ใน 3 ข้อ
+1. **ขยายไปหมวดที่ยังไม่แตะ** — จัดซื้อ · แปลและ localization · recruiting · ทวงหนี้ · voice agent · ตรวจสอบเนื้อหา · logistics claims
+   → หมวดพวกนี้มีวัฒนธรรม contingency อยู่ก่อนแล้ว **โอกาสเจอแบบ (ก) สูงกว่าหมวดที่สแกนไปแล้วมาก**
+2. **ปิด 13 รายที่ตรวจไม่ได้** — ต้องเปิดเว็บเอง session ทำแทนไม่ได้
+3. **ถ้าครบสัปดาห์แล้วยังไม่ถึง 12 → ฆ่า F1 ตามกติกา** เลื่อน F2/F3 ขึ้นมาแทน **อย่ายืดเวลา**
 
-| เกณฑ์ | สถานะ |
-|---|---|
-| ≥40 ราย | ✅ **47** |
-| ≥12 รายนอก CX | 🟡 มีผู้สมัคร **22** แต่ยืนยันได้แค่ **2** (Chargeflow, HubSpot prospecting) — ต้องตรวจ T3 ให้ผ่านอีก ≥10 |
-| ≥8 ราย verified จากเว็บบริษัทเอง | ❌ **0** — ทั้ง 8 รายชั้น T1 อ้างจากบล็อกเปรียบเทียบ ยังไม่ได้เปิดหน้าจริง |
-
-**นี่คือสถานะจริง ไม่ใช่ผ่านแล้ว** — งานที่เหลือของสัปดาห์ที่ 1 คือปิดสองช่องล่าง ไม่ใช่หาชื่อเพิ่ม
+> ⛔ **สิ่งที่ต้องไม่ทำ**: อย่าลดนิยามกลับไปนับแบบ (ข) เพื่อให้ครบ 12
+> นั่นคือการโกงตัวเองแบบที่ `03-decision-rubric.md` §anti-checklist เขียนเตือนไว้พอดี — และถ้านับแบบ (ข) เข้ามา ธุรกิจที่ได้จะไม่มีข้อพิพาทให้ตัดสิน ซึ่งแปลว่าไม่มีสินค้า
 
 ---
 
-## วิธีตรวจ T3 — กติกา 10 นาที/ราย
+## 🎯 ทางที่ผลตรวจนี้เปิดให้ — อาจดีกว่า F1 เดิม
 
-เกิน 10 นาทีให้ข้าม แล้วบันทึกว่า **"ตรวจไม่ได้"** — ซึ่งเป็นข้อมูลในตัวมันเอง (บริษัทที่ซ่อนราคามิดชิด = ขายผ่าน sales เท่านั้น = ICP คนละแบบ)
+หลักฐานที่เจอระหว่างตรวจ:
+- **Gorgias** ถูกจัดว่า per-resolution ทั้งที่คิดต่อ interaction และคิดค่า ticket ซ้ำอีกชั้น
+- **eesel / Freshworks** คิดต่อ ticket/session ไม่ว่าจะแก้ได้หรือไม่ แต่ถูกจัดกลุ่มรวมกับ per-resolution
+- **vendor แบบ custom ทุกราย** คิด platform fee ก่อนส่งมอบคุณค่า
+- ตลาดเรียกทั้ง (ก) และ (ข) ว่า "outcome-based" เหมือนกันหมด
 
-1. เปิด `/pricing` ของบริษัทเอง → หาคำว่า `resolution` `outcome` `success` `recovered` `only pay when`
-2. ไม่เจอ → ค้น `site:บริษัท.com "per resolution" OR "outcome-based"`
-3. ยังไม่เจอ → เปิดหน้าเปรียบเทียบของ**คู่แข่ง** (คู่แข่งชอบเปิดโปงราคากันเอง — แหล่งที่ดีอย่างน่าประหลาด)
-4. บันทึกลง CSV: `outcome_unit · price · source_url · verified_date · tier`
+→ **ปัญหาที่พิสูจน์แล้วว่ามีจริงวันนี้ ไม่ใช่ "outcome นับไหม" แต่คือ "ราคาที่โฆษณาว่า outcome-based จริง ๆ คิดเงินยังไง"**
+→ ผู้ซื้อคือ **ฝั่งที่กำลังจะซื้อ agent** — ตรงกับที่ Parloa บ่นใน Forbes พอดี
+→ ทำเป็น free wedge ได้ทันที (ตรงกับ `99-quick-wins.md` QW-4) และเป็น distribution ให้ F1 ตัวจริง
 
-### ทางลัด — อย่าไล่ทีละรายตั้งแต่ต้น มีคนรวบรวมไว้แล้ว
-- `aissist.io/industries/ai-agent-pricing-benchmark-2026` — เทียบ 18 vendors
-- `fin.ai/learn/ai-customer-service-agent-pricing-comparison`
-- `lorikeetcx.ai/articles/best-per-resolution-priced-ai-support-2026`
-- `underdefense.com/blog/most-affordable-ai-soc-platforms` — 11 AI SOC platforms
-- `getmonetizely.com/blogs/the-2026-guide-to-saas-ai-and-agentic-pricing-models`
-
-### ตัวคูณที่สำคัญกว่าการไล่ทีละราย
-**รายงาน Deloitte (มิ.ย. 2026)** เรื่องการบัญชีของ outcome-based pricing และ **รายงาน Futurum 1H 2026** — เอกสารพวกนี้อ้างชื่อบริษัทที่ใช้โมเดลนี้จริงในบริบทที่ต้องรับผิดชอบตัวเลข **เป็นหลักฐานชั้นดีกว่าบล็อกเปรียบเทียบมาก** และมักพาไปเจอชื่อนอก CX ที่ค้นตรง ๆ ไม่เจอ
+**ยังไม่เสนอให้เปลี่ยนไปทำ** — บันทึกเป็นผู้สมัครใหม่ในสแกน (`D6`) และเอาไปถามใน probe
 
 ---
 
-## ⚠️ ข้อจำกัดของลิสต์นี้
+## แหล่งอ้างอิงเพิ่มจากรอบตรวจ
 
-- ชั้น `T1` ทั้ง 8 ราย **อ้างจากบล็อก/บทความเปรียบเทียบ ไม่ใช่จากหน้าเว็บของบริษัทเอง** ราคาที่บล็อกอ้างล้าสมัยได้ง่ายมากในตลาดนี้ (HubSpot ลดราคาครึ่งหนึ่งภายในปีเดียว) — **ต้องเปิดหน้าจริงยืนยันก่อนใช้ในบทสนทนากับลูกค้า**
-- ชั้น `T3` ทั้ง 32 ราย **เป็นสมมติฐานว่าน่าจะอยู่ในหมวดนี้ ไม่ใช่ข้อเท็จจริง** บางรายน่าจะตกรอบแน่ ๆ (11x, Artisan เป็น subscription/usage) — ที่ใส่ไว้เพื่อให้ตรวจแล้วตัดออกอย่างเป็นระบบ
-- ยังไม่มีใครถูกติดต่อ — ลิสต์นี้คือ**รายชื่อ ไม่ใช่ pipeline**
-
----
-
-## แหล่งอ้างอิง
-
-- ราคาต่อ resolution — [Fin AI pricing comparison](https://fin.ai/learn/ai-customer-service-agent-pricing-comparison) · [Quickchat AI pricing models](https://quickchat.ai/post/ai-agent-pricing-models) · [Lorikeet — best per-resolution priced platforms 2026](https://www.lorikeetcx.ai/articles/best-per-resolution-priced-ai-support-2026) · [Macha — pricing models explained](https://www.getmacha.com/blog/ai-agent-pricing-models-explained)
-- โมเดล outcome ระดับองค์กร — [Sierra — outcome-based pricing for AI agents](https://sierra.ai/blog/outcome-based-pricing-for-ai-agents) · [HighRadius](https://www.highradius.com/resources/Blog/outcome-based-pricing-ai/) · [Deloitte — accounting for outcome-based pricing](https://dart.deloitte.com/USDART/home/publications/deloitte/industry/technology/accounting-outcome-based-pricing-agentic-ai) · [Futurum — outcome-based and hybrid AI pricing](https://futurumgroup.com/press-release/are-outcome-based-and-hybrid-ai-pricing-models-rewriting-the-vendor-playbook/)
-- ฝ่ายค้าน — [Parloa — Outcome-Based Pricing: The Most Expensive Myth In Enterprise AI (Forbes, ม.ค. 2026)](https://www.forbes.com/sites/parloa/2026/01/06/outcome-based-pricing-the-most-expensive-myth-in-enterprise-ai/)
-- นอก CX — [Chargeflow pricing](https://www.chargeflow.io/pricing) · [Dropzone AI pricing](https://underdefense.com/blog/dropzone-pricing/) · [Radiant Security pricing](https://underdefense.com/blog/radiant-security-pricing/) · [AI SDR pricing index](https://www.cleanlist.ai/blog/2026-07-23-ai-sdr-pricing-statistics)
+- ITSD — [Moveworks pricing (eesel)](https://www.eesel.ai/blog/moveworks-pricing) · [Moveworks vs Aisera (Rezolve)](https://www.rezolve.ai/blog/moveworks-vs-aisera) · [Atomicwork pricing](https://www.atomicwork.com/pricing)
+- Healthcare — [SmarterDx contingency (Flare Capital)](https://www.flarecapital.com/insight/from-seed-to-hyperscale-in-3-years-how-smarterdx-is-cracking-the-healthcare-ai-code-2/) · [Anterior (AlleyWatch)](https://www.alleywatch.com/2026/03/anterior-health-insurance-clinical-ai-platform-prior-authorization-payer-workflow-administrative-efficiency-abdel-mahmoud/) · [Adonis Series C](https://adonis.io/resources/adonis-raises-40m-series-c-to-equip-healthcare-providers-with-ai-driven-revenue-cycle-operations) · [CodaMetrix review](https://medaiverdict.com/tools/codametrix)
+- Security — [Prophet Security pricing](https://www.trustradius.com/products/prophet-security/pricing) · [Intezer vs Prophet](https://intezer.com/guides/soc-as-a-service/prophet-security)
+- Chargeback — [Aurai vs Chargeflow](https://aurai.dev/vs/chargeflow)
+- CX — [Gorgias AI agent costs (Macha)](https://www.getmacha.com/blog/gorgias-ai-agent-explained) · [Aissist pricing (eesel)](https://www.eesel.ai/blog/aissist-io-pricing) · [Maven AGI pricing (eesel)](https://www.eesel.ai/blog/maven-agi-pricing) · [Forethought reviews (Maven AGI)](https://www.mavenagi.com/blog/forethought-reviews)
+- Sales — [AI SDR pricing index (Cleanlist)](https://www.cleanlist.ai/blog/2026-07-23-ai-sdr-pricing-statistics) · [AI SDR pricing (Formanorden)](https://formanorden.com/blog/ai-sdr-pricing/)
+- Legal — [EvenUp review (AI Vortex)](https://www.aivortex.io/legal/ai-tools/evenup/)

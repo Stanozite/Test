@@ -25,7 +25,7 @@
 | 2 | [`strategy/03-decision-rubric.md`](strategy/03-decision-rubric.md) | ตัดสินใจด้วยเกณฑ์อะไร (เขียนก่อนดูตัวเลือก) | 6 นาที |
 | 3 | [`strategy/02-opportunity-scan.md`](strategy/02-opportunity-scan.md) | 32 โอกาส ให้คะแนนแล้ว → 3 finalists | 20 นาที |
 | 4 | [`strategy/04-probe-briefs.md`](strategy/04-probe-briefs.md) | จะพิสูจน์ยังไงว่ามีคนจ่ายจริง (4 สัปดาห์) | 10 นาที |
-| 4b | [`strategy/probe1-target-list.md`](strategy/probe1-target-list.md) | **ลิสต์เป้าหมาย 47 ราย** + 4 ข้อค้นพบที่แก้ kill criterion | 12 นาที |
+| 4b | [`strategy/probe1-target-list.md`](strategy/probe1-target-list.md) | **ลิสต์เป้าหมาย 46 ราย ตรวจครบแล้ว** + taxonomy (ก)/(ข) ที่ทำให้ TAM ของ F1 หด | 12 นาที |
 | 5 | [`strategy/99-quick-wins.md`](strategy/99-quick-wins.md) | อะไรกอบโกยได้ไวแบบทั่วโลก + กับดัก | 8 นาที |
 | 6 | [`strategy/06-signposts.md`](strategy/06-signposts.md) | จะรู้ได้ยังไงว่าอ่านโลกผิด | 6 นาที |
 | 7 | [`strategy/00-asset-audit.md`](strategy/00-asset-audit.md) | ทุนที่มี/ไม่มี — ต้องเติมเอง | 10 นาที (เขียน) |
@@ -33,7 +33,7 @@
 
 **หน้าภาพรวม (Artifact)**: <https://claude.ai/code/artifact/91e188dc-0fdf-4d35-8089-524010ecfa6e> — ไทม์ไลน์ S0–S4, โซ่คอขวด, 32 โอกาสพร้อมแถบคะแนน, เส้นทางและด่าน · ซอร์สอยู่ที่ [`strategy/agent-field-map.html`](strategy/agent-field-map.html)
 
-**เครื่องมือทำงานจริง**: [`strategy/templates/`](strategy/templates/) — `scan-sheet.csv` (ตารางคะแนน), `probe1-targets.csv` (ลิสต์เป้าหมาย 47 ราย), `probe-log.md` (บันทึกผลดิบ), `weekly-review.md` (ทบทวน 15 นาที/สัปดาห์)
+**เครื่องมือทำงานจริง**: [`strategy/templates/`](strategy/templates/) — `scan-sheet.csv` (ตารางคะแนน), `probe1-targets.csv` (ลิสต์เป้าหมาย 46 ราย พร้อมผลตรวจ), `probe-log.md` (บันทึกผลดิบ), `weekly-review.md` (ทบทวน 15 นาที/สัปดาห์)
 
 ## เส้นทาง
 
@@ -42,7 +42,7 @@ Phase 0  ลับเลนส์          [เสร็จ]  สัปดาห
 Phase 1  สแกน+ประเมิน       [เสร็จ]  สัปดาห์ 2-5   → 32 โอกาส → 3 finalists
    ══ Gate 1: มีสมมติฐานที่ "ผิดได้" ชัดเจนต่อ finalist ══
 Phase 2  Probe ราคาถูก      [เริ่ม]   สัปดาห์ 5-9   → หาหลักฐานว่ามีคนจ่าย
-         └ PROBE-1 สัปดาห์ 1: ลิสต์ 47 รายพร้อม · เหลือตรวจ T3 ให้ผ่านเกณฑ์นอก-CX
+         └ PROBE-1 สัปดาห์ 1: ตรวจครบ 46 ราย → ❌ ยังไม่ผ่าน (6 จาก 12 รายนอก CX)
    ══ Gate 2: มีเงิน/LOI จริงจากคนแปลกหน้า ≥1 ราย ══
 Phase 3  ลงมือ                       สัปดาห์ 9-20  → v1 + ลูกค้าจ่าย 10 รายแรก
 Phase 4  สะสมความได้เปรียบ            เดือน 6-18    → moat หรือพลิก
