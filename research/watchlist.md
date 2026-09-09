@@ -117,7 +117,11 @@ Firms, labs, and authors whose output is worth following. Grow this list over ti
 | Christian Bongiorno / Lorenzo Villassero | Authors | Neural shrinkage of indefinite pairwise-complete correlation matrices for small-cap universes (extends Bongiorno/Mantegna covariance-cleaning lineage) (added 2026-09-02) |
 | Marcus Gawronsky / Chun-Sung Huang | Authors | Portfolio risk geometry from LLM news-embedding Wasserstein distributional fields, no return covariance (early/in-sample) (added 2026-09-02) |
 | Parsa Yousefnezhad | Author | Multi-scale-TCN (InceptionTCN) + profit-optimized-threshold forecasting of economically-significant BTC moves (added 2026-09-02) |
-| Nils Bundi | Author | AMM LP economics — optimal block time under jump-diffusion prices (block cadence vs LVR/fees) (added 2026-09-02) |
+| Nils Bundi | Author | AMM LP economics — optimal block time under jump-diffusion prices (block cadence vs LVR/fees) (added 2026-09-02); DeFi operational-risk tail pricing via Basel LDA (added 2026-09-09) |
+| Joseph Leclère & Mathieu Rosenbaum | Authors | Mean-field microstructure equilibria under market impact — predictable Volterra/long-memory signal cancels impact → observed price is a pure martingale (added 2026-09-09) |
+| Madeleine Udell (w/ V. Y. Wang) | Author | Convex cross-impact + transient-impact transaction-cost modeling; manipulation-free calendar-spread/relative-value execution costs (added 2026-09-09) |
+| Kay Giesecke (w/ Pan, Ding) | Author | Agentic empirical asset pricing — evaluating the factor-*discovery system* not just its outputs; rolling re-execution reliability (added 2026-09-09) |
+| Peng Liu & Yang Liu | Authors | Majorization theory of diversification-vs-concentration under dependence uncertainty; robust optimum concentrates under unknown dependence (added 2026-09-09) |
 | _add your own…_ | | |
 
 ---
