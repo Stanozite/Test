@@ -1,0 +1,299 @@
+<title>Advice-First Practice</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Thai:wght@500;600&family=JetBrains+Mono:wght@400;600&family=Sarabun:wght@400;600&display=swap">
+<style>
+  :root{
+    --paper:#F0F1F4; --surface:#F8F9FB; --surface-2:#E3E6EC;
+    --ink:#131A26; --ink-2:#414B5C; --ink-3:#6E7889;
+    --line:#D5DAE3; --line-strong:#B8C0CD;
+    --navy:#1F3D6B; --navy-2:#2E5A9B; --navy-wash:#DDE5F1;
+    --ochre:#8A6410; --ochre-wash:#F2EAD6;
+    --alert:#9E3D3D; --alert-wash:#F3DFDF;
+    --ok:#3F6B4A; --ok-wash:#DFE9E1;
+    --shadow:0 1px 2px rgba(19,26,38,.06), 0 10px 28px -18px rgba(19,26,38,.35);
+    color-scheme:light;
+  }
+  @media (prefers-color-scheme:dark){
+    :root:not([data-theme="light"]){
+      --paper:#0C111A; --surface:#141B27; --surface-2:#1D2634;
+      --ink:#DCE2EC; --ink-2:#A2ACBD; --ink-3:#767F8F;
+      --line:#242E3D; --line-strong:#354052;
+      --navy:#7BA6E0; --navy-2:#9DC0EE; --navy-wash:#16233A;
+      --ochre:#D6A93F; --ochre-wash:#2A2313;
+      --alert:#D2736D; --alert-wash:#2E1A19;
+      --ok:#7FAE87; --ok-wash:#18271B;
+      --shadow:0 1px 2px rgba(0,0,0,.45), 0 10px 28px -18px rgba(0,0,0,.85);
+      color-scheme:dark;
+    }
+  }
+  :root[data-theme="dark"]{
+    --paper:#0C111A; --surface:#141B27; --surface-2:#1D2634;
+    --ink:#DCE2EC; --ink-2:#A2ACBD; --ink-3:#767F8F;
+    --line:#242E3D; --line-strong:#354052;
+    --navy:#7BA6E0; --navy-2:#9DC0EE; --navy-wash:#16233A;
+    --ochre:#D6A93F; --ochre-wash:#2A2313;
+    --alert:#D2736D; --alert-wash:#2E1A19;
+    --ok:#7FAE87; --ok-wash:#18271B;
+    --shadow:0 1px 2px rgba(0,0,0,.45), 0 10px 28px -18px rgba(0,0,0,.85);
+    color-scheme:dark;
+  }
+
+  *{box-sizing:border-box}
+  body{
+    background:var(--paper); color:var(--ink); margin:0;
+    font-family:"Sarabun","Segoe UI",system-ui,sans-serif;
+    font-size:16px; line-height:1.75; -webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:1120px;margin:0 auto;padding:0 24px 88px}
+  .col{max-width:700px;margin-inline:auto}
+  h1,h2,h3,h4{font-family:"IBM Plex Sans Thai","Segoe UI",sans-serif;font-weight:600;margin:0;text-wrap:balance;line-height:1.35}
+  p{margin:0}
+  .mono{font-family:"JetBrains Mono",ui-monospace,monospace;font-variant-numeric:tabular-nums}
+  .eyebrow{font-family:"JetBrains Mono",monospace;font-size:10.5px;letter-spacing:.15em;text-transform:uppercase;color:var(--ink-3)}
+
+  header.mast{border-bottom:2px solid var(--navy);background:var(--surface)}
+  .mast-in{max-width:1120px;margin:0 auto;padding:52px 24px 40px}
+  .mast h1{font-size:clamp(30px,4.6vw,46px);letter-spacing:-.02em;margin:16px 0 20px;max-width:19ch}
+  .mast .lede{font-size:clamp(16px,1.8vw,19px);color:var(--ink-2);max-width:62ch}
+  .mast .lede b{color:var(--ink);font-weight:600}
+  .chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:26px}
+  .chip{font-family:"JetBrains Mono",monospace;font-size:11px;border:1px solid var(--line-strong);border-radius:2px;padding:4px 9px;color:var(--ink-2)}
+  .chip.on{border-color:var(--navy);color:var(--navy);background:var(--navy-wash)}
+  .chip.off{border-style:dashed;color:var(--ink-3);text-decoration:line-through}
+
+  section{margin-top:64px}
+  .shead{display:flex;align-items:baseline;gap:12px;margin-bottom:10px}
+  .shead .n{font-family:"JetBrains Mono",monospace;font-size:11.5px;font-weight:600;color:var(--navy)}
+  .shead h2{font-size:clamp(21px,2.7vw,27px);letter-spacing:-.01em}
+  .dek{color:var(--ink-2);max-width:62ch;margin-bottom:26px}
+
+  /* economics flip */
+  .flip{background:var(--surface);border:1px solid var(--line);border-radius:5px;box-shadow:var(--shadow);overflow-x:auto}
+  .flip-in{min-width:660px;padding:30px 32px}
+  .flip-row{display:grid;grid-template-columns:1fr 56px 1fr;gap:20px;align-items:stretch}
+  .fbox{border:1px solid var(--line);border-radius:4px;padding:20px}
+  .fbox.before{background:var(--alert-wash);border-color:var(--alert)}
+  .fbox.after{background:var(--ok-wash);border-color:var(--ok)}
+  .fbox .lab{font-family:"JetBrains Mono",monospace;font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;margin-bottom:10px}
+  .fbox.before .lab{color:var(--alert)} .fbox.after .lab{color:var(--ok)}
+  .fbox .big{font-family:"JetBrains Mono",monospace;font-size:clamp(26px,3.6vw,36px);font-weight:600;letter-spacing:-.02em;line-height:1.1}
+  .fbox .unit{font-family:"Sarabun",sans-serif;font-size:14px;font-weight:400;color:var(--ink-2)}
+  .fbox ul{margin:14px 0 0;padding-left:18px;font-size:13.5px;line-height:1.65;color:var(--ink-2)}
+  .fbox li{margin-bottom:5px}
+  .arrow{display:flex;align-items:center;justify-content:center;font-family:"JetBrains Mono",monospace;font-size:22px;color:var(--navy);font-weight:600}
+  .flip-note{margin-top:22px;padding-top:18px;border-top:1px solid var(--line);font-size:14px;color:var(--ink-2);line-height:1.7}
+  .flip-note b{color:var(--ink)}
+
+  .tw{overflow-x:auto;border:1px solid var(--line);border-radius:4px;background:var(--surface)}
+  table{border-collapse:collapse;width:100%;min-width:600px;font-size:14px}
+  th,td{text-align:left;padding:13px 16px;border-bottom:1px solid var(--line);vertical-align:top}
+  th{font-family:"JetBrains Mono",monospace;font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-3);font-weight:400;background:var(--surface-2)}
+  tr:last-child td{border-bottom:0}
+  td b{font-weight:600}
+
+  .assets{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:14px}
+  .asset{background:var(--surface);border:1px solid var(--line);border-left:3px solid var(--navy);border-radius:0 4px 4px 0;padding:16px 18px}
+  .asset h4{font-size:14.5px;margin-bottom:6px}
+  .asset p{font-size:13px;color:var(--ink-2);line-height:1.6}
+
+  /* phase track */
+  .track{border-left:2px solid var(--line-strong);margin-left:8px;padding-left:26px;position:relative}
+  .ph{position:relative;padding-bottom:30px}
+  .ph::before{content:"";position:absolute;left:-33px;top:6px;width:11px;height:11px;border-radius:50%;background:var(--paper);border:2px solid var(--line-strong)}
+  .ph.now::before{border-color:var(--navy);background:var(--navy)}
+  .ph .ptop{display:flex;flex-wrap:wrap;align-items:baseline;gap:11px;margin-bottom:7px}
+  .ph .pn{font-family:"JetBrains Mono",monospace;font-size:12px;font-weight:600;color:var(--navy)}
+  .ph .pw{font-family:"JetBrains Mono",monospace;font-size:11px;color:var(--ink-3)}
+  .ph h4{font-size:16px}
+  .ph p{font-size:14px;color:var(--ink-2);margin-top:5px}
+  .gate{margin:0 0 30px -28px;background:var(--ochre-wash);border:1px solid var(--ochre);border-radius:3px;padding:13px 17px;display:flex;gap:12px;align-items:flex-start}
+  .gate .gm{font-family:"JetBrains Mono",monospace;font-size:10px;letter-spacing:.1em;color:var(--ochre);font-weight:600;white-space:nowrap;padding-top:3px}
+  .gate p{font-size:13.5px;line-height:1.65;margin:0}
+
+  .keynum{background:var(--navy-wash);border:1px solid var(--navy);border-radius:5px;padding:26px 30px}
+  .keynum .q{font-family:"IBM Plex Sans Thai",sans-serif;font-size:clamp(17px,2.2vw,21px);font-weight:600;line-height:1.5;margin-bottom:18px}
+  .keynum .split{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:14px}
+  .kn{background:var(--surface);border:1px solid var(--line);border-radius:3px;padding:15px 17px}
+  .kn .h{font-family:"JetBrains Mono",monospace;font-size:12px;font-weight:600;margin-bottom:6px}
+  .kn.good .h{color:var(--ok)} .kn.bad .h{color:var(--alert)}
+  .kn p{font-size:13px;color:var(--ink-2);line-height:1.6}
+
+  .kill{border:1px solid var(--alert);background:var(--alert-wash);border-radius:4px;padding:22px 26px}
+  .kill ol{margin:10px 0 0;padding-left:20px;font-size:14px;line-height:1.75}
+  .kill li{margin-bottom:10px}
+  .kill b{font-weight:600}
+
+  .cut{display:grid;grid-template-columns:repeat(auto-fit,minmax(215px,1fr));gap:12px}
+  .cutbox{border:1px dashed var(--line-strong);border-radius:4px;padding:14px 16px;background:var(--surface)}
+  .cutbox h4{font-size:13.5px;color:var(--ink-3);margin-bottom:5px;text-decoration:line-through}
+  .cutbox p{font-size:12.5px;color:var(--ink-2);line-height:1.6}
+
+  footer{margin-top:64px;padding-top:24px;border-top:1px solid var(--line);font-size:12.5px;color:var(--ink-3);line-height:1.75}
+
+  @media (max-width:640px){
+    .flip-row{grid-template-columns:1fr;gap:12px}
+    .arrow{transform:rotate(90deg);height:30px}
+    .gate{margin-left:0}
+  }
+  .asset,.kn{transition:none}
+  @media (prefers-reduced-motion:no-preference){.asset{transition:border-color .18s ease}}
+</style>
+
+<header class="mast">
+  <div class="mast-in">
+    <p class="eyebrow">แผนปฏิบัติการ 12 เดือน · 9 กันยายน 2026</p>
+    <h1>ที่ปรึกษาการเงินที่คิดใหม่รอบ AI</h1>
+    <p class="lede">จุดยืน <b>advice-first</b> ที่ประกาศไว้แล้ว <b>ไม่เคยเป็นไปได้เชิงต้นทุน</b> — ไม่ใช่เพราะใครโลภ แต่เพราะการวางแผนครัวเรือนให้ครบจริงกินเวลา 3-6 ชั่วโมงต่อราย และที่ความมั่งคั่ง 1-30 ล้าน ไม่มีใครจ่ายค่าที่ปรึกษาให้คุ้มเวลานั้นได้<br><br><b>AI ไม่ได้ให้กลยุทธ์ใหม่ มันตัดตัวเลขนั้นลง</b></p>
+    <div class="chips">
+      <span class="chip on">ใบอนุญาต</span>
+      <span class="chip on">ลูกค้าที่วิ่งอยู่</span>
+      <span class="chip on">เขียนโค้ดเอง</span>
+      <span class="chip on">runway &gt; 18 เดือน</span>
+      <span class="chip off">agent infra ตลาดโลก</span>
+      <span class="chip off">Flow's Table เป็นเครื่องยนต์</span>
+    </div>
+  </div>
+</header>
+
+<div class="wrap">
+
+  <section>
+    <div class="col">
+      <div class="shead"><span class="n">01</span><h2>เศรษฐศาสตร์ที่กลับด้าน</h2></div>
+      <p class="dek">นี่คือทั้งเรื่อง ถ้าตัวเลขนี้ไม่กลับด้านจริง แผนทั้งหมดไม่มีความหมาย</p>
+    </div>
+    <div class="flip">
+      <div class="flip-in">
+        <div class="flip-row">
+          <div class="fbox before">
+            <p class="lab">โครงสร้างเดิม</p>
+            <p class="big">3–6 <span class="unit">ชม./ราย</span></p>
+            <ul>
+              <li>เก็บข้อมูล · คำนวณช่องว่างความคุ้มครอง · ประมาณการเกษียณ · เทียบผลิตภัณฑ์ · วางแผนภาษี · ทำเอกสาร</li>
+              <li>ที่ความมั่งคั่ง 1-30 ล้าน เก็บค่าที่ปรึกษาให้คุ้มเวลานี้ <b>ไม่ได้</b></li>
+              <li>→ ทางเดียวที่ได้เงินคือ<b>ขายผลิตภัณฑ์</b></li>
+              <li>→ คำแนะนำเอนเอียงตั้งแต่ต้น โดยไม่ต้องมีใครตั้งใจ</li>
+            </ul>
+          </div>
+          <div class="arrow">→</div>
+          <div class="fbox after">
+            <p class="lab">โครงสร้างใหม่</p>
+            <p class="big">~1 <span class="unit">ชม./ราย</span></p>
+            <ul>
+              <li>AI ทำงานเก็บข้อมูล วิเคราะห์ และทำเอกสาร — คนทำงานที่เป็นคน</li>
+              <li>ให้คำแนะนำครบวงจร<b>ฟรี</b>ได้ แล้วหารายได้จากการลงมือแทน</li>
+              <li>รับลูกค้าได้ <b>5-10 เท่า</b> ที่คุณภาพเดิม</li>
+              <li>จุดยืนที่ประกาศไว้กลายเป็นสิ่งที่<b>ทำได้จริง</b> ไม่ใช่แค่พูด</li>
+            </ul>
+          </div>
+        </div>
+        <p class="flip-note"><b>ข้อควรระวัง:</b> ตัวเลข <span class="mono">~1 ชม.</span> เป็นสมมติฐาน ยังไม่ใช่ข้อเท็จจริง — Phase 0 มีไว้เพื่อวัดว่ามันจริงแค่ไหน และถ้าไม่จริง แผนต้องเปลี่ยนรูป ไม่ใช่เดินต่อ</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="col">
+    <div class="shead"><span class="n">02</span><h2>ทำไมผู้เล่นเดิมแก้ตามไม่ได้</h2></div>
+    <p class="dek">การรื้อโครงสร้างค่าตอบแทนขององค์กรที่มีตัวแทนหลักแสนคน เป็นไปไม่ได้ในทางปฏิบัติ — คนที่แก้ได้คือคนตัวเล็กที่ไม่มีอะไรจะเสีย</p>
+    <div class="tw">
+      <table>
+        <thead><tr><th>ผู้เล่นเดิม</th><th>ทำไมติดกับ</th></tr></thead>
+        <tbody>
+          <tr><td><b>ตัวแทนประกัน</b><br><span style="color:var(--ink-3);font-size:12.5px">หลักแสนคน</span></td><td>รายได้ทั้งหมดคือคอมมิชชั่น · ไม่มีเครื่องมือ · turnover สูง · องค์กรแม่ไม่มีแรงจูงใจให้เปลี่ยน</td></tr>
+          <tr><td><b>RM ธนาคาร</b></td><td>มีโควตาผลิตภัณฑ์รายไตรมาส คำแนะนำถูกกำหนดจากบนลงล่าง</td></tr>
+          <tr><td><b>นักวางแผน CFP</b></td><td>ทำได้ดี แต่จำนวนน้อยและแพง — ไปเสิร์ฟ HNW หมด ไม่เหลือให้ mass-affluent</td></tr>
+          <tr><td><b>แอปการลงทุน</b></td><td>แตะเฉพาะการลงทุน ไม่แตะความคุ้มครอง ภาษี หนี้ — <b>ไม่ครบวงจร</b></td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p style="margin-top:18px;font-size:15px;color:var(--ink-2)">ช่องว่างที่เหลืออยู่: <b style="color:var(--ink)">ไม่มีใครทำการวางแผนการเงินครัวเรือนแบบครบวงจร ที่ราคาระดับ mass-affluent</b> เพราะแรงงานที่ปรึกษาแพงเกินไป — ข้อจำกัดนั้นคือสิ่งที่ AI ปลดออกพอดี</p>
+  </section>
+
+  <section class="col">
+    <div class="shead"><span class="n">03</span><h2>ทำไมต้องเป็นคนนี้</h2></div>
+    <p class="dek">ต้องมีครบสามอย่างพร้อมกัน ซึ่งในไทยน่าจะมีคนไม่กี่คน</p>
+    <div class="assets">
+      <div class="asset"><h4>ใบอนุญาต</h4><p>บริษัทเทคไม่มี · เป็นทั้งกำแพงและคูเมือง · เป็นส่วนที่ AI แทนไม่ได้ตามกฎหมาย</p></div>
+      <div class="asset"><h4>เขียนโค้ดเอง</h4><p>ตัวแทนคนอื่นไม่มี · ต้นทุนต่อการทดลองเกือบศูนย์</p></div>
+      <div class="asset"><h4>มีลูกค้าอยู่แล้ว</h4><p>สนามทดสอบและวงจรป้อนกลับที่มีอยู่จริง ไม่ต้องสร้างใหม่</p></div>
+      <div class="asset"><h4>เขียนคอนเทนต์ไทยเป็น</h4><p>ช่องทางจัดจำหน่ายที่ไม่ต้องซื้อ · ยังไม่เปิดตัว = เปลี่ยนทิศได้ฟรี</p></div>
+      <div class="asset"><h4>Runway &gt; 18 เดือน</h4><p>ของหายากที่สุดสำหรับคนทำคนเดียว — ไม่ต้องรีบตัดสินใจผิด</p></div>
+    </div>
+  </section>
+
+  <section class="col">
+    <div class="shead"><span class="n">04</span><h2>ตัวเลขเดียวที่ตัดสินทุกอย่าง</h2></div>
+    <p class="dek">วัดได้เดือนนี้ ต้นทุนเกือบศูนย์ และมันเปลี่ยนรูปธุรกิจทั้งหมด — <b>อย่าเดา</b></p>
+    <div class="keynum">
+      <p class="q">ในเวลาที่ใช้ต่อลูกค้าหนึ่งราย กี่ % เป็นงานวิเคราะห์/เอกสาร และกี่ % เป็นงานความสัมพันธ์</p>
+      <div class="split">
+        <div class="kn good"><p class="h">วิเคราะห์ ≥ 70%</p><p>AI ปลดล็อกจริง — เดินหน้าเต็มตัว รับลูกค้าได้ 5-10 เท่าที่คุณภาพเดิม</p></div>
+        <div class="kn bad"><p class="h">ความสัมพันธ์ ≥ 70%</p><p>คอขวดคือการนัดเจอ ซึ่ง<b>ขยายไม่ได้</b> → practice ตันเร็ว ต้องข้ามไปขายเครื่องมือ หรือขึ้นเซกเมนต์ที่ค่าตอบแทนต่อรายสูงพอ</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="col">
+    <div class="shead"><span class="n">05</span><h2>เส้นทางและด่าน</h2></div>
+    <p class="dek">Service → Product แต่คราวนี้ในโดเมนที่ทุนที่มีถูกใช้จริงทุกอย่าง</p>
+    <div class="track">
+      <div class="ph now">
+        <div class="ptop"><span class="pn">สัปดาห์ 1</span><span class="pw">ถูกที่สุด อันตรายที่สุด</span></div>
+        <h4>เช็กกฎเกณฑ์ก่อนสร้างอะไรทั้งสิ้น</h4>
+        <p>ผู้ถือใบอนุญาตรายบุคคลส่งมอบคำแนะนำผ่านซอฟต์แวร์ได้แค่ไหน · เส้นแบ่งระหว่าง “เครื่องมือคำนวณ” กับ “คำแนะนำอัตโนมัติ” · ส่งข้อมูลลูกค้าไปประมวลผลต่างประเทศได้ไหม</p>
+      </div>
+      <div class="gate"><span class="gm">ด่าน</span><p>ถ้าทำไม่ได้ในฐานะรายบุคคล → <b>รื้อแผนทั้งหมด</b> เหลือทางเป็นเครื่องมือภายในล้วน ๆ หรือหาโครงสร้างนิติบุคคล/พาร์ตเนอร์ · ต้นทุนการเช็ก = ไม่กี่ชั่วโมง · ต้นทุนการไม่เช็ก = หลายเดือน</p></div>
+
+      <div class="ph now">
+        <div class="ptop"><span class="pn">Phase 0</span><span class="pw">สัปดาห์ 1-8</span></div>
+        <h4>จับเวลาจริง ห้ามเขียนโค้ดสำหรับสินค้า</h4>
+        <p>ลูกค้า 8-10 ราย ครบรอบ · แยกหมวด: เก็บข้อมูล · วิเคราะห์ · ทำเอกสาร · ประชุม · สร้างความไว้ใจ · ติดตาม · ธุรการ · บันทึกภายใน 2 นาทีหลังจบทุกช่วงงาน</p>
+      </div>
+      <div class="gate"><span class="gm">ด่าน</span><p>ได้ตัวอย่าง &lt; 5 ราย → ปัญหาไม่ใช่เครื่องมือ <b>ปัญหาคือการหาลูกค้า</b> ต้องแก้เรื่องนั้นก่อน · กรอกไม่ครบเกินครึ่ง → วินัยไม่พอสำหรับสิ่งที่ต้องทำต่อ หยุดและคิดใหม่</p></div>
+
+      <div class="ph">
+        <div class="ptop"><span class="pn">Phase 1</span><span class="pw">เดือน 2-6</span></div>
+        <h4>Practice ที่ AI ทำงานวิเคราะห์ 80%</h4>
+        <p>สร้างเครื่องมือให้ตัวเองใช้ทุกวัน — <b>เป้าไม่ใช่รายได้ เป้าคือค้นหาแพตเทิร์นที่ซ้ำจริง</b> · ทุกเลขคำนวณซ้ำได้และมีที่มา · ล็อกทุกเคสว่าอะไรที่ AI ทำได้ อะไรที่ต้องแก้มือ</p>
+      </div>
+      <div class="gate"><span class="gm">ด่าน</span><p><b>ผ่าน:</b> เวลาต่อลูกค้าลด ≥50% ที่คุณภาพเท่าเดิม และรับลูกค้าใหม่ได้ ≥2 เท่า · <b>ฆ่า:</b> 4 เดือนแล้วลดไม่ถึง 30% → แพตเทิร์นไม่ซ้ำพอจะทำเป็นสินค้า</p></div>
+
+      <div class="ph">
+        <div class="ptop"><span class="pn">Phase 2</span><span class="pw">เดือน 6-12</span></div>
+        <h4>ขายเครื่องมือให้ที่ปรึกษาคนอื่น</h4>
+        <p>ตัวแทนไทยหลักแสนคนกำลังถูกงานตัวเองกลืน ไม่มีเครื่องมือ และจะจ่ายเพื่อของที่ทำให้ดูเก่งขึ้นต่อหน้าลูกค้า — <b>ขายสิ่งที่ใช้เองมา 6 เดือนแล้ว ไม่ใช่สิ่งที่คิดว่าเขาน่าจะอยากได้</b></p>
+      </div>
+      <div class="gate" style="margin-bottom:0"><span class="gm">ด่าน</span><p>คุยกับตัวแทน 15 คน ขอเงินจริง 500-1,500 บาท/เดือน · ไม่มีใครยอมจ่าย → เป็นภาพลวง กลับไปขยาย Phase 1 หรือขึ้นเซกเมนต์</p></div>
+    </div>
+  </section>
+
+  <section class="col">
+    <div class="shead"><span class="n">06</span><h2>สิ่งที่จะทำให้แผนนี้ผิด</h2></div>
+    <div class="kill">
+      <p class="eyebrow" style="color:var(--alert)">เขียนไว้ล่วงหน้า ห้ามต่อรองภายหลัง</p>
+      <ol>
+        <li><b>กฎเกณฑ์</b> — ถ้าผู้ถือใบอนุญาตรายบุคคลส่งมอบคำแนะนำผ่านซอฟต์แวร์ไม่ได้ ทุกอย่างต้องรื้อ <span style="color:var(--ink-3)">(เช็กสัปดาห์แรก)</span></li>
+        <li><b>งานส่วนใหญ่อาจเป็นความสัมพันธ์ ไม่ใช่การวิเคราะห์</b> — ถ้าใช่ AI ปลดล็อกน้อยกว่าที่คิดมาก และ practice ตันเร็ว <span style="color:var(--ink-3)">(Phase 0 ตอบ)</span></li>
+        <li><b>ลูกค้าอาจไม่ได้อยากได้ความลึก</b> — ถ้าเขาแค่อยากรู้ว่าซื้อตัวไหนดี แสดงว่า advice-first ผิดสำหรับเซกเมนต์นี้ ต้องขึ้นบนหรือลงล่าง</li>
+        <li><b>ตัวแทนคนอื่นอาจไม่จ่าย</b> — ARPU ต่ำ รับเทคโนโลยีช้า กระจัดกระจาย <span style="color:var(--ink-3)">(Phase 2 probe)</span></li>
+        <li><b>ใบอนุญาตอาจไม่ใช่คูเมือง</b> — ถ้ากฎเปลี่ยนให้แพลตฟอร์มให้คำแนะนำได้โดยไม่ต้องมีคนเซ็น คูเมืองหาย</li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="col">
+    <div class="shead"><span class="n">07</span><h2>สิ่งที่ตัดออกอย่างชัดเจน</h2></div>
+    <p class="dek">การตัดที่ไม่เขียนไว้ คือการตัดที่จะแอบกลับมา</p>
+    <div class="cut">
+      <div class="cutbox"><h4>Agent infra ตลาดโลก</h4><p>ทุนที่มีไม่ถูกใช้เลยสักอย่าง — ไม่มี distribution ไม่มีเครือข่าย คนละโซนเวลา และคู่แข่งมีเงินทุน 6 ราย</p></div>
+      <div class="cutbox"><h4>Flow's Table เป็นเครื่องยนต์</h4><p>ตัดสินใจคนเดียวไม่ได้ · เก็บเป็นแหล่งแนะนำต่อและข่าวกรอง — อย่าออกแบบอะไรที่ต้องรออนุมัติจากคนอื่น</p></div>
+      <div class="cutbox"><h4>เอเจนต์คอนโด</h4><p>ตัวกลางข้อมูลล้วน หนึ่งในอาชีพที่ AI กินก่อนเพื่อน — เงินสดประคองตัว <b>ห้ามลงทุนสร้างระบบ</b></p></div>
+      <div class="cutbox"><h4>สวนยาง</h4><p>ตาข่ายนิรภัย ไม่ใช่ทางทบต้น · ถ้าจะคิดจริง คำถามคือ “การใช้ที่ดินสูงสุดใน 15 ปี” ไม่ใช่ “กรีดยางไหม”</p></div>
+    </div>
+  </section>
+
+  <footer class="col">
+    <p><strong>สถานะ:</strong> ยังไม่มีสิ่งใดในแผนนี้ผ่านการทดสอบกับลูกค้าจริง · ตัวเลข <span class="mono">3-6 ชม.</span> และ <span class="mono">~1 ชม.</span> เป็นสมมติฐานที่ Phase 0 มีไว้เพื่อวัด · เช็กลิสต์กำกับดูแลเป็น<strong>รายการคำถาม ไม่ใช่คำตอบ</strong> ต้องเปิดแหล่งปฐมภูมิเองทุกข้อ</p>
+    <p style="margin-top:10px">เอกสารเต็มอยู่ใน <span class="mono">strategy/</span> — <span class="mono">10-pivot</span> · <span class="mono">11-thesis-advisory</span> · <span class="mono">12-phase0-timelog</span> · <span class="mono">13-regulatory-check</span> · <span class="mono">templates/client-timelog.csv</span></p>
+  </footer>
+
+</div>
