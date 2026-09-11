@@ -117,6 +117,10 @@
   .kn.good .h{color:var(--ok)} .kn.bad .h{color:var(--alert)}
   .kn p{font-size:13px;color:var(--ink-2);line-height:1.6}
 
+  .dur{font-family:"JetBrains Mono",monospace;font-size:12.5px;font-weight:600;white-space:nowrap}
+  .dur.long{color:var(--ok)} .dur.mid{color:var(--ochre)} .dur.no{color:var(--alert)}
+  .gate.standalone{margin-left:0}
+
   .kill{border:1px solid var(--alert);background:var(--alert-wash);border-radius:4px;padding:22px 26px}
   .kill ol{margin:10px 0 0;padding-left:20px;font-size:14px;line-height:1.75}
   .kill li{margin-bottom:10px}
@@ -281,7 +285,40 @@
   </section>
 
   <section class="col">
-    <div class="shead"><span class="n">07</span><h2>สิ่งที่ตัดออกอย่างชัดเจน</h2></div>
+    <div class="shead"><span class="n">07</span><h2>Flow's Table — สะพาน ไม่ใช่เครื่องยนต์</h2></div>
+    <p class="dek">มีสิทธิบริหารชัดเจนและมีรายได้อยู่แล้ว แต่บทบาทที่ถูกคือ<strong>สะพานไป HNW</strong> — เพราะเป้าคือ advisory เป็นเครื่องยนต์ และการทำสองสตาร์ทอัพพร้อมกันคือวิธีทำให้ทั้งคู่ไปไม่ถึงไหน</p>
+
+    <div class="kill" style="margin-bottom:24px">
+      <p class="eyebrow" style="color:var(--alert)">ความเสี่ยงอันดับหนึ่งบนกระดาน — สูงกว่าทุกข้อเชิงกลยุทธ์</p>
+      <p style="margin-top:10px;font-size:15px;line-height:1.7"><b>มีรายได้แล้ว + ไม่มีเอกสารข้อตกลงหุ้นส่วน</b> — และการสร้างระบบจะทำให้แย่ลงพอดี เพราะกำลังจะสร้างสินทรัพย์ที่กรรมสิทธิ์ไม่ชัด: ซอฟต์แวร์ที่เขียนคนเดียวแต่ใช้กับวงที่เป็นของร่วม · <b>ข้อมูลสมาชิก</b> · รายได้ใหม่ที่ระบบสร้าง<br><br>ตอนนี้คุยง่ายเพราะเงินยังน้อยและยังไม่มีใครเสียเปรียบ — <b>หลังจากนี้จะยากขึ้นทุกเดือน</b> นี่ไม่ใช่เรื่องไม่ไว้ใจกัน มันคือการปกป้องความสัมพันธ์จากเงินที่ยังมาไม่ถึง</p>
+    </div>
+
+    <div class="tw" style="margin-bottom:22px">
+      <table>
+        <thead><tr><th>ทางเลือก</th><th>สถานะ</th></tr></thead>
+        <tbody>
+          <tr><td>ค่าสมาชิก · สปอนเซอร์</td><td>นอกขอบเขต — เรื่องบริหารวง ทำต่อตามที่ทำอยู่</td></tr>
+          <tr><td>สินค้าข่าวกรองขายสถาบัน</td><td>นอกขอบเขต — <b>ธุรกิจที่สอง</b> บันทึกเป็นผู้สมัคร E5</td></tr>
+          <tr><td>Syndicate / กองทุน</td><td class="dur mid">🔒 ล็อกไว้ — ปลายทาง 5-10 ปีที่ตรงกับเป้า 20 ปีที่สุด <b>อย่าปิดประตู</b></td></tr>
+          <tr><td><b>ชั้นความจำ + จับคู่ที่รับใช้สมาชิก</b></td><td class="dur long">✅ อันเดียวที่เป็นสะพานจริง</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="keynum">
+      <p class="q">ระบบเดียว สองการใช้งาน</p>
+      <p style="font-size:14.5px;line-height:1.7;margin-bottom:16px;color:var(--ink-2)"><b style="color:var(--ink)">เครื่องจำความสัมพันธ์ตัวเดียวกัน</b> — ใส่ลูกค้า advisory ก็ได้ ใส่สมาชิก Flow's Table ก็ได้ · โค้ดชุดเดียว ข้อมูลคนละชุด · ทำสิ่งที่ AI เก่งและมนุษย์แย่: จำว่าใครพูดอะไร ใครกำลังเจออะไร เราสัญญาอะไรไว้ แล้วเตือนตอนที่มันสำคัญ<br><br><b style="color:var(--ink)">เป็นเครื่องมือภายในที่ใช้คนเดียว ไม่ใช่ผลิตภัณฑ์คอมมูนิตี้</b> — นั่นคือเหตุผลที่มันไม่กลายเป็นธุรกิจที่สอง</p>
+      <div class="split">
+        <div class="kn good"><p class="h">กับลูกค้า advisory</p><p>ติดตามไม่หล่น · เพิ่มจำนวนลูกค้าที่ดูแลได้</p></div>
+        <div class="kn good"><p class="h">กับสมาชิก Flow's Table</p><p>จับคู่คนที่ควรรู้จักกัน · ตามเรื่องที่เขาเคยบ่นไว้เมื่อสามเดือนก่อน — เจ้าบ้านที่จำได้คือเจ้าบ้านที่คนอยากแนะนำต่อ</p></div>
+      </div>
+    </div>
+
+    <div class="gate standalone" style="margin-top:22px"><span class="gm">เกณฑ์</span><p><b>“กล้าให้เจ้าตัวอ่าน”</b> — ทุกฟิลด์ที่จะเก็บ ถามว่าถ้าเจ้าตัวเปิดดูจะรู้สึกยังไง ไม่ผ่าน = ตัดทิ้ง ไม่ใช่ซ่อนให้ดีขึ้น · เก็บสรุปไม่ใช่คำต่อคำ · สมาชิกได้ประโยชน์ก่อนเจ้าบ้านเสมอ · ถ้าเริ่มรู้สึกเหมือน CRM ที่ไล่ล่าคน = ออกแบบผิด ให้รื้อ</p></div>
+  </section>
+
+  <section class="col">
+    <div class="shead"><span class="n">08</span><h2>สิ่งที่ตัดออกอย่างชัดเจน</h2></div>
     <p class="dek">การตัดที่ไม่เขียนไว้ คือการตัดที่จะแอบกลับมา</p>
     <div class="cut">
       <div class="cutbox"><h4>Agent infra ตลาดโลก</h4><p>ทุนที่มีไม่ถูกใช้เลยสักอย่าง — ไม่มี distribution ไม่มีเครือข่าย คนละโซนเวลา และคู่แข่งมีเงินทุน 6 ราย</p></div>
