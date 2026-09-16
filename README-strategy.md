@@ -26,10 +26,12 @@
 | 4 | [`12-phase0-timelog.md`](strategy/12-phase0-timelog.md) | ตัวเลขเดียวที่ตัดสินทุกอย่าง + วิธีวัด |
 | 5 | [`15-partnership-terms.md`](strategy/15-partnership-terms.md) | 🔴 **ข้อตกลงหุ้นส่วน Flow's Table — ทำก่อนเขียนโค้ดบรรทัดแรก** |
 | 6 | [`14-flowstable-bridge.md`](strategy/14-flowstable-bridge.md) | Flow's Table ในบทบาทสะพาน · ขอบเขต in/out · ระบบเดียวสองการใช้งาน |
+| 7 | [`16-elder-protection-wedge.md`](strategy/16-elder-protection-wedge.md) | ⭐ **ประตูเข้า: ปกป้องพ่อแม่จากการฉ้อโกงยุค AI** — กลไก 5 ชั้น · กับดัก 6 ข้อ · 8 สัปดาห์ |
+| 8 | [`17-advisor-relevance.md`](strategy/17-advisor-relevance.md) | ที่ปรึกษาสำคัญขึ้นได้ยังไง — คำอ้างไหนรอด ไหนคือนิทานปลอบใจ |
 
-**เครื่องมือ**: [`templates/client-timelog.csv`](strategy/templates/client-timelog.csv) · [`templates/weekly-review.md`](strategy/templates/weekly-review.md)
+**เครื่องมือ**: [`templates/client-timelog.csv`](strategy/templates/client-timelog.csv) · [`templates/family-protocol.md`](strategy/templates/family-protocol.md) · [`templates/weekly-review.md`](strategy/templates/weekly-review.md)
 
-**หน้าภาพรวม**: <https://claude.ai/code/artifact/cc608be2-abe3-4ca3-a7c8-74cf00b7c613> — ซอร์สที่ [`strategy/advice-first-practice.html`](strategy/advice-first-practice.html)
+**หน้าภาพรวม**: <https://claude.ai/artifact/SEmUm3gji1rXr2spABPcb4> — ซอร์สที่ [`strategy/advice-first-practice.html`](strategy/advice-first-practice.html)
 
 ## เส้นทาง
 
@@ -40,7 +42,9 @@ Phase 1  Practice ที่ AI ทำ 80%  เดือน 2-6     → เวล
 Phase 2  เครื่องมือให้ที่ปรึกษา  เดือน 6-12    → ตัวแทน 15 คน ยอมจ่าย 500-1,500/เดือนไหม
 ```
 
-**ลำดับศูนย์ (ก่อนทุกอย่าง)**: เอกสารข้อตกลงหุ้นส่วน Flow's Table (`15`) + เช็กกฎเกณฑ์ (`13`) — ทั้งคู่ราคาถูกและอันตรายที่สุดถ้าข้าม
+**คู่ขนานตลอด 8 สัปดาห์แรก**: wedge ปกป้องพ่อแม่ (`16`) — ประตูเข้าที่ลูกค้าปัจจุบันซื้อได้ทันที และเป็นสะพานไปคนรุ่นพ่อแม่ซึ่งถือความมั่งคั่งจริง **โดยไม่ต้องขายอะไร**
+
+**ลำดับศูนย์ (ก่อนทุกอย่าง)**: เอกสารข้อตกลงหุ้นส่วน Flow's Table (`15`) + เช็กกฎเกณฑ์ (`13` รวมหมวด F) — ทั้งคู่ราคาถูกและอันตรายที่สุดถ้าข้าม
 
 **คู่ขนานตลอด**: คอนเทนต์เปลี่ยนทิศ — ยังไม่เปิดตัว = เปลี่ยนได้ฟรี · เขียนแคบและลึกในฐานะ**หลักฐานของวิจารณญาณ** ไม่ใช่ช่องส่งข้อมูล
 
