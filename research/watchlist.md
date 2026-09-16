@@ -122,6 +122,13 @@ Firms, labs, and authors whose output is worth following. Grow this list over ti
 | Madeleine Udell (w/ V. Y. Wang) | Author | Convex cross-impact + transient-impact transaction-cost modeling; manipulation-free calendar-spread/relative-value execution costs (added 2026-09-09) |
 | Kay Giesecke (w/ Pan, Ding) | Author | Agentic empirical asset pricing — evaluating the factor-*discovery system* not just its outputs; rolling re-execution reliability (added 2026-09-09) |
 | Peng Liu & Yang Liu | Authors | Majorization theory of diversification-vs-concentration under dependence uncertainty; robust optimum concentrates under unknown dependence (added 2026-09-09) |
+| Kyungsub Lee | Author | Asymmetric long-memory volatility — ALM-GARCH sign-dependent kernel injection (level + memory channels), 2D Markov-chain vol dynamics (added 2026-09-16) |
+| Emmanuel Bacry & Jean-François Muzy | Authors | Rough / multifractal volatility, stationary-fBM log-vol, Hawkes-process microstructure lineage (added 2026-09-16) |
+| Stephen P. Boyd (Stanford) | Author | Convex-optimization portfolio construction (CVXPY); simple replicable dynamic vol-control / multi-asset allocation baselines (added 2026-09-16) |
+| Ramzi Jebali | Author | Bayesian online change-point detection (BOCPD) on signed order flow; real-time regime breaks (added 2026-09-16) |
+| Marc da Costa Nunes | Author | Geometry of large signal libraries — signal-vs-PnL spectra, crowding-vs-artifact separation (added 2026-09-16) |
+| Pasquale Della Corte / Robert Kosowski (Imperial) | Authors | Short-selling bans, liquidity & price efficiency; factor/derivatives empirics (added 2026-09-16) |
+| Simon Trimborn | Author | Market-informed networks for modeling & forecast evaluation of financial extremes (added 2026-09-16) |
 | _add your own…_ | | |
 
 ---
