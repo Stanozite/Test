@@ -1,6 +1,6 @@
 # Strategy — ทิศทางปัจจุบันและบันทึกกระบวนการ
 
-> อัปเดต 2026-09-09 · เจ้าของ: Tin
+> อัปเดต 2026-09-20 · เจ้าของ: Tin
 > ⚠️ **ทิศทางเปลี่ยนแล้ว** — เอกสาร `01`–`06` และ `probe1-*` เป็นงาน **agent infrastructure** ซึ่ง**เลิกใช้เป็นแผนแล้ว** เก็บไว้เป็นบทเรียนและเป็นชิ้นส่วนที่ใช้ซ้ำได้ · อ่าน [`strategy/10-pivot-2026-09.md`](strategy/10-pivot-2026-09.md) ก่อนไฟล์อื่นทั้งหมด
 
 ---
@@ -26,10 +26,11 @@
 | 4 | [`12-phase0-timelog.md`](strategy/12-phase0-timelog.md) | ตัวเลขเดียวที่ตัดสินทุกอย่าง + วิธีวัด |
 | 5 | [`15-partnership-terms.md`](strategy/15-partnership-terms.md) | 🔴 **ข้อตกลงหุ้นส่วน Flow's Table — ทำก่อนเขียนโค้ดบรรทัดแรก** |
 | 6 | [`14-flowstable-bridge.md`](strategy/14-flowstable-bridge.md) | Flow's Table ในบทบาทสะพาน · ขอบเขต in/out · ระบบเดียวสองการใช้งาน |
-| 7 | [`16-elder-protection-wedge.md`](strategy/16-elder-protection-wedge.md) | ⭐ **ประตูเข้า: ปกป้องพ่อแม่จากการฉ้อโกงยุค AI** — กลไก 5 ชั้น · กับดัก 6 ข้อ · 8 สัปดาห์ |
+| 7 | [`16-elder-protection-wedge.md`](strategy/16-elder-protection-wedge.md) | ⭐ **ประตูเข้า: ปกป้องพ่อแม่จากการฉ้อโกงยุค AI** — กลไก 5 ชั้น · สถิติไทย · กับดัก 4 ข้อ (แก้แล้ว 2) · 8 สัปดาห์ |
 | 8 | [`17-advisor-relevance.md`](strategy/17-advisor-relevance.md) | ที่ปรึกษาสำคัญขึ้นได้ยังไง — คำอ้างไหนรอด ไหนคือนิทานปลอบใจ |
+| 9 | [`18-advisor-channel.md`](strategy/18-advisor-channel.md) | 🆕 **ช่องทางตัวแทน** — ใช้คนกลาง 244,048 รายเป็น distribution · 5 รูปแบบ · ทางไป HNW ที่ไม่ต้องมีเครือข่าย |
 
-**เครื่องมือ**: [`templates/client-timelog.csv`](strategy/templates/client-timelog.csv) · [`templates/family-protocol.md`](strategy/templates/family-protocol.md) · [`templates/weekly-review.md`](strategy/templates/weekly-review.md)
+**เครื่องมือ**: [`templates/client-timelog.csv`](strategy/templates/client-timelog.csv) · [`templates/family-session-funnel.csv`](strategy/templates/family-session-funnel.csv) · [`templates/family-protocol.md`](strategy/templates/family-protocol.md) · [`templates/weekly-review.md`](strategy/templates/weekly-review.md)
 
 **หน้าภาพรวม**: <https://claude.ai/artifact/SEmUm3gji1rXr2spABPcb4> — ซอร์สที่ [`strategy/advice-first-practice.html`](strategy/advice-first-practice.html)
 
@@ -37,14 +38,16 @@
 
 ```
 Phase 0  วัดเวลาต่อลูกค้า       สัปดาห์ 1-8    → วิเคราะห์กี่ % · ความสัมพันธ์กี่ %
-   ══ ถ้าความสัมพันธ์ ≥70% → practice ขยายไม่ได้ ต้องข้ามไป Phase 2 หรือขึ้นเซกเมนต์ ══
+   ══ ถ้าความสัมพันธ์ ≥70% → practice ขยายไม่ได้ ต้องข้ามไปช่องทาง หรือขึ้นเซกเมนต์ ══
 Phase 1  Practice ที่ AI ทำ 80%  เดือน 2-6     → เวลาต่อลูกค้าลด ≥50% · ลูกค้าใหม่ ≥2 เท่า
-Phase 2  เครื่องมือให้ที่ปรึกษา  เดือน 6-12    → ตัวแทน 15 คน ยอมจ่าย 500-1,500/เดือนไหม
+Phase 2  ช่องทางตัวแทน (18)      เดือน 6-12    → หน่วยจ่ายค่าโปรแกรมไหม  ⚠️ การทดสอบเลื่อนมาขนานตั้งแต่สัปดาห์ 1
 ```
 
 **คู่ขนานตลอด 8 สัปดาห์แรก**: wedge ปกป้องพ่อแม่ (`16`) — ประตูเข้าที่ลูกค้าปัจจุบันซื้อได้ทันที และเป็นสะพานไปคนรุ่นพ่อแม่ซึ่งถือความมั่งคั่งจริง **โดยไม่ต้องขายอะไร**
 
-**ลำดับศูนย์ (ก่อนทุกอย่าง)**: เอกสารข้อตกลงหุ้นส่วน Flow's Table (`15`) + เช็กกฎเกณฑ์ (`13` รวมหมวด F) — ทั้งคู่ราคาถูกและอันตรายที่สุดถ้าข้าม
+**คู่ขนานเช่นกัน (ใหม่ 2026-09-20)**: ช่องทางตัวแทน (`18`) — **สัปดาห์ 1-3 มีแต่การคุยและการถาม ไม่สร้างอะไรเลย** · เหตุผลที่ไม่รอถึงเดือน 6: คำตอบที่ต้องการเป็นคำตอบจากคน ไม่ใช่จากของที่เราสร้าง และถามได้ตั้งแต่วันนี้ฟรี ๆ · ⚠️ **ตัวเลข funnel เซสชันครอบครัวย้อนสร้างไม่ได้ ต้องเริ่มจดพร้อม Phase 0**
+
+**ลำดับศูนย์ (ก่อนทุกอย่าง)**: เอกสารข้อตกลงหุ้นส่วน Flow's Table (`15`) + เช็กกฎเกณฑ์ (`13` รวมหมวด **F** และ **D3 · D4 · D7**) — ทั้งคู่ราคาถูกและอันตรายที่สุดถ้าข้าม
 
 **คู่ขนานตลอด**: คอนเทนต์เปลี่ยนทิศ — ยังไม่เปิดตัว = เปลี่ยนได้ฟรี · เขียนแคบและลึกในฐานะ**หลักฐานของวิจารณญาณ** ไม่ใช่ช่องส่งข้อมูล
 

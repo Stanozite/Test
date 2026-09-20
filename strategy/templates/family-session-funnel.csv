@@ -1,0 +1,2 @@
+date,family_code,run_by,invited,scheduled,parent_present,protocol_done,still_using_30d,led_to_work,minutes,note
+2026-09-20,SAMPLE,self,1,1,yes,yes,,no,85,ตัวอย่าง — ลบบรรทัดนี้ทิ้ง · run_by = self หรือรหัสตัวแทน · still_using_30d เว้นว่างจนครบ 30 วัน
