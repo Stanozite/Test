@@ -129,6 +129,10 @@ Firms, labs, and authors whose output is worth following. Grow this list over ti
 | Marc da Costa Nunes | Author | Geometry of large signal libraries — signal-vs-PnL spectra, crowding-vs-artifact separation (added 2026-09-16) |
 | Pasquale Della Corte / Robert Kosowski (Imperial) | Authors | Short-selling bans, liquidity & price efficiency; factor/derivatives empirics (added 2026-09-16) |
 | Simon Trimborn | Author | Market-informed networks for modeling & forecast evaluation of financial extremes (added 2026-09-16) |
+| Chung-Han Hsieh | Author | Cost-aware online window aggregation (Hedge/Fixed-Share, turnover-inclusive) + robust bounded-drawdown control; the `online_window` backtest anchor and a natural next-overlay source (added 2026-09-30) |
+| Bo Qu / Licheng Wang | Authors | Anytime-valid frozen-referee for agentic factor mining ("propose don't judge"); extends the Giesecke/Gençay honest-evaluation lineage (added 2026-09-30) |
+| Kelvin J.L. Koa | Author | Self-evolving multi-agent symbolic discovery + retrieval-augmented diffusion SDF portfolios; prolific (added 2026-09-30) |
+| Lisa R. Goldberg / Alec N. Kercheval | Authors | PC-error bounds in high-dimensional factor models; complements Cotton covariance-cleaning lineage (added 2026-09-30) |
 | _add your own…_ | | |
 
 ---
