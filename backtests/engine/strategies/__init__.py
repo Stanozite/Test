@@ -16,8 +16,9 @@ from .volterra_signal import VolterraSignal
 from .asym_longmem_vol import AsymLongMemVol
 from .pairs_meanrev import PairsMeanRev
 from .online_window import OnlineWindow
+from .weak_meanrev import WeakMeanRev
 
-REGISTRY = {cls.name: cls for cls in (MACrossover, CostAwareMomentum, Lag1Reversal, TSMom, DonchianBreakout, TrendFilter, DowSeasonality, VolRegime, HalvingClock, CascadeWarning, EVaRRegime, MultiscaleMove, VolterraSignal, AsymLongMemVol, PairsMeanRev, OnlineWindow)}
+REGISTRY = {cls.name: cls for cls in (MACrossover, CostAwareMomentum, Lag1Reversal, TSMom, DonchianBreakout, TrendFilter, DowSeasonality, VolRegime, HalvingClock, CascadeWarning, EVaRRegime, MultiscaleMove, VolterraSignal, AsymLongMemVol, PairsMeanRev, OnlineWindow, WeakMeanRev)}
 
 
 def get(name: str) -> type[Strategy]:

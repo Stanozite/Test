@@ -133,6 +133,10 @@ Firms, labs, and authors whose output is worth following. Grow this list over ti
 | Bo Qu / Licheng Wang | Authors | Anytime-valid frozen-referee for agentic factor mining ("propose don't judge"); extends the Giesecke/Gençay honest-evaluation lineage (added 2026-09-30) |
 | Kelvin J.L. Koa | Author | Self-evolving multi-agent symbolic discovery + retrieval-augmented diffusion SDF portfolios; prolific (added 2026-09-30) |
 | Lisa R. Goldberg / Alec N. Kercheval | Authors | PC-error bounds in high-dimensional factor models; complements Cotton covariance-cleaning lineage (added 2026-09-30) |
+| Mingyang Chen / Wei Jin | Authors | Financial-agent evaluation — Policy-Value Audit, composition-vs-selection decomposition of LLM-agent returns (attribution-layer extension of the honest-eval lineage) (added 2026-10-07) |
+| Carlo Campajola | Author | Deep-RL execution games — learned-collusion detection, "correct reward is not enough" PPO diagnosis in analytically-solved games (added 2026-10-07) |
+| Ali Habibnia / Alexander Ardaiz | Authors | Crypto RL order-execution honest-negatives; seed-robustness discipline, MoE-masks-training-failure (added 2026-10-07) |
+| Daniel Kuhn (EPFL) | Author | Distributionally-robust optimization; two-budget adversarial deep hedging (WRAP), foundational DRO (added 2026-10-07) |
 | _add your own…_ | | |
 
 ---
