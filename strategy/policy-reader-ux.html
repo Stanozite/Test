@@ -1,0 +1,466 @@
+<title>เครื่องอ่านกรมธรรม์</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Thai:wght@400;500;600;700&family=Sarabun:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap">
+<style>
+/* Layout: one column of labelled plates — phone frames for the agent, A4 sheets for the client.
+   The client sheets are set at the real 70-year-old type scale, so the size gap is visible on this page. */
+:root{
+  --paper:#f4f6f5; --sheet:#ffffff; --ink:#15211e; --ink-2:#4a5c57; --ink-3:#7d8e89;
+  --line:#dbe3e0; --line-2:#c2cdc9; --jade:#1f6b5c; --jade-wash:#e6f0ed;
+  --amber:#8a5a12; --amber-wash:#fbf1de; --alert:#9c2a20; --alert-wash:#fbeae7;
+  --chrome:#e9eeec; --on-jade:#ffffff;
+  --ui:"IBM Plex Sans Thai","Noto Sans Thai",system-ui,sans-serif;
+  --doc:"Sarabun","Noto Sans Thai",system-ui,sans-serif;
+  --mono:"IBM Plex Mono",ui-monospace,monospace;
+  color-scheme:light;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --paper:#101614; --sheet:#1a221f; --ink:#e8efec; --ink-2:#a8b8b3; --ink-3:#7b8b86;
+  --line:#2b3733; --line-2:#3c4b46; --jade:#6cc0ac; --jade-wash:#17302b;
+  --amber:#e0ab5c; --amber-wash:#2e2415; --alert:#e78a7e; --alert-wash:#331c19;
+  --chrome:#161e1b; --on-jade:#0d1412; color-scheme:dark;
+}}
+:root[data-theme="dark"]{
+  --paper:#101614; --sheet:#1a221f; --ink:#e8efec; --ink-2:#a8b8b3; --ink-3:#7b8b86;
+  --line:#2b3733; --line-2:#3c4b46; --jade:#6cc0ac; --jade-wash:#17302b;
+  --amber:#e0ab5c; --amber-wash:#2e2415; --alert:#e78a7e; --alert-wash:#331c19;
+  --chrome:#161e1b; --on-jade:#0d1412; color-scheme:dark;
+}
+*{box-sizing:border-box}
+body{background:var(--paper);color:var(--ink);font-family:var(--ui);line-height:1.6;
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));
+  padding-block:0}
+.wrap{max-width:1080px;margin:0 auto}
+h1,h2,h3,h4{text-wrap:balance;margin:0;font-weight:600;line-height:1.3}
+
+/* masthead */
+header{padding-block:40px 28px;border-bottom:1px solid var(--line-2)}
+.eyebrow{font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--jade);font-weight:500}
+h1{font-size:clamp(26px,4.4vw,38px);letter-spacing:-.02em;margin-top:10px}
+.lede{font-size:15.5px;color:var(--ink-2);max-width:62ch;margin-top:14px}
+.lede b{color:var(--ink);font-weight:600}
+.warn{margin-top:20px;background:var(--amber-wash);border:1px solid var(--amber);border-radius:4px;padding:12px 15px;font-size:13.5px;line-height:1.65}
+.warn b{color:var(--amber)}
+
+/* section heads */
+section{padding-block:38px 10px}
+.shead{display:flex;align-items:baseline;gap:12px;flex-wrap:wrap;margin-bottom:6px}
+.shead .n{font-family:var(--mono);font-size:12px;color:var(--jade);font-weight:600}
+.shead h2{font-size:clamp(19px,2.6vw,23px)}
+.sdek{font-size:14.5px;color:var(--ink-2);max-width:66ch;margin-bottom:26px}
+
+/* plate = mockup + annotation */
+.plate{display:grid;grid-template-columns:minmax(0,340px) minmax(0,1fr);gap:26px;align-items:start;
+  padding-block:26px;border-top:1px solid var(--line)}
+.plate:first-of-type{border-top:0}
+@media (max-width:760px){.plate{grid-template-columns:1fr;gap:18px}}
+.anno{min-width:0}
+.anno .tag{font-family:var(--mono);font-size:11px;letter-spacing:.1em;color:var(--ink-3);font-weight:500}
+.anno h3{font-size:17px;margin:5px 0 10px}
+.anno p{font-size:14px;color:var(--ink-2);margin:0 0 10px}
+.anno ul{margin:10px 0 0;padding-left:18px;font-size:13.5px;color:var(--ink-2);line-height:1.7}
+.anno li{margin-bottom:6px}
+.anno b{color:var(--ink);font-weight:600}
+.rule{display:inline-block;font-family:var(--mono);font-size:10.5px;letter-spacing:.06em;
+  background:var(--jade-wash);color:var(--jade);border-radius:3px;padding:3px 7px;margin:3px 4px 0 0;font-weight:500}
+.rule.no{background:var(--alert-wash);color:var(--alert)}
+
+/* phone frame */
+.phone{width:100%;max-width:340px;background:var(--sheet);border:1px solid var(--line-2);
+  border-radius:16px;overflow:hidden;box-shadow:0 1px 3px rgba(0,0,0,.06)}
+.pbar{background:var(--chrome);padding:7px 14px;display:flex;justify-content:space-between;
+  font-family:var(--mono);font-size:10px;color:var(--ink-3);border-bottom:1px solid var(--line)}
+.pbody{padding:16px 15px 20px}
+.ptitle{font-size:16px;font-weight:600;margin-bottom:4px}
+.psub{font-size:12.5px;color:var(--ink-3);margin-bottom:14px}
+.btn{display:block;background:var(--jade);color:var(--on-jade);border-radius:5px;padding:12px;text-align:center;
+  font-size:14.5px;font-weight:600;margin-top:14px}
+.btn.ghost{background:transparent;color:var(--jade);border:1px solid var(--jade)}
+.btn.off{background:var(--line);color:var(--ink-3)}
+.field{border:1px solid var(--line-2);border-radius:5px;padding:10px 12px;margin-bottom:9px;background:var(--paper)}
+.field .lab{font-size:11px;color:var(--ink-3);font-family:var(--mono);letter-spacing:.05em}
+.field .val{font-size:14.5px;font-weight:500;margin-top:2px}
+.field.need{border-color:var(--amber);background:var(--amber-wash)}
+.field.need .lab{color:var(--amber)}
+.field .src{font-family:var(--mono);font-size:10px;color:var(--jade);margin-top:4px}
+.field .src.na{color:var(--amber)}
+.chk{display:flex;gap:9px;align-items:flex-start;font-size:13.5px;margin-bottom:10px;color:var(--ink-2)}
+.chk .box{flex:0 0 17px;height:17px;border:1.5px solid var(--line-2);border-radius:3px;margin-top:2px}
+.chk .box.on{background:var(--jade);border-color:var(--jade)}
+.block{background:var(--alert-wash);border:1px solid var(--alert);border-radius:5px;padding:12px;font-size:13px;line-height:1.6;color:var(--ink)}
+.block .h{font-weight:600;color:var(--alert);font-size:13.5px;margin-bottom:5px}
+
+/* fake policy scan */
+.scan{border:1px solid var(--line-2);background:var(--paper);border-radius:4px;padding:11px;position:relative;font-family:var(--doc)}
+.scan .sh{font-size:10px;font-weight:700;text-align:center;letter-spacing:.04em;margin-bottom:8px;color:var(--ink-2)}
+.scan .row{display:flex;justify-content:space-between;font-size:9.5px;color:var(--ink-2);padding:2.5px 0;border-bottom:1px dotted var(--line-2)}
+.scan .row.hl{background:var(--jade-wash);outline:2px solid var(--jade);outline-offset:1px;color:var(--ink);font-weight:600}
+.scanlab{font-family:var(--mono);font-size:10px;color:var(--jade);margin-top:7px}
+
+/* A4 sheet — set at the real client type scale */
+.a4{width:100%;max-width:340px;background:#fff;color:#111;border:1px solid var(--line-2);
+  border-radius:3px;padding:20px 18px;font-family:var(--doc);box-shadow:0 1px 3px rgba(0,0,0,.08)}
+.a4 .hd{border-bottom:2px solid #111;padding-bottom:8px;margin-bottom:14px}
+.a4 .hd .t{font-size:15px;font-weight:700;line-height:1.35}
+.a4 .hd .m{font-size:10.5px;color:#555;margin-top:5px;font-family:var(--mono)}
+.a4 h4{font-size:17px;font-weight:700;margin:0 0 12px;line-height:1.35}
+.a4 .sub{font-size:14px;font-weight:700;margin:16px 0 8px;padding-bottom:3px;border-bottom:1px solid #bbb}
+.a4 p{font-size:14px;line-height:1.75;margin:0 0 10px}
+.a4 .big{font-size:19px;font-weight:700;line-height:1.4}
+.a4 dl{margin:0;font-size:14px;line-height:1.7}
+.a4 dt{color:#444;margin-top:8px}
+.a4 dd{margin:0;font-weight:700;font-size:15px}
+.a4 .means{border-left:3px solid #111;padding:8px 0 8px 11px;font-size:13.5px;line-height:1.7;background:#f6f6f6;margin:12px 0}
+.a4 .alertbox{border:2px solid #111;padding:11px;margin:14px 0}
+.a4 .alertbox .ah{font-size:15px;font-weight:700;line-height:1.4;margin-bottom:7px}
+.a4 .alertbox p{font-size:13.5px;margin:0}
+.a4 table{width:100%;border-collapse:collapse;font-size:13.5px}
+.a4 th,.a4 td{text-align:left;padding:7px 4px;border-bottom:1px solid #ccc;vertical-align:top}
+.a4 th{font-size:11px;color:#555;font-weight:600;font-family:var(--mono);letter-spacing:.04em}
+.a4 td.num{text-align:right;font-weight:700;font-variant-numeric:tabular-nums;white-space:nowrap}
+.a4 ol{margin:0;padding-left:20px;font-size:13.5px;line-height:1.9}
+.a4 .q{margin-bottom:9px}
+.a4 .foot{border-top:1px solid #bbb;margin-top:16px;padding-top:9px;font-size:11px;color:#555;line-height:1.65}
+.a4 .hot{border:2px solid #111;text-align:center;padding:9px;margin:12px 0;font-size:15px;font-weight:700}
+.a4 .samp{font-family:var(--mono);font-size:9.5px;color:#666;text-align:right;margin-bottom:8px}
+
+/* legend */
+.legend{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:14px;margin-top:4px}
+.lcard{background:var(--sheet);border:1px solid var(--line);border-left:3px solid var(--jade);
+  border-radius:0 4px 4px 0;padding:14px 16px}
+.lcard.no{border-left-color:var(--alert)}
+.lcard h4{font-size:14px;margin-bottom:5px}
+.lcard p{font-size:13px;color:var(--ink-2);margin:0;line-height:1.65}
+footer{border-top:1px solid var(--line-2);margin-top:34px;padding-block:22px 42px;font-size:13px;color:var(--ink-3);line-height:1.7}
+footer b{color:var(--ink-2)}
+footer .mono{font-family:var(--mono);font-size:12px}
+</style>
+
+<div class="wrap">
+
+<header>
+  <p class="eyebrow">เอกสารออกแบบ · ยังไม่มีโค้ด</p>
+  <h1>เครื่องอ่านกรมธรรม์</h1>
+  <p class="lede">ตัวแทนถ่ายรูปเล่มกรมธรรม์ที่ลูกค้ามีอยู่แล้ว → ได้เอกสาร <b>4 หน้า</b> ที่ลูกค้าเอากลับบ้านไปอ่านเองได้ · ผู้อ่านคือ <b>พ่อแม่วัย 70 อ่านคนเดียว ไม่มีใครอธิบาย</b> ซึ่งเป็นข้อกำหนดที่ตัดสินทุกอย่างในหน้านี้</p>
+  <div class="warn"><b>ตัวเลขทั้งหมดในหน้านี้เป็นตัวอย่างสมมติ</b> — ไม่ใช่กรมธรรม์จริงของใคร และไม่อ้างอิงผลิตภัณฑ์ของบริษัทใด · สร้างขึ้นเพื่อทดสอบรูปแบบการนำเสนอเท่านั้น</div>
+</header>
+
+<section>
+  <div class="shead"><span class="n">ฝั่งตัวแทน</span><h2>4 หน้าจอที่ตัดสินว่าเขาจะใช้หรือเลิกใช้</h2></div>
+  <p class="sdek">เป้าที่ต้องจับเวลาจริง: <b>ทำรายงานเสร็จใน 10 นาที</b> · ทุกหน้าใช้มือเดียวบนมือถือได้ เพราะเขายืนอยู่หน้าลูกค้าและถือเล่มกรมธรรม์อีกมือ</p>
+
+  <div class="plate">
+    <div class="phone">
+      <div class="pbar"><span>A3</span><span>ขั้นที่ 1 จาก 5</span></div>
+      <div class="pbody">
+        <p class="ptitle">ขอความยินยอมจากเจ้าของกรมธรรม์</p>
+        <p class="psub">ต้องทำก่อนถ่ายรูป · ข้ามไม่ได้</p>
+        <div class="chk"><span class="box on"></span><span>ผมยินยอมให้อ่านกรมธรรม์ของผม เพื่อทำเอกสารสรุปให้ผมเอง</span></div>
+        <div class="chk"><span class="box on"></span><span>ผมเข้าใจว่า <b>เอกสารนี้เป็นของผม</b> และผมขอให้ลบข้อมูลได้ทุกเมื่อ</span></div>
+        <div class="chk"><span class="box"></span><span>รูปถ่ายเล่มกรมธรรม์จะถูกลบหลังทำเอกสารเสร็จ 30 วัน</span></div>
+        <div class="btn off">ยังกดต่อไม่ได้ — เหลือ 1 ข้อ</div>
+        <div class="btn ghost">ส่งลิงก์ให้ลูกค้ากดเอง</div>
+      </div>
+    </div>
+    <div class="anno">
+      <p class="tag">A3 · โมดูล consent</p>
+      <h3>ด่านแรก และเป็นด่านที่ข้ามไม่ได้</h3>
+      <p>เจ้าของข้อมูลคือลูกค้า ไม่ใช่ตัวแทนที่กดปุ่ม — ข้อนี้อยู่ในสคีมาตั้งแต่วันแรก ไม่ใช่เพิ่มทีหลัง</p>
+      <ul>
+        <li>ข้อความยินยอมเขียนด้วยภาษาที่คน 70 อ่านรู้เรื่อง <b>ไม่ใช่ภาษากฎหมาย</b> — ความยินยอมที่ไม่เข้าใจไม่ใช่ความยินยอม</li>
+        <li>ปุ่มเดินหน้า<b>ปิดอยู่จนครบทุกข้อ</b> และบอกว่าเหลืออะไร</li>
+        <li>มีทางที่สองสำหรับลูกค้าที่ไม่ได้นั่งอยู่ตรงหน้า</li>
+      </ul>
+      <span class="rule">CN-1</span><span class="rule">CN-2</span><span class="rule">CN-3</span><span class="rule">D2</span>
+    </div>
+  </div>
+
+  <div class="plate">
+    <div class="phone">
+      <div class="pbar"><span>A4</span><span>ขั้นที่ 2 จาก 5</span></div>
+      <div class="pbody">
+        <p class="ptitle">ถ่ายหน้าตารางกรมธรรม์</p>
+        <p class="psub">หน้าแรกสุดของเล่ม ที่มีชื่อแบบประกันและทุนประกัน</p>
+        <div class="scan">
+          <p class="sh">ตารางกรมธรรม์ (ตัวอย่าง)</p>
+          <div class="row"><span>แบบประกันภัย</span><span>ตลอดชีพ ชำระเบี้ย 20 ปี</span></div>
+          <div class="row"><span>จำนวนเงินเอาประกันภัย</span><span>1,000,000</span></div>
+          <div class="row"><span>เบี้ยประกันภัยรายปี</span><span>24,000</span></div>
+          <div class="row"><span>วันเริ่มสัญญา</span><span>1 มี.ค. 2555</span></div>
+        </div>
+        <p class="scanlab">✓ ภาพชัด อ่านได้ · ถ่ายแล้ว 1 จาก 2 หน้า</p>
+        <div class="btn">ถ่ายหน้าถัดไป — ตารางมูลค่า (หลังเล่ม)</div>
+        <div class="btn ghost">กรอกเองแทนการถ่าย</div>
+      </div>
+    </div>
+    <div class="anno">
+      <p class="tag">A4 · โมดูล intake</p>
+      <h3>จุดที่เครื่องมือแบบนี้ตายมากที่สุด คือการเอาข้อมูลเข้า</h3>
+      <p>ไม่ใช่การประมวลผล · การถ่ายเล่มหนา 40 หน้าไม่ใช่เรื่องง่ายสำหรับใครเลย จึงขอแค่ 2 หน้าที่ให้คุณค่าเกือบทั้งหมด</p>
+      <ul>
+        <li><b>บอกว่าถ่ายหน้าไหน</b> พร้อมตัวอย่าง — ถ่ายผิดหน้าครั้งแรกคือเลิกใช้ตั้งแต่ครั้งแรก</li>
+        <li><b>ตรวจความชัดทันที</b> ไม่ใช่รู้ตอนกลับบ้านแล้ว</li>
+        <li>มี<b>ทางลง</b>เสมอ — กรอกมือได้ถ้าอ่านไม่ออก ไม่ปล่อยให้ตัวแทนติดตาย</li>
+      </ul>
+      <span class="rule">IN-2</span><span class="rule">IN-3</span><span class="rule">IN-4</span><span class="rule">IN-7</span>
+    </div>
+  </div>
+
+  <div class="plate">
+    <div class="phone">
+      <div class="pbar"><span>A5</span><span>ขั้นที่ 3 จาก 5</span></div>
+      <div class="pbody">
+        <p class="ptitle">ตรวจสิ่งที่ระบบอ่านได้</p>
+        <p class="psub">แตะที่ตัวเลข แล้วภาพจะซูมไปจุดที่อ่านมา</p>
+        <div class="scan" style="margin-bottom:12px">
+          <p class="sh">ตารางกรมธรรม์ (ตัวอย่าง)</p>
+          <div class="row"><span>แบบประกันภัย</span><span>ตลอดชีพ ชำระเบี้ย 20 ปี</span></div>
+          <div class="row hl"><span>จำนวนเงินเอาประกันภัย</span><span>1,000,000</span></div>
+          <div class="row"><span>เบี้ยประกันภัยรายปี</span><span>24,000</span></div>
+        </div>
+        <div class="field">
+          <p class="lab">ทุนประกัน</p><p class="val">1,000,000 บาท</p>
+          <p class="src">อ่านจากหน้า 1 บรรทัดที่ 2 · มั่นใจสูง</p>
+        </div>
+        <div class="field need">
+          <p class="lab">ผู้รับผลประโยชน์</p><p class="val">อ่านไม่ชัด — ต้องยืนยัน</p>
+          <p class="src na">ลายมือเขียนทับ · เลือก “ไม่รู้” ได้ถ้าไม่แน่ใจ</p>
+        </div>
+        <div class="field">
+          <p class="lab">ชำระเบี้ยถึง</p><p class="val">พ.ศ. 2575</p>
+          <p class="src">คำนวณจาก 2555 + 20 ปี</p>
+        </div>
+        <div class="btn off">ยืนยัน 1 ช่องที่ค้างก่อน</div>
+      </div>
+    </div>
+    <div class="anno">
+      <p class="tag">A5 · โมดูล extract + guard</p>
+      <h3>หน้าที่สำคัญที่สุดของทั้งระบบ</h3>
+      <p>เพราะมันคือที่ที่ข้อห้าม <b>“ห้ามพูดตัวเลขที่ชี้ที่มาไม่ได้”</b> ถูกบังคับใช้ให้เห็นด้วยตา</p>
+      <ul>
+        <li><b>ทุกตัวเลขบอกว่าอ่านมาจากหน้าไหน บรรทัดไหน</b> — ตัวแทนตรวจได้ และไม่ต้องเชื่อเครื่อง</li>
+        <li><b>“ไม่รู้” เป็นตัวเลือกที่กดได้</b> ไม่ใช่ช่องที่ต้องกรอกให้เต็ม · สคีมาที่บังคับให้มีค่า คือกลไกที่ทำให้ตัวเลขถูกแต่งขึ้น</li>
+        <li>ช่องที่ไม่มั่นใจ <b>บังคับยืนยันก่อนไปต่อ</b> — ปุ่มไม่ปล่อยให้ข้าม</li>
+      </ul>
+      <span class="rule">EX-2</span><span class="rule">EX-3</span><span class="rule">GU-3</span><span class="rule">D3</span>
+    </div>
+  </div>
+
+  <div class="plate">
+    <div class="phone">
+      <div class="pbar"><span>A7</span><span>ขั้นที่ 5 จาก 5</span></div>
+      <div class="pbody">
+        <p class="ptitle">ก่อนส่ง</p>
+        <p class="psub">นี่คือสิ่งที่ลูกค้าจะเห็น ไม่มีเวอร์ชันย่อ</p>
+        <div class="block">
+          <p class="h">ยังส่งไม่ได้ — 1 ข้อ</p>
+          <p>ข้อความ <b>“แบบนี้เสียเปรียบกว่าแบบใหม่”</b> ในหน้า 4 เป็นการเปรียบเทียบเพื่อชี้นำ ซึ่งเอกสารนี้ไม่ทำ<br><br>เขียนเป็นข้อเท็จจริงได้ว่า <b>กรมธรรม์นี้ซื้อก่อน 8 พ.ย. 2564</b> แล้วให้ลูกค้าถามบริษัทเอง</p>
+        </div>
+        <div class="btn ghost">แก้ข้อความ</div>
+        <div class="btn off">ส่งให้ลูกค้า</div>
+      </div>
+    </div>
+    <div class="anno">
+      <p class="tag">A7 · โมดูล guard</p>
+      <h3>ข้อห้ามเป็นโค้ด ไม่ใช่คำแนะนำในคู่มือ</h3>
+      <p>prompt หลบได้ โค้ดหลบไม่ได้ · และเพราะชื่อเราอยู่บนเอกสารที่ตัวแทนยื่นให้ลูกค้า ด่านนี้คือสิ่งที่ปกป้องเราเอง</p>
+      <ul>
+        <li>บล็อกการเปรียบเทียบกับสินค้าที่กำลังจะขาย และ<b>บล็อกคำแนะนำให้ยกเลิกกรมธรรม์เดิม</b></li>
+        <li>บล็อกแล้ว<b>บอกทางออกที่ถูกต้อง</b> ไม่ใช่ปิดประตูเฉย ๆ</li>
+        <li>อนุญาตและสนับสนุนประโยค <b>“ของเดิมโอเคแล้ว ไม่ต้องทำอะไร”</b> — เครื่องมือที่หาช่องว่างเจอทุกครั้งคือสคริปต์ขาย และลูกค้าเรียนรู้เรื่องนี้เร็วมาก</li>
+        <li>ทุกครั้งที่บล็อก ถูกบันทึกไว้</li>
+      </ul>
+      <span class="rule no">GU-1</span><span class="rule no">GU-2</span><span class="rule">GU-4</span><span class="rule">GU-5</span><span class="rule">AU-5</span>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="shead"><span class="n">ฝั่งลูกค้า</span><h2>เอกสาร 4 หน้า ที่คนอายุ 70 อ่านคนเดียวได้</h2></div>
+  <p class="sdek">สี่หน้านี้ตั้งขนาดตัวอักษรไว้ที่สเกลจริงของผู้อ่าน จึง<b>ใหญ่กว่าข้อความอื่นทั้งหน้านี้อย่างเห็นได้ชัด</b> — นั่นคือประเด็น ไม่ใช่ความบังเอิญ · <b>พิมพ์ขาวดำแล้วยังอ่านรู้เรื่อง</b> เพราะไม่มีความหมายใดสื่อด้วยสีอย่างเดียว</p>
+
+  <div class="plate">
+    <div class="a4">
+      <p class="samp">ตัวอย่างสมมติ</p>
+      <div class="hd">
+        <p class="t">กรมธรรม์ของคุณ อ่านแบบเข้าใจง่าย</p>
+        <p class="m">สมชาย ใจดี · 17 ต.ค. 2569 · หน้า 1 จาก 4</p>
+      </div>
+      <h4>คุณมีความคุ้มครองอะไรบ้าง</h4>
+      <p class="sub">ส่วนประกันชีวิต — ส่วนที่อยู่ยาว</p>
+      <dl>
+        <dt>ถ้าคุณเสียชีวิต คนที่คุณระบุไว้จะได้รับ</dt>
+        <dd class="big">1,000,000 บาท</dd>
+        <dt>คุณจ่ายให้บริษัทปีละ</dt><dd>24,000 บาท</dd>
+        <dt>คุณต้องจ่ายถึงปี</dt><dd>พ.ศ. 2575 แล้วหยุดจ่ายได้</dd>
+        <dt>ประกันนี้คุ้มครองถึงปี</dt><dd>พ.ศ. 2612</dd>
+      </dl>
+      <p class="means"><b>แปลว่า</b> คุณจ่ายปีละ 24,000 บาท อีก 6 ปี แล้วประกันคุ้มครองคุณต่อไปจนถึงอายุ 90 โดยไม่ต้องจ่ายอีก</p>
+      <p class="sub">ส่วนที่ซื้อพ่วงมา — ส่วนนี้หายง่ายที่สุด</p>
+      <table>
+        <thead><tr><th>ซื้อพ่วงอะไรไว้</th><th>ได้เท่าไร</th></tr></thead>
+        <tbody>
+          <tr><td>ค่ารักษาพยาบาล<br><span style="font-size:11.5px;color:#555">ต่ออายุทุกปี</span></td><td class="num">500,000<br><span style="font-size:11.5px;font-weight:400">ต่อปี</span></td></tr>
+        </tbody>
+      </table>
+      <p class="means">ประกันสุขภาพของคุณซื้อเมื่อ พ.ศ. 2560 — <b>ก่อนวันที่ 8 พฤศจิกายน 2564</b><br>ตั้งแต่วันนั้น ทางการกำหนดให้ประกันสุขภาพทุกบริษัทมีโครงสร้างเหมือนกัน เพื่อให้เทียบกันได้ ของคุณเป็นแบบก่อนหน้านั้น</p>
+    </div>
+    <div class="anno">
+      <p class="tag">C1 · หน้า 1</p>
+      <h3>แยกให้เห็นตั้งแต่หน้าแรกว่าอะไรอยู่ยาว อะไรหายง่าย</h3>
+      <p>คนส่วนใหญ่ถือกรมธรรม์มา 14 ปีโดยไม่รู้ว่าค่ารักษาพยาบาลของตัวเองเป็นส่วนที่ต่ออายุทุกปี</p>
+      <ul>
+        <li>ไม่มีคำว่า “ทุนประกัน” — เขียนว่า <b>“คนที่คุณระบุไว้จะได้รับ”</b> แทน</li>
+        <li>แยก <b>“จ่ายถึงปีไหน”</b> ออกจาก <b>“คุ้มครองถึงปีไหน”</b> เพราะคนสับสนสองอันนี้มากที่สุด</li>
+        <li>ทุกตัวเลขมีประโยค <b>“แปลว่า”</b> ต่อท้าย · ตัวเลขที่ยืนเดี่ยวไม่มีใครอ่าน</li>
+        <li>ตอบคำถาม <b>“ของฉันเป็นแบบเก่าหรือแบบใหม่”</b> ซึ่งแทบไม่มีใครรู้คำตอบ และเราตอบได้ฟรี</li>
+      </ul>
+      <span class="rule">CA-3</span><span class="rule">EX-6</span><span class="rule">PL-1</span>
+    </div>
+  </div>
+
+  <div class="plate">
+    <div class="a4">
+      <p class="samp">ตัวอย่างสมมติ</p>
+      <div class="hd">
+        <p class="t">กรมธรรม์ของคุณ อ่านแบบเข้าใจง่าย</p>
+        <p class="m">สมชาย ใจดี · 17 ต.ค. 2569 · หน้า 2 จาก 4</p>
+      </div>
+      <h4>ถ้าเกิดเรื่องขึ้นจริง จะเป็นยังไง</h4>
+      <p class="sub">ถ้าคุณนอนโรงพยาบาล 3 คืน</p>
+      <p>ค่าใช้จ่ายทั้งหมดประมาณ <b>45,000 บาท</b></p>
+      <table>
+        <tbody>
+          <tr><td>ประกันจ่าย</td><td class="num">15,000 บาท</td></tr>
+          <tr><td><b>คุณจ่ายเอง</b></td><td class="num">30,000 บาท</td></tr>
+        </tbody>
+      </table>
+      <p class="means">เพราะกรมธรรม์ของคุณกำหนดว่า <b>ค่ารักษา 30,000 บาทแรก คุณจ่ายเอง</b> ส่วนที่เกินจากนั้นบริษัทจ่าย</p>
+      <p class="sub">ถ้าคุณเสียชีวิตปีนี้</p>
+      <table>
+        <tbody>
+          <tr><td>คนที่คุณระบุไว้ได้รับ</td><td class="num">1,000,000 บาท</td></tr>
+          <tr><td>คุณจ่ายเบี้ยไปแล้วทั้งหมด</td><td class="num">336,000 บาท</td></tr>
+        </tbody>
+      </table>
+      <p class="foot">ตัวเลขค่ารักษาเป็นการประมาณจากเงื่อนไขในกรมธรรม์ของคุณ ค่าใช้จ่ายจริงขึ้นกับโรงพยาบาลและอาการ</p>
+    </div>
+    <div class="anno">
+      <p class="tag">C2 · หน้า 2</p>
+      <h3>อธิบายด้วยสถานการณ์ ไม่ใช่ด้วยนิยาม</h3>
+      <p>แบบแผนที่ขโมยตรง ๆ มาจาก Coverage Examples ของ SBC สหรัฐฯ ซึ่งเป็นเอกสารที่กฎหมายบังคับและผ่านการใช้จริงกับคนหลายสิบล้าน</p>
+      <ul>
+        <li>คำว่า <b>“ความรับผิดส่วนแรก”</b> ไม่ปรากฏที่ไหนเลย — มีแต่ “30,000 บาทแรก คุณจ่ายเอง”</li>
+        <li><b>ไม่เกิน 3 สถานการณ์</b> ต่อเอกสาร มากกว่านั้นยาวเกินกว่าคน 70 จะอ่านจบ</li>
+        <li>ตัวเลขที่เป็นการประมาณ <b>บอกว่าเป็นการประมาณ</b> ไม่ปนกับตัวเลขที่อ่านมาจากเล่ม</li>
+      </ul>
+      <span class="rule">SC-2</span><span class="rule">SC-4</span><span class="rule">CL-4</span>
+    </div>
+  </div>
+
+  <div class="plate">
+    <div class="a4">
+      <p class="samp">ตัวอย่างสมมติ</p>
+      <div class="hd">
+        <p class="t">กรมธรรม์ของคุณ อ่านแบบเข้าใจง่าย</p>
+        <p class="m">สมชาย ใจดี · 17 ต.ค. 2569 · หน้า 3 จาก 4</p>
+      </div>
+      <h4>ถ้าหยุดจ่ายวันนี้ จะเกิดอะไรขึ้น</h4>
+      <p>คุณจ่ายไปแล้วทั้งหมด <b>336,000 บาท</b> (ปีละ 24,000 บาท × 14 ปี)<br>คุณมี <b>3 ทางเลือก</b></p>
+      <p class="sub">1 · เลิกแล้วเอาเงินคืน</p>
+      <p class="big">ได้คืน 142,000 บาท</p>
+      <p>แล้วประกันจบ ไม่คุ้มครองอะไรอีกเลย</p>
+      <p class="sub">2 · หยุดจ่าย ประกันชีวิตยังอยู่ถึงครบสัญญา</p>
+      <p>เงินที่คนข้างหลังจะได้ ลดจาก 1,000,000 บาท <b>เหลือ 420,000 บาท</b> · คุ้มครองถึง พ.ศ. 2612 เหมือนเดิม</p>
+      <p class="sub">3 · หยุดจ่าย เงินเท่าเดิม แต่คุ้มครองสั้นลง</p>
+      <p>ได้ 1,000,000 บาทเท่าเดิม แต่คุ้มครองแค่ถึง <b>พ.ศ. 2583</b> แล้วจบ</p>
+      <div class="alertbox">
+        <p class="ah">สิ่งที่ต้องรู้ก่อนเลือกทางที่ 2 หรือ 3</p>
+        <p><b>ค่ารักษาพยาบาล 500,000 บาทต่อปีของคุณ จะหายไปทันที</b><br><br>และถ้าสุขภาพคุณเปลี่ยนไปจากตอนที่ซื้อ คุณอาจซื้อกลับไม่ได้อีกเลย<br><br>ไม่ใช่เรื่องที่ต้องตัดสินใจวันนี้ แต่เป็นเรื่องที่ต้องรู้ก่อนตัดสินใจ</p>
+      </div>
+      <p class="foot">ตัวเลขทั้งหน้านี้คำนวณจากตารางมูลค่ากรมธรรม์ที่อยู่ด้านหลังเล่มของคุณ (มูลค่าต่อทุนประกัน 1,000 บาท × ทุนประกันของคุณ) · โปรดยืนยันกับบริษัทก่อนตัดสินใจ</p>
+    </div>
+    <div class="anno">
+      <p class="tag">C3 · หน้า 3</p>
+      <h3>หน้าที่มีค่าที่สุด และเป็นหน้าที่ปกป้องลูกค้าไปในตัว</h3>
+      <p>คำเตือนในกรอบคือ<b>ข้อเท็จจริงที่มีประโยชน์ที่สุดที่เอกสารนี้ผลิตออกมา และเป็นข้อเท็จจริงเดียวกับที่ทำให้ลูกค้าไม่ถูกชวนยกเลิกกรมธรรม์เดิมง่าย ๆ</b></p>
+      <p>เครื่องมือนี้จึงปลอดภัยโดยโครงสร้าง ไม่ใช่โดยนโยบาย — แค่ทำงานของมันให้ถูกต้อง มันก็เป็นยากันการปล้นกรมธรรม์ในตัว</p>
+      <ul>
+        <li>ตัวเลขทั้งหน้ามาจาก<b>เลขคณิตล้วน</b> ไม่มี AI เกี่ยวข้อง — ทดสอบได้ 100%</li>
+        <li>กรอบคำเตือนใช้ <b>เส้นขอบหนา ไม่ใช่สีแดง</b> เพราะต้องอ่านรู้เรื่องตอนพิมพ์ขาวดำ</li>
+        <li>ปิดท้ายด้วย <b>“ไม่ใช่เรื่องที่ต้องตัดสินใจวันนี้”</b> — เอกสารนี้ไม่เร่งใคร</li>
+      </ul>
+      <span class="rule">CL-1</span><span class="rule">CL-2</span><span class="rule">CA-4</span><span class="rule">RE-2</span>
+    </div>
+  </div>
+
+  <div class="plate">
+    <div class="a4">
+      <p class="samp">ตัวอย่างสมมติ</p>
+      <div class="hd">
+        <p class="t">กรมธรรม์ของคุณ อ่านแบบเข้าใจง่าย</p>
+        <p class="m">สมชาย ใจดี · 17 ต.ค. 2569 · หน้า 4 จาก 4</p>
+      </div>
+      <h4>อะไรที่ไม่คุ้มครอง</h4>
+      <ol>
+        <li>โรคที่คุณเป็นอยู่ก่อนซื้อประกัน</li>
+        <li>การรักษาเพื่อความสวยงาม</li>
+        <li>อุบัติเหตุจากการแข่งรถหรือกีฬาเสี่ยงอันตราย</li>
+      </ol>
+      <p class="foot" style="border:0;margin:10px 0 0;padding:0">ยังอ่านเงื่อนไขจากเล่มไม่ครบ — ขอเอกสารเงื่อนไขฉบับเต็มจากบริษัทได้</p>
+      <p class="sub">คำถามที่คุณถือหน้านี้ไปถามบริษัทได้เลย</p>
+      <p class="q">1 · “ประกันสุขภาพของผม เป็นแบบก่อนหรือหลัง 8 พฤศจิกายน 2564”</p>
+      <p class="q">2 · “ส่วนค่ารักษาพยาบาล ต้องต่ออายุทุกปีไหม และบริษัทมีสิทธิ์ไม่ต่อไหม”</p>
+      <p class="q">3 · “ถ้าผมหยุดจ่ายเบี้ย ส่วนค่ารักษาพยาบาลจะหายไปจริงไหม”</p>
+      <p class="q">4 · “ผู้รับผลประโยชน์ที่ระบุไว้ ตอนนี้เป็นใคร”</p>
+      <div class="hot">ถ้าไม่ได้คำตอบที่พอใจ<br>สายด่วนประกันภัย คปภ. โทร 1186</div>
+      <p class="foot">เอกสารนี้คือการอ่านกรมธรรม์ที่คุณมีอยู่แล้ว ให้อยู่ในรูปที่อ่านเข้าใจง่าย — <b>ไม่ใช่คำแนะนำให้ซื้อ ขาย ยกเลิก หรือเปลี่ยนกรมธรรม์ใด ๆ</b><br><br>ตัวเลขทุกตัวอ่านมาจากเล่มกรมธรรม์ของคุณเอง · ถ้อยคำที่มีผลผูกพันคือถ้อยคำในกรมธรรม์ของบริษัท ไม่ใช่เอกสารนี้ · หากพบว่าตัวเลขใดไม่ตรงกับเล่มของคุณ โปรดยึดตามเล่ม และแจ้งผู้จัดทำ<br><br>จัดทำโดย [ชื่อตัวแทน] เลขที่ใบอนุญาต [เลข] ร่วมกับ [ชื่อเรา]</p>
+    </div>
+    <div class="anno">
+      <p class="tag">C4 · หน้า 4</p>
+      <h3>หน้าที่ยอมรับว่าเอกสารนี้ตอบไม่ได้ทุกอย่าง</h3>
+      <p>และนั่นคือสิ่งที่ทำให้มันน่าเชื่อถือ · เอกสารต้องเดาคำถามล่วงหน้า เพราะไม่มีใครอยู่ตรงนั้นให้ถาม</p>
+      <ul>
+        <li>ช่องที่อ่านไม่ครบ <b>เขียนว่าอ่านไม่ครบ</b> ไม่เว้นว่างและไม่เดา</li>
+        <li>คำถามเขียนเป็น<b>ประโยคที่ลูกค้าอ่านออกเสียงทางโทรศัพท์ได้เลย</b> ไม่ใช่หัวข้อให้ไปคิดเอง</li>
+        <li>ให้ <b>เบอร์หน่วยงานกำกับดูแล</b> ไม่ใช่เบอร์เราหรือเบอร์ตัวแทน — ลูกค้าต้องมีทางออกที่ไม่ผ่านคนขาย</li>
+        <li>ร่วมแบรนด์: ชื่อตัวแทน <b>และ</b> ชื่อเรา อยู่บนเอกสาร ซึ่งเป็นเหตุผลที่บันทึกการใช้งานไม่ใช่ลูกเล่นแต่เป็นเกราะ</li>
+      </ul>
+      <span class="rule">GU-4</span><span class="rule">RE-5</span><span class="rule">AU-1</span><span class="rule">D3</span>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="shead"><span class="n">กฎที่ตัดทางเลือกทิ้ง</span><h2>สิ่งที่หน้าจอพวกนี้จะไม่มี</h2></div>
+  <p class="sdek">ข้อกำหนด “คน 70 อ่านเอง ที่บ้าน ไม่มีใครอธิบาย” ตัดทางเลือกออกไปเยอะมาก · เขียนไว้เพื่อไม่ให้มันค่อย ๆ ไหลกลับมา</p>
+  <div class="legend">
+    <div class="lcard no"><h4>ไม่มี tooltip ไม่มีปุ่มกางเนื้อหา</h4><p>เอกสารต้องทำงานบนกระดาษ ที่ไม่มีอะไรให้แตะ</p></div>
+    <div class="lcard no"><h4>ไม่ใช้สีสื่อความหมายอย่างเดียว</h4><p>ลูกค้าถ่ายเอกสารขาวดำส่งต่อให้ลูกอีกคน ความหมายต้องไม่หาย</p></div>
+    <div class="lcard no"><h4>ไม่ต้องสมัครสมาชิกเพื่ออ่าน</h4><p>บังคับคน 70 สมัครเพื่ออ่านเอกสารของตัวเอง เท่ากับเลิกอ่าน</p></div>
+    <div class="lcard no"><h4>ไม่มีคำว่า “ควร” หรือ “แนะนำ”</h4><p>เอกสารนี้บอกข้อเท็จจริงและตั้งคำถาม ไม่ตัดสินใจแทนใคร</p></div>
+    <div class="lcard"><h4>ตัดคำไทยให้ถูกตอนขึ้นบรรทัด</h4><p>ภาษาไทยไม่เว้นวรรคระหว่างคำ ตัวเรนเดอร์ PDF ทั่วไปจะตัดกลางคำ แล้วคน 70 อ่านไม่ออก</p></div>
+    <div class="lcard"><h4>ทุกตัวเลขชี้ที่มาได้</h4><p>อ่านมาจากหน้าไหนบรรทัดไหน หรือคำนวณจากอะไร — ไม่งั้นไม่ออกเอกสาร</p></div>
+  </div>
+</section>
+
+<section>
+  <div class="shead"><span class="n">เกณฑ์ตัดสิน</span><h2>ข้อเดียวที่บอกว่าการออกแบบนี้ผ่านหรือไม่ผ่าน</h2></div>
+  <div class="a4" style="max-width:none">
+    <p style="font-size:16px;font-weight:700;line-height:1.5;margin-bottom:14px">ปริ้นต์ออกมา ยื่นให้คนอายุ 70 ที่ไม่รู้เรื่องประกัน อ่านคนเดียว 10 นาที แล้วตอบได้ 3 คำถาม</p>
+    <ol style="font-size:15px;line-height:2;font-weight:600">
+      <li>ฉันมีความคุ้มครองอะไรบ้าง</li>
+      <li>ถ้าฉันหยุดจ่ายวันนี้ จะเกิดอะไรขึ้น</li>
+      <li>อะไรที่ไม่คุ้มครอง</li>
+    </ol>
+    <p class="means" style="margin-top:14px">ทดสอบกับ <b>3 คน ไม่ใช่คนเดียว</b> · <b>ห้ามอธิบายเพิ่มระหว่างทดสอบ</b> — ถ้าต้องอธิบาย แปลว่าเอกสารยังไม่พอ · ตอบไม่ได้ = <b>ออกแบบยังไม่ผ่าน ไม่ใช่คนอ่านไม่เก่ง</b></p>
+  </div>
+</section>
+
+<footer>
+  <p><b>สถานะ:</b> นี่คือเอกสารออกแบบ ยังไม่มีโค้ดแอปพลิเคชันแม้แต่บรรทัดเดียว · ก่อนเขียนโค้ดต้องตอบสามข้อที่เป็นตัวบล็อก — <b>ส่งข้อมูลลูกค้าไปประมวลผลที่ผู้ให้บริการ AI ต่างประเทศได้ไหม</b> · <b>การสรุปกรมธรรม์นับเป็นการให้คำแนะนำที่ต้องมีใบอนุญาตไหม</b> · <b>บริษัทประกันห้ามตัวแทนใช้เอกสารภายนอกกับลูกค้าไหม</b></p>
+  <p style="margin-top:12px">ส่วนที่ยังไม่ได้ออกแบบและรู้ตัวว่ายังไม่ได้ออกแบบ: ขนาดตัวอักษรขั้นต่ำที่อ้างงานวิจัยได้ · หน้าตาจริงของตารางกรมธรรม์แต่ละบริษัท (ต้องเห็นเล่มจริง 10 เล่ม) · แอป “กรมธรรม์ของฉัน” ของ คปภ. แสดงอะไรอยู่แล้ว — ถ้ามันอธิบายครบแล้ว เอกสาร 4 หน้านี้ต้องคิดใหม่ทั้งหมด</p>
+  <p class="mono" style="margin-top:14px">เอกสารเต็ม: strategy/19-product-architecture · 20-feature-inventory · 21-ux-design · 22-tech-stack · 23-decision-register</p>
+</footer>
+
+</div>

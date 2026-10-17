@@ -1,6 +1,6 @@
 # Strategy — ทิศทางปัจจุบันและบันทึกกระบวนการ
 
-> อัปเดต 2026-09-20 · เจ้าของ: Tin
+> อัปเดต 2026-10-17 · เจ้าของ: Tin
 > ⚠️ **ทิศทางเปลี่ยนแล้ว** — เอกสาร `01`–`06` และ `probe1-*` เป็นงาน **agent infrastructure** ซึ่ง**เลิกใช้เป็นแผนแล้ว** เก็บไว้เป็นบทเรียนและเป็นชิ้นส่วนที่ใช้ซ้ำได้ · อ่าน [`strategy/10-pivot-2026-09.md`](strategy/10-pivot-2026-09.md) ก่อนไฟล์อื่นทั้งหมด
 
 ---
@@ -28,9 +28,21 @@
 | 6 | [`14-flowstable-bridge.md`](strategy/14-flowstable-bridge.md) | Flow's Table ในบทบาทสะพาน · ขอบเขต in/out · ระบบเดียวสองการใช้งาน |
 | 7 | [`16-elder-protection-wedge.md`](strategy/16-elder-protection-wedge.md) | ⭐ **ประตูเข้า: ปกป้องพ่อแม่จากการฉ้อโกงยุค AI** — กลไก 5 ชั้น · สถิติไทย · กับดัก 4 ข้อ (แก้แล้ว 2) · 8 สัปดาห์ |
 | 8 | [`17-advisor-relevance.md`](strategy/17-advisor-relevance.md) | ที่ปรึกษาสำคัญขึ้นได้ยังไง — คำอ้างไหนรอด ไหนคือนิทานปลอบใจ |
-| 9 | [`18-advisor-channel.md`](strategy/18-advisor-channel.md) | 🆕 **ช่องทางตัวแทน** — ใช้คนกลาง 244,048 รายเป็น distribution · 5 รูปแบบ · ทางไป HNW ที่ไม่ต้องมีเครือข่าย |
+| 9 | [`18-advisor-channel.md`](strategy/18-advisor-channel.md) | **ช่องทางตัวแทน** — ใช้คนกลาง 244,048 รายเป็น distribution · 5 รูปแบบ · ทางไป HNW ที่ไม่ต้องมีเครือข่าย |
 
-**เครื่องมือ**: [`templates/client-timelog.csv`](strategy/templates/client-timelog.csv) · [`templates/family-session-funnel.csv`](strategy/templates/family-session-funnel.csv) · [`templates/family-protocol.md`](strategy/templates/family-protocol.md) · [`templates/weekly-review.md`](strategy/templates/weekly-review.md)
+**ชุดออกแบบผลิตภัณฑ์** (🆕 2026-10-17 · เครื่องอ่านกรมธรรม์ — **เอกสารออกแบบ ยังไม่มีโค้ด**)
+
+| # | ไฟล์ | ตอบอะไร |
+|---|---|---|
+| 10 | [`19-product-architecture.md`](strategy/19-product-architecture.md) | ⭐ แกน ReportType · 14 โมดูล 4 ชั้น · ข้อมูลกรมธรรม์ที่มีจริง · ลำดับ R0-R4 |
+| 11 | [`20-feature-inventory.md`](strategy/20-feature-inventory.md) | ความสามารถครบทุกโมดูล — ทุกข้อตอบว่า "ถ้าไม่มีจะพังยังไง" |
+| 12 | [`21-ux-design.md`](strategy/21-ux-design.md) | 18 หน้าจอ · กฎออกแบบสำหรับผู้อ่านอายุ 70 · ของที่ขโมยจาก PRIIPs KID · SBC · FCA |
+| 13 | [`22-tech-stack.md`](strategy/22-tech-stack.md) | สแต็ก เก็บ/ตัด/เพิ่ม · **สแต็กทั้งชุดเป็นของ R3 ไม่ใช่ R1** |
+| 14 | [`23-decision-register.md`](strategy/23-decision-register.md) | 🔴 **D1-D12 ข้อตัดสินที่แก้ทีหลังไม่ได้** — หกข้อต้องมีผลตั้งแต่ R1 |
+
+**เครื่องมือ**: [`templates/client-timelog.csv`](strategy/templates/client-timelog.csv) · [`templates/family-session-funnel.csv`](strategy/templates/family-session-funnel.csv) · [`templates/family-protocol.md`](strategy/templates/family-protocol.md) · [`templates/weekly-review.md`](strategy/templates/weekly-review.md) · 🆕 [`templates/thai-plain-words.md`](strategy/templates/thai-plain-words.md) · 🆕 [`templates/policy-read-output.md`](strategy/templates/policy-read-output.md)
+
+**หน้าจอที่ออกแบบแล้ว** (🆕): <https://claude.ai/artifact/2evvintgyqd3jfFPXXqCpK> — ฝั่งตัวแทน 4 หน้า + เอกสารลูกค้า A4 4 หน้า · ซอร์สที่ [`strategy/policy-reader-ux.html`](strategy/policy-reader-ux.html)
 
 **หน้าภาพรวม**: <https://claude.ai/artifact/SEmUm3gji1rXr2spABPcb4> — ซอร์สที่ [`strategy/advice-first-practice.html`](strategy/advice-first-practice.html)
 
@@ -48,6 +60,8 @@ Phase 2  ช่องทางตัวแทน (18)      เดือน 6-12 
 **คู่ขนานเช่นกัน (ใหม่ 2026-09-20)**: ช่องทางตัวแทน (`18`) — **สัปดาห์ 1-3 มีแต่การคุยและการถาม ไม่สร้างอะไรเลย** · เหตุผลที่ไม่รอถึงเดือน 6: คำตอบที่ต้องการเป็นคำตอบจากคน ไม่ใช่จากของที่เราสร้าง และถามได้ตั้งแต่วันนี้ฟรี ๆ · ⚠️ **ตัวเลข funnel เซสชันครอบครัวย้อนสร้างไม่ได้ ต้องเริ่มจดพร้อม Phase 0**
 
 **ลำดับศูนย์ (ก่อนทุกอย่าง)**: เอกสารข้อตกลงหุ้นส่วน Flow's Table (`15`) + เช็กกฎเกณฑ์ (`13` รวมหมวด **F** และ **D3 · D4 · D7**) — ทั้งคู่ราคาถูกและอันตรายที่สุดถ้าข้าม
+
+**⛔ ก่อนเขียนโค้ดบรรทัดแรกของเครื่องอ่านกรมธรรม์**: ตอบ `13` **C2** (ส่งข้อมูลลูกค้าไป AI ต่างประเทศได้ไหม) → **G1** (สรุปกรมธรรม์นับเป็นคำแนะนำไหม) → **D3** (บริษัทแม่ห้ามใช้ของนอกไหม) · สามข้อนี้เป็นตัวบล็อก ไม่ใช่ข้อควรระวัง
 
 **คู่ขนานตลอด**: คอนเทนต์เปลี่ยนทิศ — ยังไม่เปิดตัว = เปลี่ยนได้ฟรี · เขียนแคบและลึกในฐานะ**หลักฐานของวิจารณญาณ** ไม่ใช่ช่องส่งข้อมูล
 
