@@ -137,6 +137,10 @@ Firms, labs, and authors whose output is worth following. Grow this list over ti
 | Carlo Campajola | Author | Deep-RL execution games — learned-collusion detection, "correct reward is not enough" PPO diagnosis in analytically-solved games (added 2026-10-07) |
 | Ali Habibnia / Alexander Ardaiz | Authors | Crypto RL order-execution honest-negatives; seed-robustness discipline, MoE-masks-training-failure (added 2026-10-07) |
 | Daniel Kuhn (EPFL) | Author | Distributionally-robust optimization; two-budget adversarial deep hedging (WRAP), foundational DRO (added 2026-10-07) |
+| Matteo Smerlak | Author | Optimal trading filters — Wiener-Hopf conversion of a forecast to a position under transient impact; the theory of the *value of a signal after costs* (Gârleanu-Pedersen aim-portfolio, fractional filters); anchor of the 2026-10-21 gp_aim backtest (added 2026-10-21) |
+| Alex Vidovich & Zivana Zerjal | Authors | Practitioner honest-negatives — backtest-vs-live reconciliation, data/code/config defect taxonomies + 10-point checklist (added 2026-10-21) |
+| Julius F. Bonart | Author | Diffusive market impact; the square-root-impact-law-from-diffusivity program Bouchaud/Mastromatteo/Tóth engage with (added 2026-10-21) |
+| Minkey Chang | Author | Amortized neural filtering for calibrated posteriors in statistical arbitrage (added 2026-10-21) |
 | _add your own…_ | | |
 
 ---
