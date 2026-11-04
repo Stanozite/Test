@@ -141,6 +141,13 @@ Firms, labs, and authors whose output is worth following. Grow this list over ti
 | Alex Vidovich & Zivana Zerjal | Authors | Practitioner honest-negatives — backtest-vs-live reconciliation, data/code/config defect taxonomies + 10-point checklist (added 2026-10-21) |
 | Julius F. Bonart | Author | Diffusive market impact; the square-root-impact-law-from-diffusivity program Bouchaud/Mastromatteo/Tóth engage with (added 2026-10-21) |
 | Minkey Chang | Author | Amortized neural filtering for calibrated posteriors in statistical arbitrage (added 2026-10-21) |
+| Eric Benhamou / Jean-Jacques Ohana (Homa Capital) | Authors/firm | Honest-eval + crowding — PROMOTE anytime-valid promotion tests (sequential cousin of deflated-SR), collision-aware learned-portfolio layer (added 2026-11-04) |
+| Amir Dehkordi + Amir/Arman Khaledian | Authors | OLIVIA blinded-IC LLM news-prediction protocol — "the market reads the news first"; upgrades the Kargarzadeh/Khaledian line (added 2026-11-04) |
+| Gulsah Bicki & Taylan Akdogan | Authors | Lag-resolved preceding-trend volatility leverage effect; crypto-specific arrow-of-time vol response (BTC/ETH vs equities); the 2026-11-04 trend_leverage backtest anchor (added 2026-11-04) |
+| Jingqiu Ding | Author | Hyperliquid L4 wallet-identity short-horizon return prediction (co-author with Daojing Zhai) (added 2026-11-04) |
+| Supriadi | Author | Downside-semicovariance NCO + sticky-HMM regime-persistent sector rotation (Asym-Sticky-NCO) (added 2026-11-04) |
+| Yadh Hafsi & Grégoire Szymanski | Authors | Queue-sensitive propagator passive-market-impact calibration (with Lillo) (added 2026-11-04) |
+| Damir Filipovic & Andrea Ruglioni | Authors | PanelGP probabilistic (Gaussian-process) factor model for asset-return panels (added 2026-11-04) |
 | _add your own…_ | | |
 
 ---
