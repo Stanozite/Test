@@ -19,8 +19,9 @@ from .online_window import OnlineWindow
 from .weak_meanrev import WeakMeanRev
 from .gp_aim import GPAim
 from .trend_leverage import TrendLeverage
+from .powerlaw_trend import PowerLawTrend
 
-REGISTRY = {cls.name: cls for cls in (MACrossover, CostAwareMomentum, Lag1Reversal, TSMom, DonchianBreakout, TrendFilter, DowSeasonality, VolRegime, HalvingClock, CascadeWarning, EVaRRegime, MultiscaleMove, VolterraSignal, AsymLongMemVol, PairsMeanRev, OnlineWindow, WeakMeanRev, GPAim, TrendLeverage)}
+REGISTRY = {cls.name: cls for cls in (MACrossover, CostAwareMomentum, Lag1Reversal, TSMom, DonchianBreakout, TrendFilter, DowSeasonality, VolRegime, HalvingClock, CascadeWarning, EVaRRegime, MultiscaleMove, VolterraSignal, AsymLongMemVol, PairsMeanRev, OnlineWindow, WeakMeanRev, GPAim, TrendLeverage, PowerLawTrend)}
 
 
 def get(name: str) -> type[Strategy]:

@@ -148,6 +148,15 @@ Firms, labs, and authors whose output is worth following. Grow this list over ti
 | Supriadi | Author | Downside-semicovariance NCO + sticky-HMM regime-persistent sector rotation (Asym-Sticky-NCO) (added 2026-11-04) |
 | Yadh Hafsi & Grégoire Szymanski | Authors | Queue-sensitive propagator passive-market-impact calibration (with Lillo) (added 2026-11-04) |
 | Damir Filipovic & Andrea Ruglioni | Authors | PanelGP probabilistic (Gaussian-process) factor model for asset-return panels (added 2026-11-04) |
+| Kiyoshi Kanazawa / Shunta Fujiwara / Yuki Sato (Kyoto) | Authors | Econophysics microstructure; propagator/impact *identifiability* no-go theorems — Wiener-Hopf deconvolution forces inferred kernel transient even under permanent impact, square-root law compatible with permanent impact (added 2026-11-14) |
+| Henry Zhang | Author | Bounded agentic quant-research loops — conjunction-of-gates + single-use holdout + hash-chained ledger honest evaluation (Autonomous Quant Researcher); Sharpe-3-validation→0.26-holdout cautionary (added 2026-11-14) |
+| Andrew Butler / Adam Butler / Maciej Zawadzki | Authors/firm | Practitioner global-futures factor research — idiosyncratic per-market nonlinear TSMOM + global seasonality factor; after-cost-honest walk-forward, slow-seasonal net-positive (added 2026-11-14) |
+| John Hull / Zissis Poulos / Andreas Veneris (Toronto) | Authors | Risk-sensitive RL options market making / hedging on real SPX options; training-distribution (empirical vs simulated) is the dominant lever, regime-conditional (added 2026-11-14) |
+| Hieu Tran / Hong Yu | Authors | Microstructure-invariance zero-shot transfer of RL execution policies across assets/venues/epochs; honest "pooled-comparator gap ≠ correct representation" (added 2026-11-14) |
+| Anastasis Kratsios | Author | Certifiably-arbitrage-free neural operators for option-price surfaces (AFNO, with Buehler/Horvath); post-hoc no-arbitrage projection provably may not exist (added 2026-11-14) |
+| Ed deHaan / Allen H. Huang | Authors | Tabular foundation models (TabFM) for financial/accounting prediction; synthetic-pretraining as a leakage-safe baseline beating trees + fine-tuned LLMs (added 2026-11-14) |
+| Carlos Baquero / Raquel Menezes | Authors | Pre-registered identifiability testing of BTC power-law / long-run trend claims — "deceleration without identification", Gompertz-vs-power-law indistinguishable, reversion-to-trend undecidable; the 2026-11-14 powerlaw_trend backtest anchor (added 2026-11-14) |
+| Brian Sing Fan Chan / Jennifer So Kuen Chan | Authors | Forecast-supervised learned realized measures (Neural RM) — intraday-aggregation weights learned from the forecast objective, classical RM as the uniform-weight special case (added 2026-11-14) |
 | _add your own…_ | | |
 
 ---
